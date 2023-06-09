@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 @layer base {
   /* default */
   :root {
@@ -37,8 +36,23 @@
     --color-bg-secondary: #FFF3CD;
     --color-bg-input: #fff3cd83;
   }
-  
 }
+
+/* @layer components {
+  .emoji-set {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+  }
+  .theme-beach .emoji-set {
+    background-image: url('/path/to/beach-emojis.png');
+  }
+  .theme-space .emoji-set {
+    background-image: url('/path/to/space-emojis.png');
+  }
+} */
 
 .app{
   width: 1800px;
