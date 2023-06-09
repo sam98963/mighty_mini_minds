@@ -8,5 +8,5 @@ export default function ThemePicker({onThemeChange}) {
       <button onClick={() => onThemeChange('theme-under_the_sea')}>SSeapace</button>
       <button onClick={() => onThemeChange('theme-stars')}>Stars</button>
       </div>
-      )
+      );
   }
