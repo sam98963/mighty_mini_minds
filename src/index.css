@@ -1,69 +1,60 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
+  /* default */
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color-bg-base: #CCE1FF;
+    --color-bg-secondary: #CC66FF;
+    --color-bg-input: #faf0ff96;
   }
-  a:hover {
-    color: #747bff;
+  /*default*/  
+  .theme-beach {
+    --color-bg-base: #CCFFFF;
+    --color-bg-secondary: #FFCC33;
+    --color-bg-input: #ffcc333c;
   }
-  button {
-    background-color: #f9f9f9;
+  .theme-forest{
+    --color-bg-base: #B2E2D0;
+    --color-bg-secondary: #66CC99;
+    --color-bg-input: #66cc9949;
   }
+  .theme-space{
+    --color-bg-base: #2D3648;
+    --color-bg-secondary: #5E2DEB;
+    --color-bg-input: #5c2deb2a;
+  }
+  .theme-under_the_sea{
+    --color-bg-base: #7CBFD2;
+    --color-bg-secondary: #1F6079;
+    --color-bg-input: #1f607928;
+  }
+  .theme-stars{
+    --color-bg-base: #040F72;
+    --color-bg-secondary: #FFF3CD;
+    --color-bg-input: #fff3cd83;
+  }
+  
 }
+
+.app{
+  width: 1800px;
+  height: 900px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.app h1{
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000;
+}
+
+
