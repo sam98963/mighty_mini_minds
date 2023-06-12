@@ -2,6 +2,7 @@ import ThemePicker from "./ThemePicker";
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
 
+
 export default function NavBar({ handleThemeChange }) {
   const [isThemePickerOpen, setIsThemePickerOpen] = useState(false);
   const toggleThemePicker = () => {
