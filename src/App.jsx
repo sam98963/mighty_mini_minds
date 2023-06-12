@@ -12,6 +12,7 @@ import AppLayout from "./pages/AppLayout";
 import Page1 from "./pages/Page1";  
 import Page2 from "./pages/Page2";
 import { useState } from 'react';
+import Header from './components/Header';
 function App() {
   const [theme, setTheme] = useState("");
 
@@ -35,6 +36,7 @@ function App() {
   return (
     <div className={`bg-skin-base ${theme}`}>
       <RouterProvider router={router}/>
+      <Header />
     </div>
   )
 }
