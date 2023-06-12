@@ -1,6 +1,6 @@
 export default function ThemePicker({onThemeChange}) {
     return (
-      <div className="flex justify-center color text-skin-muted">
+      <div className="flex flex-col">
       <button onClick={() => onThemeChange('')}>Clouds</button>
       <button className="m-4" onClick={() => onThemeChange('theme-beach')}>Beach</button>
       <button onClick={() => onThemeChange('theme-forest')}>Forest</button>
