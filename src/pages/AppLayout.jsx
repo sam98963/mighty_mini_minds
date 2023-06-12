@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
+import '../App.css';
 
 
 export default function AppLayout({ handleThemeChange }) {
 
   return (
-    <div>
+    <div className='maindiv'>
         <Header />
         {/* style container for all pages here between main JSX element tags */}
         <main>
