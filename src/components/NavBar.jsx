@@ -8,14 +8,14 @@ export default function NavBar({ handleThemeChange }) {
     setIsThemePickerOpen((prevOpen) => !prevOpen);
   };
   return (
-    <div>
-      <NavLink to="AddEntry">Add Entry</NavLink>
-      <NavLink to="Journal">Journal</NavLink>
-      <NavLink to="MoodMap">Mood Map</NavLink>
+    <div className="flex items-center justify-around">
+      <NavLink to="AddEntry">✏️</NavLink>
+      <NavLink to="Journal">📖</NavLink>
+      <NavLink to="MoodMap">🗺️</NavLink>
     <div className="relative">
       <button onClick={toggleThemePicker}>
         {/* Add your button image here */}
-        <img src="button-image.png" alt="Choose Theme" />
+        🎨
       </button>
       {isThemePickerOpen && (
         <div className="absolute bottom-0 right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow">
