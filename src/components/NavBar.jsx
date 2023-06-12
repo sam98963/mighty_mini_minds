@@ -9,7 +9,7 @@ export default function NavBar({ handleThemeChange }) {
   };
   return (
     <div className="flex items-center justify-around">
-      <NavLink to="AddEntry">✏️</NavLink>
+      <NavLink to="AddEntry">📝</NavLink>
       <NavLink to="Journal">📖</NavLink>
       <NavLink to="MoodMap">🗺️</NavLink>
     <div className="relative">
