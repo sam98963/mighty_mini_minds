@@ -32,7 +32,7 @@ function App() {
       </Route>
     )
   );
-
+// className={`bg-skin-base ${theme}`}
   return (
     <div className={`bg-skin-base ${theme}`}>
       <RouterProvider router={router}/>
