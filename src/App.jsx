@@ -15,7 +15,6 @@ import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
 import { useState } from 'react';
-import Header from './components/Header';
 function App() {
   const [theme, setTheme] = useState("");
 
@@ -40,9 +39,8 @@ function App() {
   );
 
   return (
-    <div className={`bg-skin-base ${theme}`}>
+    <div className={`bg-skin-base ${theme} min-h-screen`}>
       <RouterProvider router={router}/>
-      <Header />
     </div>
   )
 }
