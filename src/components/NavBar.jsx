@@ -1,4 +1,4 @@
-import ThemePicker from "./ThemePicker.jsx";
+import ThemePicker from "./ThemePicker";
 
 export default function NavBar({ handleThemeChange }) {
     return (
