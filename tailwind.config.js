@@ -12,6 +12,9 @@ export default {
           secondary: 'var(--color-bg-secondary)',
           input: 'var(--color-bg-input)',
         },
+      },
+    minHeight: {
+      '4/5': '80%',
     },
   },
   plugins: [],
