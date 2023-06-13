@@ -21,20 +21,20 @@ export default function NavBar({ handleThemeChange }) {
         {/* Icon imported from Font Awesome */}
         <FontAwesomeIcon 
         icon={faCirclePlus}
-        className="w-8 h-8"
+        className="w-8 h-8 transition-colors duration-300 ease-in-out transform hover:scale-125"
         style={{ color: "var(--color-icon-secondary)" }} />
         </NavLink>
       <NavLink to="Journal" className="flex items-center">
         <FontAwesomeIcon 
         icon={faBook}
-        className="w-7 h-7"
+        className="w-7 h-7 transition-colors duration-300 ease-in-out transform hover:scale-125"
         style={{ color: "var(--color-icon-secondary)" }}
         />
         </NavLink>
       <NavLink to="MoodMap" className="flex items-center">
         <FontAwesomeIcon 
         icon={faTemperatureHalf}
-        className="w-8 h-8"
+        className="w-8 h-8 transition-colors duration-300 ease-in-out transform hover:scale-125"
         style={{ color: "var(--color-icon-secondary)" }}
          />
         </NavLink>
@@ -43,7 +43,7 @@ export default function NavBar({ handleThemeChange }) {
         {/* Clickeanble palete*/}
         <FontAwesomeIcon 
         icon={faPalette}
-        className="w-7 h-7" 
+        className="w-7 h-7 transition-colors duration-300 ease-in-out transform hover:scale-125" 
         style={{ color: "var(--color-icon-secondary)" }}
         />
       </button>
