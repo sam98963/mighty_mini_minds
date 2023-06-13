@@ -32,7 +32,7 @@ export default function SignUp() {
 
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
-              <label className="text-sm sm:text-base">Contact</label>
+              <label className="text-sm sm:text-base">Contact name</label>
               <input className="bg-skin-input shadow-md" />
             </div>
             <div className="flex flex-col w-1/2 ml-2">
@@ -41,17 +41,17 @@ export default function SignUp() {
             </div>
           </div>
 
-          <div className="flex justify-around mb-4">
-            <div className="flex flex-col mb-4">
+          <div className="flex justify-between mb-4">
+            <div className="flex flex-col mb-4 w-1/4 sm:w-1/3">
               <label className="text-sm sm:text-base">Choose avatar</label>
-              <select className="w-1/2 bg-skin-input">
+              <select className="bg-skin-input text-xs sm:text-base">
                 <option value="Bunny">Bunny</option>
                 <option value="Tiger">Tiger</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>
             </div>
-            <div className="flex flex-col mb-4">
+            <div className="flex flex-col mb-4 w-3/4 sm:w-2/3">
               <Avatar />
             </div>
           </div>

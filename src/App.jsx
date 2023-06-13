@@ -10,14 +10,10 @@ import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";  
-
-
 import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
 
-
-import Header from './components/Header';
 
 function App() {
   const [theme, setTheme] = useState("");
@@ -31,16 +27,7 @@ function App() {
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
-
-        <Route
-          path="appLayout"
-          element={<AppLayout handleThemeChange={handleThemeChange} />}
-        >
-          <Route path="page1" element={<Page1 />} />
-          <Route path="page2" element={<Page2 />} />
-
         <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
-
           <Route path="journal" element={<Journal />} />
           <Route path="moodMap" element={<MoodMap />} />
           <Route path="addEntry" element={<AddEntry />} />
@@ -53,7 +40,6 @@ function App() {
 
     <div className={`bg-skin-base ${theme} min-h-screen`}>
       <RouterProvider router={router}/>
-      <Header/>
     </div>
   );
 }
