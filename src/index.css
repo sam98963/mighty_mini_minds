@@ -9,32 +9,38 @@
     --color-bg-base: #CCE1FF;
     --color-bg-secondary: #CC66FF;
     --color-bg-input: #faf0ff96;
+    --color-icon-secondary:#cc66ff;
   }
   /*default*/  
   .theme-beach {
     --color-bg-base: #CCFFFF;
     --color-bg-secondary: #FFCC33;
     --color-bg-input: #ffcc333c;
+    --color-icon-secondary:#ffcc33;
   }
   .theme-forest{
     --color-bg-base: #B2E2D0;
     --color-bg-secondary: #66CC99;
     --color-bg-input: #66cc9949;
+    --color-icon-secondary:#66cc99;
   }
   .theme-space{
     --color-bg-base: #2D3648;
     --color-bg-secondary: #5E2DEB;
     --color-bg-input: #5c2deb2a;
+    --color-icon-secondary:#5E2DEB;
   }
   .theme-under_the_sea{
     --color-bg-base: #7CBFD2;
     --color-bg-secondary: #1F6079;
     --color-bg-input: #1f607928;
+    --color-icon-secondary:#1F6079;
   }
   .theme-stars{
     --color-bg-base: #040F72;
     --color-bg-secondary: #FFF3CD;
     --color-bg-input: #fff3cd83;
+    --color-icon-secondary:#FCD53F;
   }
 }
 
