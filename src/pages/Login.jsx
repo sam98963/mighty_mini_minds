@@ -1,10 +1,10 @@
 import logo from "../Img/logo-close.png";
 import { NavLink } from "react-router-dom";
 
-
 export default function Login() {
-
-  {/* CHANGE FONT */}
+  {
+    /* CHANGE FONT */
+  }
   return (
     <div className="flex flex-col items-center justify-around h-screen">
       <img src={logo} alt="logo" className="h-28 w-44" />
@@ -24,9 +24,13 @@ export default function Login() {
         <label className="text-xl mt-5">Password</label>
         <input className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
         <div className="flex justify-center mt-5">
-          <button className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10">
-            Login
-          </button>
+          <NavLink to="#">
+            {" "}
+            {/* ADD LINK TO WELCOME PAGE */}
+            <button className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10">
+              Login
+            </button>
+          </NavLink>
         </div>
       </div>
       <div className="underline">
