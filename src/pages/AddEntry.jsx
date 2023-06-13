@@ -17,7 +17,7 @@ export default function AddEntry() {
         </div>
 
         <div className = 'flex justify-center'>
-        <button className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5">Post!</button>
+        <button className="text-white shadow-md text-2xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3">Post!</button>
     </div>
     </div>
     );
