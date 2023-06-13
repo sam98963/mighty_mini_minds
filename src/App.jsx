@@ -13,6 +13,8 @@ import AppLayout from "./pages/AppLayout";
 import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
+import WelcomePage from './pages/WelcomePage';
+import ThanksPage from './Pages/ThanksPage';
 
 
 function App() {
@@ -27,10 +29,13 @@ function App() {
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
+        
         <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
           <Route path="journal" element={<Journal />} />
           <Route path="moodMap" element={<MoodMap />} />
           <Route path="addEntry" element={<AddEntry />} />
+          <Route path="welcomePage" element={<WelcomePage />} />
+          <Route path="thanksPage" element={<ThanksPage />} />
         </Route>
       </Route>
     )
