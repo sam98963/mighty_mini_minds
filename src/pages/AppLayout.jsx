@@ -9,9 +9,9 @@ export default function AppLayout({ handleThemeChange }) {
   return (
     <div>
       <Header />
-        {/* style container for all pages here between main JSX element tags */}
-      <main className = 'flex justify-center min-h-4/5'>
-        <div className='w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 mt-4 bg-white rounded-lg shadow-lg'>
+        {/* rendering all pages with navbar and header */}
+      <main className = 'flex justify-center h-[65vh] sm:h-[70vh] xl:h-[75vh]'>
+        <div className='w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 bg-white rounded-lg shadow-lg'>
           <Outlet />
         </div>
       </main >
@@ -20,5 +20,9 @@ export default function AppLayout({ handleThemeChange }) {
   );
 }
 
-// w-80% left-10 right-10 flex items-center bg-white rounded-lg w-90
-// className='flex items-center'
+// messed up on some tablets - 
+// sm: Small screens (>= 640px)
+// md: Medium screens (>= 768px)
+// lg: Large screens (>= 1024px)
+// xl: Extra-large screens (>= 1280px)
+// 2xl: Extra-extra-large screens (>= 1536px)
