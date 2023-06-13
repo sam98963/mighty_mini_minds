@@ -12,8 +12,8 @@ export default {
           secondary: 'var(--color-bg-secondary)',
           input: 'var(--color-bg-input)',
         },
-    },
-  },
+      },
   plugins: [],
  }
+}
 }
