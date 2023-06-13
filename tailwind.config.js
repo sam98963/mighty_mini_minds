@@ -13,10 +13,7 @@ export default {
           input: 'var(--color-bg-input)',
         },
       },
-    minHeight: {
-      '4/5': '80%',
-    },
-  },
   plugins: [],
  }
+}
 }

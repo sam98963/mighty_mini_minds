@@ -10,7 +10,7 @@ export default function SignUp() {
         <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
         <form className="flex flex-col mx-8 mt-4">
           <div className="flex flex-col mb-4">
-            <label className="text-sm sm:text-base">What's your name?</label>
+            <label className="text-sm sm:text-base">What is your name?</label>
             <input className="bg-skin-input shadow-md" />
           </div>
 
