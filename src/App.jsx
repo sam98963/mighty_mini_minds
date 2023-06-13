@@ -14,7 +14,7 @@ import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
 import WelcomePage from './pages/WelcomePage';
-import ThanksPage from './Pages/ThanksPage';
+import ThanksPage from './pages/ThanksPage';
 
 
 function App() {
