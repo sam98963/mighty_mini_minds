@@ -16,6 +16,9 @@ export default {
       dropShadow: {
         'input': '0 0 2px rgba(0, 0, 0, 0.3)'
       },
+      height: {
+        '200': '46rem',
+      },
   },
   plugins: [],
  }

@@ -11,6 +11,7 @@ export default function Root() {
       </div>
       <NavLink to="/login">Log In</NavLink>
       <NavLink to="/appLayout">App</NavLink>
+      <NavLink to="/appLayout/welcomePage">Welcome Page</NavLink>
 
     </div>
   ) : null;
