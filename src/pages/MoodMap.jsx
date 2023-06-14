@@ -65,6 +65,9 @@ export default function MoodMap() {
         <h3>
         { "She has a delighted smile."}
         </h3>
+        {/* <h3>
+  {"\"She has a delighted smile.\""}
+</h3> */}
       </div>
     </div>
     
