@@ -40,10 +40,9 @@ function App() {
       </Route>
     )
   );
-  // className={`bg-skin-base ${theme}`}
-  return (
 
-    <div className={`bg-skin-base ${theme} min-h-screen`}>
+  return (
+    <div className={`bg-skin-base ${theme} min-h-screen overflow-hidden`}>
       <RouterProvider router={router}/>
     </div>
   );
