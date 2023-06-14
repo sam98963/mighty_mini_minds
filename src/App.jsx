@@ -14,7 +14,7 @@ import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
 import WelcomePage from './pages/WelcomePage';
-import ThanksPage from './Pages/ThanksPage';
+import ThanksPage from './pages/ThanksPage';
 
 
 function App() {
@@ -40,10 +40,9 @@ function App() {
       </Route>
     )
   );
-  // className={`bg-skin-base ${theme}`}
-  return (
 
-    <div className={`bg-skin-base ${theme} min-h-screen`}>
+  return (
+    <div className={`bg-skin-base ${theme} min-h-screen overflow-hidden`}>
       <RouterProvider router={router}/>
     </div>
   );
