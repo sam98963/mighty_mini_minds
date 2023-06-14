@@ -10,7 +10,7 @@ export default function AppLayout({ handleThemeChange }) {
     <div>
       <Header />
         {/* rendering all pages with navbar and header */}
-      <main className = 'flex justify-center h-[60vh] lg:h-[63vh]'>
+      <main className = 'flex justify-center h-[63vh] md:h-[66vh] xl:h-[69vh]'>
         <div className='w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 bg-white rounded-lg shadow-lg'>
           <Outlet />
         </div>
