@@ -14,7 +14,7 @@ export default function Login() {
         </h1>
         <p className="text-xl font-semibold">“I’m enough as I am.” - Boy</p>
         <p className="italic mt-2">
-          The Boy, The Mole, The Fox, and The Horse, by by Charlie Mackesy
+          The Boy, The Mole, The Fox, and The Horse, by Charlie Mackesy
         </p>
       </div>
       <div className="flex flex-col">
