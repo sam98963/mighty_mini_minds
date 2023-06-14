@@ -54,6 +54,19 @@ export default function MoodMap() {
           </p>
         </div>
       </div>
+      <div className="flex flex-col items-center">
+        <h1 className="text-4xl">
+          Word of The Day
+        </h1>
+        <h1 className="text-4xl">
+          Delighted
+        </h1>
+        <h3>Feeling or showing great pleasure</h3>
+        <h3>
+        { "She has a delighted smile."}
+        </h3>
+      </div>
     </div>
+    
   );
 }
