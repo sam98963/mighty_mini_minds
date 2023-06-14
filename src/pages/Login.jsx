@@ -24,10 +24,10 @@ export default function Login() {
         <label className="text-xl mt-5">Password</label>
         <input className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
         <div className="flex justify-center mt-5">
-          <NavLink to="#">
+          <NavLink to="../appLayout/welcomePage">
             {" "}
             {/* ADD LINK TO WELCOME PAGE */}
-            <button className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10">
+            <button className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125 ">
               Login
             </button>
           </NavLink>
