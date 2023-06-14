@@ -13,7 +13,7 @@ export default {
           input: 'var(--color-bg-input)',
         },
       },
+    },
   plugins: [],
- }
-}
+  }
 }
