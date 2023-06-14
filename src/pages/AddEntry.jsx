@@ -1,18 +1,18 @@
-export default function AddEntry() {
+export default function AddEntry({questions}) {
     return (
     <div>
         <div className = 'flex flex-col'>
-        <label className = 'text-sm sm:text-base py-2 px-8 mt-6'>What made you smile today?</label>
+        <label className = 'text-sm sm:text-base py-2 px-8 mt-6'>{questions}</label>
         <input className ='bg-skin-input shadow-md py-8 px-3 mx-8'></input>
         </div>
 
         <div className = 'flex flex-col'>
-        <label className = 'text-sm sm:text-base py-2 p-8 mt-6'>What did you find challenging today?</label>
+        <label className = 'text-sm sm:text-base py-2 p-8 mt-6'>{questions}</label>
         <input className ='bg-skin-input shadow-md py-8 px-3 mx-8'></input>
         </div>
 
         <div className = 'flex flex-col'>
-        <label className = 'text-sm sm:text-base py-2 px-8 mt-6'>If your mood was a type of weather, what would it be? Sunny, cloudy, stormy or something else?</label>
+        <label className = 'text-sm sm:text-base py-2 px-8 mt-6'>{questions}</label>
         <input className ='bg-skin-input shadow-md py-8 px-3 mx-8'></input>
         </div>
 
