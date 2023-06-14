@@ -1,0 +1,95 @@
+
+[
+  {
+    "user_id": 1,
+    "username": "sofiayayy",
+    "password": "1234",
+    "contact_email": "mum@gmail.com",
+    "contact_name": "mum",
+    "avatar": "bunny",
+    "posts": [
+      {
+        "post_id": 1,
+        "user_id": 1,
+        "mood_rating": 3,
+        "answer_1": "playing with my puppy!",
+        "answer_2": "getting a bad score on spelling test",
+        "answer_3": "a little bit sunny, little bit rainy",
+        "date_added": 20230614
+      },
+      {
+        "post_id": 2,
+        "user_id": 1,
+        "mood_rating": 4,
+        "answer_1": "going to grandma's house",
+        "answer_2": "fighting with my sister",
+        "answer_3": "windy",
+        "date_added": 20230615
+      },
+      {
+        "post_id": 3,
+        "user_id": 1,
+        "mood_rating": 5,
+        "answer_1": "having a picnic at the park",
+        "answer_2": "winning the spelling bee",
+        "answer_3": "sunny and warm",
+        "date_added": 20230616
+      },
+      {
+        "post_id": 4,
+        "user_id": 1,
+        "mood_rating": 2,
+        "answer_1": "watching my favorite movie",
+        "answer_2": "getting told off by the teacher",
+        "answer_3": "cloudy and a bit rainy",
+        "date_added": 20230617
+      }
+    ]
+  },
+  {
+    "user_id": 2,
+    "username": "peterstrong",
+    "password": "1234",
+    "contact_email": "dad@gmail.com",
+    "contact_name": "daddy",
+    "avatar": "cat",
+    "posts": [
+      {
+        "post_id": 1,
+        "user_id": 2,
+        "mood_rating": 4,
+        "answer_1": "building a sandcastle at the beach",
+        "answer_2": "sharing my toys with my friends",
+        "answer_3": "sunny and hot",
+        "date_added": 20230614
+      },
+      {
+        "post_id": 2,
+        "user_id": 2,
+        "mood_rating": 2,
+        "answer_1": "getting a new pet goldfish",
+        "answer_2": "losing my favorite toy",
+        "answer_3": "rainy and dark",
+        "date_added": 20230615
+      },
+      {
+        "post_id": 3,
+        "user_id": 2,
+        "mood_rating": 3,
+        "answer_1": "helping my dad in the garden",
+        "answer_2": "playing hide and seek with my friends",
+        "answer_3": "a bit cloudy",
+        "date_added": 20230616
+      },
+      {
+        "post_id": 4,
+        "user_id": 2,
+        "mood_rating": 5,
+        "answer_1": "going to the zoo and seeing my favorite animals",
+        "answer_2": "having a fun playdate with my cousin",
+        "answer_3": "sunny and warm",
+        "date_added": 20230617
+      }
+    ]
+  }
+]
