@@ -13,6 +13,20 @@ export default {
           input: 'var(--color-bg-input)',
         },
       },
+      textColor: {
+        skin: {
+          base: 'var(--color-bg-base)',
+          secondary: 'var(--color-bg-secondary)',
+          input: 'var(--color-bg-input)',
+        },
+      },
+      theme: {
+        extend: {
+            scale: {
+                '-100': '-1',
+            }
+        }
+    }
     },
   plugins: [],
   }
