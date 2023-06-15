@@ -13,6 +13,13 @@ export default {
           input: 'var(--color-bg-input)',
         },
       },
+      textColor: {
+        skin: {
+          base: 'var(--color-bg-base)',
+          secondary: 'var(--color-bg-secondary)',
+          input: 'var(--color-bg-input)',
+        },
+      },
     },
   plugins: [],
   }
