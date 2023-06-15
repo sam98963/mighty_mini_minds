@@ -9,7 +9,7 @@ export default function MoodMap() {
       <div className="flex justify-evenly  w-full max-w-screen-lg">
         <div className="flex flex-col items-center">
           <p className="text-lg sm:text-2xl text-center px-4">Mon</p>
-          <p className="text-xl sm:text-5xl transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="text-6xl sm:text-5xl transition-all duration-300 ease-in-out transform hover:scale-125">
             😊
           </p>
         </div>
