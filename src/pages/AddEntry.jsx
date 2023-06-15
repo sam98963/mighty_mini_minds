@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 
 export default function AddEntry() {
     // retirm the outlet context using the useOutletContext hook
@@ -21,7 +21,7 @@ export default function AddEntry() {
         </div>
 
         <div className = 'flex justify-center'>
-        <button className="text-white shadow-md text-2xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6">Post!</button>
+        <NavLink to="../thanksPage"><button className="text-white shadow-md text-2xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6">Post!</button></NavLink>
     </div>
     </div>
     );
