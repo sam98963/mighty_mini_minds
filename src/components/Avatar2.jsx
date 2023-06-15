@@ -1,9 +1,10 @@
-import avatar from "../Img/number7V3.png"
+// import avatar from "../Img/number7V3.png"
+import number7 from "../Img/number7.png"
 
 export default function Avatar2() {
   return (
       <div className="">
-        <img src={avatar} alt="avatar" className=" " />
+        <img src={number7} alt="avatar" className=" " />
       </div>
     
   );
