@@ -1,3 +1,5 @@
+ import Avatar2 from "../components/Avatar";
+
 export default function MoodMap() {
   return (
     <div className="flex flex-col justify-start items-center h-screen">
@@ -65,8 +67,14 @@ export default function MoodMap() {
         <h3 className="italic">
         { "She has a delighted smile."}
         </h3>
+        <div className="flex flex-row items-end ml-96 transform -scale-x-100 ">
+        <div>
+          <Avatar2 />
+          </div>      
+       </div>
+        </div>
       </div>
-    </div>
+
     
   );
 }

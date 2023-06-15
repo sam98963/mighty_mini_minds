@@ -20,6 +20,13 @@ export default {
           input: 'var(--color-bg-input)',
         },
       },
+      theme: {
+        extend: {
+            scale: {
+                '-100': '-1',
+            }
+        }
+    }
     },
   plugins: [],
   }
