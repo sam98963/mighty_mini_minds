@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+
 export default function JournalEntry(props) {
     return (
     <>
@@ -11,6 +14,10 @@ export default function JournalEntry(props) {
             <br/>
             <h2 className="font-bold">What surprised you today?</h2>
             <p>{props.res3}</p>
+            <div className='flex flex-row item-start justify-end w-full gap-5 mb-5'>
+                <button className='rounded-md w-10 h-10 bg-skin-secondary text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 '><FontAwesomeIcon icon={faPencil} className='' /></button>
+                <button className='rounded-md w-10 h-10 bg-skin-secondary text-white mr-5 transition-colors duration-300 ease-in-out transform hover:scale-125'><FontAwesomeIcon icon={faTrash} className='' /></button>
+            </div>
         </div>
     </>
     );

@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   /* default */
   :root {
@@ -37,7 +38,7 @@
   }
   .theme-stars {
     --color-bg-base: #040f72;
-    --color-bg-secondary: #fff3cd;
+    --color-bg-secondary: #040F72;
     --color-bg-input: #fff3cd83;
     --color-icon-secondary: #fcd53f;
   }

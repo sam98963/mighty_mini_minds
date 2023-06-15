@@ -15,6 +15,11 @@ export default {
           content: "var(--emoji)",
         },
       },
+      animation: {
+        'bounce-slow': 'bounce 2s linear infinite',
+         'wiggle': 'wiggle 1s ease-in-out infinite',
+
+      },
 
       textColor: {
         skin: {
@@ -23,13 +28,9 @@ export default {
           input: "var(--color-bg-input)",
         },
       },
-      theme: {
-        extend: {
           scale: {
             "-100": "-1",
           },
-        },
-      },
     },
     plugins: [],
   },
