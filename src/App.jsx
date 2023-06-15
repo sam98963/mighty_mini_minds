@@ -33,7 +33,6 @@ function App() {
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
-        
         <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
           <Route path="journal" element={<Journal />} />
           <Route path="moodMap" element={<MoodMap />} />

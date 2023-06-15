@@ -8,8 +8,10 @@ import { useEffect, useState } from 'react';
 
 export default function AppLayout({ handleThemeChange }) {
   const [questions, setQuestions] = useState([]);
-  useEffect(() => {
   
+
+  // need a useEffect to get random questions from each key value pair in the json file and to stop infinite loop
+  useEffect(() => {
   function randomQuestions() {
     const randomQuestions = [];
     for (const key in questionData) {
@@ -19,28 +21,17 @@ export default function AppLayout({ handleThemeChange }) {
     }
     return randomQuestions;
   }
-
     setQuestions(randomQuestions());
   }, []);
 
-  function randomQuestions() {
-    const randomQuestions = [];
-    for (const key in questionData) {
-      const questionArray = questionData[key];
-      const randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
-      randomQuestions.push(randomQuestion);
-    }
-    return randomQuestions;
-  }
-  
   return (
     <div>
       <Header />
-      <div>{randomQuestions()}</div>
         {/* rendering all pages with navbar and header */}
       <main className = 'flex justify-center h-[63vh] md:h-[66vh] xl:h-[69vh]'>
         <div className='w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 bg-white rounded-lg shadow-lg'>
-          <Outlet questions={questions} />
+        {/* context instead of props needed to pass data to children for outlet */}
+          <Outlet context={questions} />
         </div>
       </main >
       <NavBar handleThemeChange={handleThemeChange} />
