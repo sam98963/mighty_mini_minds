@@ -7,7 +7,8 @@ export default function Header() {
       <div className="ml-7">
         <img src={logo} alt="logo" className="h-16 w-28" />
       </div>
-        <Avatar />
+      <div className="after:emoji text-4xl animate-bounce"></div>
+      <Avatar />
     </header>
   );
 }
