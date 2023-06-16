@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export default function WelcomePage(){
   return(
 
@@ -12,7 +14,7 @@ export default function WelcomePage(){
         <button className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125">🙂</button>
         <button className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125">😁</button>
       </div>
-      <button className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5">Go!</button>
+      <NavLink to='../addEntry'><button className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5">Go!</button></NavLink>
       </div>
     </>
   )

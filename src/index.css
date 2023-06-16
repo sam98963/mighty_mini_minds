@@ -6,61 +6,68 @@
 @layer base {
   /* default */
   :root {
-    --color-bg-base: #CCE1FF;
-    --color-bg-secondary: #CC66FF;
+    --color-bg-base: #cce1ff;
+    --color-bg-secondary: #cc66ff;
     --color-bg-input: #faf0ff96;
-    --color-icon-secondary:#cc66ff;
+    --color-icon-secondary: #cc66ff;
   }
-  /*default*/  
+  /*default*/
   .theme-beach {
-    --color-bg-base: #CCFFFF;
-    --color-bg-secondary: #FFCC33;
+    --color-bg-base: #ccffff;
+    --color-bg-secondary: #ffcc33;
     --color-bg-input: #ffcc333c;
-    --color-icon-secondary:#ffcc33;
+    --color-icon-secondary: #ffcc33;
   }
-  .theme-forest{
-    --color-bg-base: #B2E2D0;
-    --color-bg-secondary: #66CC99;
+  .theme-forest {
+    --color-bg-base: #b2e2d0;
+    --color-bg-secondary: #66cc99;
     --color-bg-input: #66cc9949;
-    --color-icon-secondary:#66cc99;
+    --color-icon-secondary: #66cc99;
   }
-  .theme-space{
-    --color-bg-base: #2D3648;
-    --color-bg-secondary: #5E2DEB;
+  .theme-space {
+    --color-bg-base: #2d3648;
+    --color-bg-secondary: #5e2deb;
     --color-bg-input: #5c2deb2a;
-    --color-icon-secondary:#5E2DEB;
+    --color-icon-secondary: #5e2deb;
   }
-  .theme-under_the_sea{
-    --color-bg-base: #7CBFD2;
-    --color-bg-secondary: #1F6079;
+  .theme-under_the_sea {
+    --color-bg-base: #7cbfd2;
+    --color-bg-secondary: #1f6079;
     --color-bg-input: #1f607928;
-    --color-icon-secondary:#1F6079;
+    --color-icon-secondary: #1f6079;
   }
-  .theme-stars{
-    --color-bg-base: #040F72;
-    --color-bg-secondary: #FFF3CD;
+  .theme-stars {
+    --color-bg-base: #040f72;
+    --color-bg-secondary: #040F72;
     --color-bg-input: #fff3cd83;
-    --color-icon-secondary:#FCD53F;
+    --color-icon-secondary: #fcd53f;
   }
 }
 
-/* @layer components {
-  .emoji-set {
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-  }
-  .theme-beach .emoji-set {
-    background-image: url('/path/to/beach-emojis.png');
-  }
-  .theme-space .emoji-set {
-    background-image: url('/path/to/space-emojis.png');
-  }
-} */
 
-.app{
+/* themes for changing the emojis, used in Header */
+@layer components {
+  .emoji {
+    content: "☁️  ☁️  ☁️";
+  }
+  .theme-beach .emoji {
+    content: "🏖️  🏖️  🏖️";
+  }
+  .theme-forest .emoji {
+    content: "🌳  🌳  🌳";
+  }
+  .theme-space .emoji {
+    content: "🚀  🚀  🚀";
+  }
+  .theme-under_the_sea .emoji {
+    content: "🐠  🐠  🐠";
+  }
+  .theme-stars .emoji {
+    content: "⭐️  ⭐️  ⭐️";
+  }
+}
+
+.app {
   width: 1800px;
   height: 900px;
   display: flex;
@@ -69,12 +76,10 @@
   gap: 10px;
 }
 
-.app h1{
+.app h1 {
   width: 100%;
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
   color: #000;
 }
-
-

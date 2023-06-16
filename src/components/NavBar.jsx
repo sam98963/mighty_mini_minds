@@ -17,7 +17,7 @@ export default function NavBar({ handleThemeChange }) {
     <div className="flex justify-center align-center">
       {/* nav bar white box start here */}
     <div className="flex justify-around fixed bottom-3 w-9/12  h-12  bg-white rounded-lg">
-      <NavLink to="AddEntry" className="flex items-center ">
+      <NavLink to="welcomePage" className="flex items-center ">
         {/* Icon imported from Font Awesome */}
         <FontAwesomeIcon 
         icon={faCirclePlus}
