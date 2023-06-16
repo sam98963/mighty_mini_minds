@@ -18,9 +18,7 @@ export default {
       animation: {
         'bounce-slow': 'bounce 2s linear infinite',
          'wiggle': 'wiggle 1s ease-in-out infinite',
-
       },
-
       textColor: {
         skin: {
           base: "var(--color-bg-base)",
@@ -28,9 +26,9 @@ export default {
           input: "var(--color-bg-input)",
         },
       },
-          scale: {
-            "-100": "-1",
-          },
+      scale: {
+         "-100": "-1",
+      },
     },
     plugins: [],
   },
