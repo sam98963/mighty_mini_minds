@@ -1,4 +1,4 @@
-import Avatar2 from "../components/Avatar";
+import Avatar from "../components/Avatar";
 
 export default function MoodMap() {
   return (
@@ -69,7 +69,7 @@ export default function MoodMap() {
         </h3>
         <div className="flex flex-row items-end ml-96 transform -scale-x-100 ">
         <div>
-          <Avatar2 />
+          <Avatar />
           </div>      
        </div>
         </div>
