@@ -8,50 +8,50 @@ export default function MoodMap() {
       </h1>
       <div className="flex justify-between">
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Mon</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Mon</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             😊
           </p>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Tue</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Tue</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             🙁
           </p>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Wed</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Wed</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             🙃
           </p>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Thu</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Thu</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             😐
           </p>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Fri</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Fri</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             😢
           </p>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Sat</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Sat</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             😁
           </p>
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-md sm:text-sm text-center px-4">Sun</p>
-          <p className="text-2xl sm:text-md transition-all duration-300 ease-in-out transform hover:scale-125">
+          <p className="sm:text-md text-sm text-center">Sun</p>
+          <p className="sm:text-2xl text-xl px-1 sm:px-4 transition-all duration-300 ease-in-out transform hover:scale-125">
             😍
           </p>
         </div>
