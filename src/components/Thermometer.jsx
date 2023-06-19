@@ -17,9 +17,10 @@
 import ThermometerPic from "../Img/Therm_final.png";
 
 export default function Thermometer(props) {
+    let height = props.mood
   return (
     <div className="h-60 w-20 relative">
-      <div className="h-32 w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0"></div>
+      <div className="w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0" style={{ height: height }}></div>
       <img
         src={ThermometerPic}
         alt="thermometer"

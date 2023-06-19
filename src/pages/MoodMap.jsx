@@ -24,7 +24,8 @@ export default function MoodMap() {
         example={"She has a delighted smile."}
       />
       <div className="flex w-full justify-around mt-4">
-        <Thermometer mood={20} />
+      {/* depends on the emojis over the last 7 days - initially lets just do for that day? */}
+        <Thermometer mood="50%" />
         <div className="transform -scale-x-100 mt-16 mr-4 sm:mr-0">
           <Avatar />
         </div>
