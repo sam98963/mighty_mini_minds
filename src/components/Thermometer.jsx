@@ -17,10 +17,22 @@
 import ThermometerPic from "../Img/Therm_final.png";
 
 export default function Thermometer(props) {
-    let height = props.mood
+  // function to take in props.mood as a value number, and reduce the value of the percentage
+  // add that half to the prefilled amount
+
+  function moodValue() {
+    let mood = props.mood * 0.6;
+    mood += 40;
+    mood = `${mood}%`;
+    return mood;
+  }
+
   return (
     <div className="h-60 w-20 relative">
-      <div className="w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0" style={{ height: height }}></div>
+      <div
+        className="w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0"
+        style={{ height: moodValue() }}
+      ></div>
       <img
         src={ThermometerPic}
         alt="thermometer"
