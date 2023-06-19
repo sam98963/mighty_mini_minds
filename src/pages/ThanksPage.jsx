@@ -1,14 +1,24 @@
-import React from "react";
 import avatar from "../Img/number7V3.png"
 import { NavLink } from "react-router-dom";
-import Confetti from 'react-confetti'
+import Confetti from 'react-confetti';
 
 export default function ThanksPage(){
     return(
-       <div className="flex flex-col justify-around items-center w-full h-full">
+       <div className="flex flex-col justify-around items-center w-full h-full overflow-hidden">
         <Confetti
-          width={5000}
-          height={5000}
+          wind={0.04}
+          recycle={false}
+          drawShape={ctx => {
+            ctx.beginPath()
+            for(let i = 0; i < 22; i++) {
+              const angle = 0.35 * i
+              const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
+              const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
+              ctx.lineTo(x, y)
+            }
+            ctx.stroke()
+            ctx.closePath()
+          }}
         />
         <h1 className="text-2xl sm:text-4xl text-center px-4">Thanks for checking in, see you tomorrow!</h1>
         <img src={avatar} alt="avatar" className="h-30 w-32 sm:h-60 sm:w-64" />
