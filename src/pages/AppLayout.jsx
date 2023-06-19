@@ -33,7 +33,7 @@ export default function AppLayout({ handleThemeChange }) {
         {/* context instead of props needed to pass data to children for outlet */}
           <Outlet context={questions} />
         </div>
-      </main >
+      </main>
       <NavBar handleThemeChange={handleThemeChange} />
     </div>
   );
