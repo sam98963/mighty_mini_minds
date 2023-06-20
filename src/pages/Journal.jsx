@@ -1,7 +1,18 @@
 import JournalEntry from "../components/JournalEntry";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+
 export default function Journal() {
+  const {data: entries, isLoading, isError, error} = useQuery({
+    queryKey: ['entries'],
+    queryFn: async () => {
+      const data = await axios.get('https://mighty-mini-minds-backend.onrender.com/entry');
+      return data;
+    },
+  });
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
+            <div>{JSON.stringify(entries)}</div>
             <h1 className="font-bold text-2xl sm:text-4xl text-center mt-4">Check out your past journals</h1>
             <div className="flex justify-end items-center mt-4">
             <label className="font-bold sm:text-base">Search by</label>
