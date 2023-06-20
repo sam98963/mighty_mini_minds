@@ -6,12 +6,20 @@ import axios from 'axios';
 
 export default function AddEntry() {
     const {mutate} = useMutation({
-        queryKey: ['post'],
-        mutationFn: async () => {
-          const post = await axios.post(`https://mighty-mini-minds-backend.onrender.com/entry`);
-          return post;
+        mutationFn: async (entry) => {
+          const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);
+          return response.data;
         },
-    });
+        // onError: (error) => {
+        //   // Handle error
+        // },
+        // onSuccess: (data) => {
+        //   // Handle successful mutation
+        // },
+        // onSettled: (data, error) => {
+        //   // Handle mutation completion (success or error)
+        // },
+      });
     // return the outlet context using the useOutletContext hook
     const questions = useOutletContext();
     const [positiveA, setPositiveA] = useState("")
