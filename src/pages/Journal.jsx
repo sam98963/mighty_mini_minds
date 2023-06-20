@@ -2,7 +2,7 @@ import JournalEntry from "../components/JournalEntry";
 import { useGet } from "../hooks/useGet";
 
 export default function Journal() {
-const {data: entries, isLoading, isError, error} = useGet();
+const {data: entries, isLoading, isError, error} = useGet('41f9b8f0-0f71-11ee-8b95-47e24bd739d9');
 // if (isError) return <div>{error.message}</div>
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
