@@ -5,21 +5,13 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
 export default function AddEntry() {
+    // const entryId = useOutletContext();
     const {mutate} = useMutation({
         mutationFn: async (entry) => {
-          const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);
+          const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`, entry);
           return response.data;
         },
-        // onError: (error) => {
-        //   // Handle error
-        // },
-        // onSuccess: (data) => {
-        //   // Handle successful mutation
-        // },
-        // onSettled: (data, error) => {
-        //   // Handle mutation completion (success or error)
-        // },
-      });
+    });
     // return the outlet context using the useOutletContext hook
     const questions = useOutletContext();
     const [positiveA, setPositiveA] = useState("")
@@ -28,14 +20,12 @@ export default function AddEntry() {
 
     function submit() {
         const entry = {
-          mood: 5,
           questionOne: questions[0],
           questionTwo: questions[1],
           questionThree: questions[2],
           answerOne: positiveA, // Use value from positiveA input field
           answerTwo: challengeA, // Use value from challengeA input field
           answerThree: openA, // Use value from openA input field
-          share: false,
         };
     
         mutate(entry);
