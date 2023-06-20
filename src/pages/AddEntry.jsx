@@ -9,7 +9,7 @@ export default function AddEntry() {
         queryKey: ['post'],
         mutationFn: async () => {
           const post = await axios.post(`https://mighty-mini-minds-backend.onrender.com/entry`);
-          return post.data;
+          return post;
         },
     });
     // return the outlet context using the useOutletContext hook
@@ -33,14 +33,14 @@ export default function AddEntry() {
 
     function submit(){
         const entry = {
-            "mood": 5,
-            "questionOne": "blagfgaa",
-            "questionTwo": "lafgfa",
-            "questionThree": "dfgfgaa",
-            "answerOne": "rfgfgaaa",
-            "answerTwo": "pafgfga",
-            "answerThree": "hasdfsaa",
-            "share": false,
+            mood: 5,
+            questionOne: "blagfgaa",
+            questionTwo: "lafgfa",
+            questionThree: "dfgfgaa",
+            answerOne: "rfgfgaaa",
+            answerTwo: "pafgfga",
+            answerThree: "hasdfsaa",
+            share: false,
         }
 
         mutate(entry);
