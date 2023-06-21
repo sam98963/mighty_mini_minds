@@ -21,7 +21,9 @@ export default function ThanksPage(){
   }
 
   useEffect(() => {
+    if (share!== false) {
       updateEntry();
+    }
   }, [share]);
 
     const {mutate} = useMutation({

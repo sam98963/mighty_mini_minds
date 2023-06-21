@@ -27,6 +27,7 @@ export default function WelcomePage() {
   function submitMood() {
     const entry = {
       mood: mood,
+      share: false,
     };
   
     mutate(entry);
