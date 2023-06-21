@@ -32,19 +32,19 @@ function App() {
   // set up nested router
   const router = createBrowserRouter(
     createRoutesFromElements(
-<Route path="/" element={<HomePage />}>
-  <Route path="signup" element={<SignUp />} />
-  <Route path="login" element={<Login />} />
-    <Route element={<ProtectedRoutes />}>
-      <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
-        <Route path="journal" element={<Journal />} />
-        <Route path="moodMap" element={<MoodMap />} />
-        <Route path="addEntry" element={<AddEntry />} />
-        <Route path="welcomePage" element={<WelcomePage />} />
-        <Route path="thanksPage" element={<ThanksPage />} 
+      <Route path="/" element={<HomePage />}>
+        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
+              <Route path="journal" element={<Journal />} />
+              <Route path="moodMap" element={<MoodMap />} />
+              <Route path="addEntry" element={<AddEntry />} />
+              <Route path="welcomePage" element={<WelcomePage />} />
+              <Route path="thanksPage" element={<ThanksPage />}/> 
+            </Route>
+          </Route> 
       </Route>
-    </Route>
-</Route>
     )
   );
   // set up react-query
