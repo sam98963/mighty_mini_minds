@@ -2,19 +2,21 @@ import logo from "../Img/logo-close.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
+export default function Login({ thankYouMessage }) {
+  // const [thankYouMessage, setThankYouMessage] = useState("");
 
-export default function Login() {
-  {
-    /* CHANGE FONT */
-  }
   const [login, setLogin] = useState({
     username: "",
     password: "",
   });
 
+  // function handleThankYouMessage(message) {
+  //   setThankYouMessage(message);
+  // }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLogin(prevLogin => ({
+    setLogin((prevLogin) => ({
       ...prevLogin,
       [name]: value,
     }));
@@ -34,10 +36,18 @@ export default function Login() {
       </div>
       <div className="flex flex-col">
         <label className="text-xl">Username</label>
-        <input name="username" onChange={handleChange} className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
+        <input
+          name="username"
+          onChange={handleChange}
+          className="bg-skin-input shadow-md p-1 rounded-lg w-64"
+        />
 
         <label className="text-xl mt-5">Password</label>
-        <input name="password" onChange={handleChange} className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
+        <input
+          name="password"
+          onChange={handleChange}
+          className="bg-skin-input shadow-md p-1 rounded-lg w-64"
+        />
         <div className="flex justify-center mt-5">
           <NavLink to="../appLayout/welcomePage">
             {" "}
