@@ -41,7 +41,7 @@ function App() {
         <Route path="moodMap" element={<MoodMap />} />
         <Route path="addEntry" element={<AddEntry />} />
         <Route path="welcomePage" element={<WelcomePage />} />
-        <Route path="thanksPage" element={<ThanksPage />} />
+        <Route path="thanksPage" element={<ThanksPage />} 
       </Route>
     </Route>
 </Route>

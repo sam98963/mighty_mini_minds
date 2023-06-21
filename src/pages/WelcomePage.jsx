@@ -1,12 +1,36 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 import { useState } from "react";
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+
 
 export default function WelcomePage() {
+  // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
+  const [questions, entryId, setEntryId] = useOutletContext();
+  
+  const {mutate} = useMutation({
+    mutationFn: async (entry) => {
+      const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);
+      return response.data;
+    },
+    onSuccess: (data) => {
+      setEntryId(data.uuid);
+    },
+  });
+  
   const [mood, setMood] = useState(0);
 
   function handleClick(event) {
     setMood(event.target.value);
-    console.log(mood);
+  }
+
+  function submitMood() {
+    const entry = {
+      mood: mood,
+      share: false,
+    };
+  
+    mutate(entry);
   }
 
   return (
@@ -17,35 +41,35 @@ export default function WelcomePage() {
         </h1>
         <div className="flex justify-around w-full">
           <button
-            className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125"
+            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '1' ? 'animate-pulse' : ''}`}
             value={1}
             onClick={(e) => handleClick(e)}
           >
             🙁
           </button>
           <button
-            className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125"
+            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '2' ? 'animate-pulse' : ''}`}
             value={2}
             onClick={(e) => handleClick(e)}
           >
             😕
           </button>
           <button
-            className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125"
+            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '3' ? 'animate-pulse' : ''}`}
             value={3}
             onClick={(e) => handleClick(e)}
           >
             😐
           </button>
           <button
-            className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125"
+            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '4' ? 'animate-pulse' : ''}`}
             value={4}
             onClick={(e) => handleClick(e)}
           >
             🙂
           </button>
           <button
-            className="text-6xl transition-colors duration-300 ease-in-out transform hover:scale-125"
+            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '5' ? 'animate-pulse' : ''}`}
             value={5}
             onClick={(e) => handleClick(e)}
           >
@@ -53,7 +77,7 @@ export default function WelcomePage() {
           </button>
         </div>
         <NavLink to="../addEntry">
-          <button className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5">
+          <button className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5" onClick={submitMood}>
             Go!
           </button>
         </NavLink>
