@@ -1,10 +1,25 @@
 import logo from "../Img/logo-close.png";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+
 
 export default function Login() {
   {
     /* CHANGE FONT */
   }
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLogin(prevLogin => ({
+      ...prevLogin,
+      [name]: value,
+    }));
+    console.log(login);
+  };
   return (
     <div className="flex flex-col items-center justify-around h-screen">
       <img src={logo} alt="logo" className="h-28 w-44" />
@@ -19,10 +34,10 @@ export default function Login() {
       </div>
       <div className="flex flex-col">
         <label className="text-xl">Username</label>
-        <input className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
+        <input name="username" onChange={handleChange} className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
 
         <label className="text-xl mt-5">Password</label>
-        <input className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
+        <input name="password" onChange={handleChange} className="bg-skin-input shadow-md p-1 rounded-lg w-64" />
         <div className="flex justify-center mt-5">
           <NavLink to="../appLayout/welcomePage">
             {" "}
