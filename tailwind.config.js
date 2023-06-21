@@ -15,6 +15,11 @@ export default {
           content: "var(--emoji)",
         },
       },
+
+      backgroundImage: {
+        'background-bubble': "url('/img/speech-bubble.png')",
+      },
+
       animation: {
         'bounce-slow': 'bounce 2s linear infinite',
          'wiggle': 'wiggle 1s ease-in-out infinite',

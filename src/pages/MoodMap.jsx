@@ -28,14 +28,12 @@ export default function MoodMap() {
           <img src={SpeechBubble} alt="speech bubble" className="h-40 w-40" />
           <ReminderQuote /> */}
         <div className="flex flex-row relative">
-          <div className="inline-block h-64 w-64">
+          <div className="flex flex-wrap text-center items-center justify-center  inline-block max-h-48 max-w-48 bg-contain bg-no-repeat bg-center bg-[url('./img/speech-bubble.png')]">
             {/* Use inline-block to make the container the same size as the speech bubble */}
-            <img src={SpeechBubble} alt="speech bubble" className="h-64 w-64" />
-            <div className="absolute inset-0 flex justify-center items-center">
               {/* Use absolute positioning */}
-              <ReminderQuote />
+              <ReminderQuote
+              />
             </div>
-          </div>
           <div className="transform -scale-x-100 mt-20 mr-4 sm:mr-0">
             <Avatar />
           </div>
