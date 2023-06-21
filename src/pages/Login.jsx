@@ -7,17 +7,16 @@ export default function Login() {
   const [randomQuote, setRandomQuote] = useState(null);
 
   useEffect(() => {
-    function generateRandomQuote(){
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const selectedQuote = quotes[randomIndex];
-    console.log(selectedQuote);
-    return selectedQuote;
-  }
-  const quote = generateRandomQuote();
-  setRandomQuote(quote);
-}, []);
-console.log("Component rendered");
-
+    function generateRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const selectedQuote = quotes[randomIndex];
+      console.log(selectedQuote);
+      return selectedQuote;
+    }
+    const quote = generateRandomQuote();
+    setRandomQuote(quote);
+  }, []);
+  console.log("Component rendered");
 
   // // Show loading message if forecast data is not available yet
   // if (randomQuote === null) {
@@ -37,8 +36,8 @@ console.log("Component rendered");
         </h1>
         {randomQuote && (
           <>
-            <p className="text-xl font-semibold">{randomQuote.quote}</p>
-            <p className="italic mt-2">
+            <p className="text-xl font-semibold mx-5">{randomQuote.quote}</p>
+            <p className="italic mt-2 ">
               {randomQuote.book} by {randomQuote.author}
             </p>
           </>

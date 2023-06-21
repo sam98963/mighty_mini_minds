@@ -3,6 +3,7 @@ import Emoji from "../components/Emoji";
 import Thermometer from "../components/Thermometer";
 import WordOfTheDay from "../components/WordOfTheDay";
 import SpeechBubble from "../Img/speech-bubble.png";
+import ReminderQuote from "../components/ReminderQuote";
 
 export default function MoodMap() {
   return (
@@ -19,16 +20,22 @@ export default function MoodMap() {
           sun={"😍"}
         />
       </div>
-      <WordOfTheDay
-        word={"Delighted"}
-        definition={"Feeling or showing great pleasure"}
-        example={"She has a delighted smile."}
-      />
+      <WordOfTheDay />
       <div className="flex w-full justify-evenly mt-4">
         {/* depends on the emojis over the last 7 days - initially lets just do for that day? */}
         <Thermometer mood={90} />
-        <div className="flex flex-row">
+        {/* <div className="flex flex-row">
           <img src={SpeechBubble} alt="speech bubble" className="h-40 w-40" />
+          <ReminderQuote /> */}
+        <div className="flex flex-row relative">
+          <div className="inline-block h-64 w-64">
+            {/* Use inline-block to make the container the same size as the speech bubble */}
+            <img src={SpeechBubble} alt="speech bubble" className="h-64 w-64" />
+            <div className="absolute inset-0 flex justify-center items-center">
+              {/* Use absolute positioning */}
+              <ReminderQuote />
+            </div>
+          </div>
           <div className="transform -scale-x-100 mt-20 mr-4 sm:mr-0">
             <Avatar />
           </div>
