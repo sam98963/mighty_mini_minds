@@ -2,17 +2,31 @@ import React, { useState, useEffect } from "react";
 import logo from "../Img/logo-close.png";
 import { NavLink } from "react-router-dom";
 import quotes from "../data/loginQuotes.json";
-
+console.log(quotes);
 export default function Login() {
   const [randomQuote, setRandomQuote] = useState(null);
 
   useEffect(() => {
+    function generateRandomQuote(){
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const selectedQuote = quotes[randomIndex];
-    setRandomQuote(selectedQuote);
-   
-    
-  }, []);
+    console.log(selectedQuote);
+    return selectedQuote;
+  }
+  const quote = generateRandomQuote();
+  setRandomQuote(quote);
+}, []);
+console.log("Component rendered");
+
+
+  // // Show loading message if forecast data is not available yet
+  // if (randomQuote === null) {
+  //   return (
+  //     <div>
+  //       <p>Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex flex-col items-center justify-around h-screen">
@@ -25,7 +39,7 @@ export default function Login() {
           <>
             <p className="text-xl font-semibold">{randomQuote.quote}</p>
             <p className="italic mt-2">
-              {randomQuote.book}, by {randomQuote.author}
+              {randomQuote.book} by {randomQuote.author}
             </p>
           </>
         )}
