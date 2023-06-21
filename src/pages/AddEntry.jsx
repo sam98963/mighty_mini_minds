@@ -1,11 +1,13 @@
 import { NavLink, useOutletContext } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 // import { usePost } from "../hooks/usePost";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
+
 export default function AddEntry() {
-    // const entryId = useOutletContext();
+  // useOutletContext is stupid so you must declate all variables in the array, but not setEntryId because it's a setter function
+    const [questions, entryId]  = useOutletContext();
     const {mutate} = useMutation({
         mutationFn: async (entry) => {
           const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`, entry);
@@ -13,7 +15,6 @@ export default function AddEntry() {
         },
     });
     // return the outlet context using the useOutletContext hook
-    const questions = useOutletContext();
     const [positiveA, setPositiveA] = useState("")
     const [challengeA, setChallengeA] = useState("")
     const [openA, setOpenA] = useState("")

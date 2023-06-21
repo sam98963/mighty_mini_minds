@@ -36,8 +36,8 @@ function App() {
         <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
           <Route path="journal" element={<Journal />} />
           <Route path="moodMap" element={<MoodMap />} />
-          <Route path="addEntry" element={<AddEntry />} />
           <Route path="welcomePage" element={<WelcomePage />} />
+          <Route path="addEntry" element={<AddEntry />} />
           <Route path="thanksPage" element={<ThanksPage />} />
         </Route>
       </Route>
