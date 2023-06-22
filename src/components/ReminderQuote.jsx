@@ -8,8 +8,10 @@ export default function ReminderQuote() {
   const selectedReminder = reminderQuotes[randomIndex];
 
   return (
-    <div className="flex flex-col items-center">
-      <p className="italic text-xs sm:text-base mx-10 mb-3">"{selectedReminder}"</p>
+    <div className="flex flex-col items-center sm:h-56 sm:w-56">
+      <p className="italic text-xs sm:text-base mt-14 h-28 w-48 ">
+        "{selectedReminder}"
+      </p>
     </div>
   );
 }

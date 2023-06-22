@@ -30,12 +30,11 @@ export default function MoodMap() {
         <div className="flex flex-row relative">
           <div className="flex flex-wrap mb-32 text-center items-center justify-center  inline-block max-h-48 max-w-48 bg-contain bg-no-repeat bg-center bg-[url('./img/speech-bubble.png')]">
             {/* Use inline-block to make the container the same size as the speech bubble */}
-              {/* Use absolute positioning */}
-              <ReminderQuote
-              />
-            </div>
+            {/* Use absolute positioning */}
+            <ReminderQuote />
+          </div>
           <div className="transform -scale-x-100 mt-32 mr-4 sm:mr-0">
-            <Avatar className=''/>
+            <Avatar w="24" smh="40" smw="40" />
           </div>
         </div>
       </div>
