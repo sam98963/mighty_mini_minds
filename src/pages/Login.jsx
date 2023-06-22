@@ -4,23 +4,40 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
+
 export default function Login() {
-  const {mutate} = useMutation({
+  const { mutate } = useMutation({
     mutationFn: async (user) => {
       const response = await axios.post(
         "https://mighty-mini-minds-backend.onrender.com/users/login",
         user
       );
-      return response.data;
+      const data = response.data;
+      return data;
     },
     onSuccess: (data) => {
-      console.log(response.data);
+      // Handle the token received in the onSuccess callback
+      const tokenData = JSON.stringify(data);
+      // Store the tokenData JSON string in localStorage
+      localStorage.setItem("tokenData", tokenData);
+      // Redirect or perform other actions
     },
     onError: (err) => {
       const errorMessage = `Sorry, there was an error: ${err.message}`;
       console.log(errorMessage);
-    }
-  })
+    },
+  });
+  
+  // Retrieving and using the token data from localStorage
+  const tokenDataString = localStorage.getItem("tokenData");
+  if (tokenDataString) {
+    const tokenData = JSON.parse(tokenDataString);
+    console.log(tokenData.userid);
+    console.log(tokenData.token);
+    console.log(tokenData.username);
+  } else {
+    console.log("Token data not found in localStorage");
+  }
 
   const [login, setLogin] = useState({
     username: "",
@@ -68,6 +85,7 @@ export default function Login() {
 
         <label className="text-xl mt-5">Password</label>
         <input
+          type="password"
           name="password"
           onChange={handleChange}
           className="bg-skin-input shadow-md p-1 rounded-lg w-64"
