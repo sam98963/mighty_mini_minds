@@ -9,7 +9,7 @@ export default function ReminderQuote() {
 
   return (
     <div className="flex flex-col items-center">
-      <p className="italic text-xs sm:text-base mx-6 mb-3">"{selectedReminder}"</p>
+      <p className="italic text-xs sm:text-base mx-10 mb-3">"{selectedReminder}"</p>
     </div>
   );
 }

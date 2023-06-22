@@ -11,8 +11,8 @@ export default function WordOfTheDay() {
     <div className="flex flex-col items-center">
       <h1 className="text-2xl">Word of The Day</h1>
       <h1 className="text-2xl text-skin-secondary">{word_of_the_day}</h1>
-      <p className="text-sm sm:text-lg">{definition}</p>
-      <p className="italic text-xs sm:text-base">"{example}"</p>
+      <p className="text-sm sm:text-lg mx-5 text-center">{definition}</p>
+      <p className="italic text-xs sm:text-base mx-5 text-center">"{example}"</p>
     </div>
   );
 }
