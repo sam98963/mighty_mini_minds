@@ -29,8 +29,9 @@ export default function WelcomePage() {
       mood: mood,
       share: false,
     };
-  
+    if (mood !==0){
     mutate(entry);
+    } else {alert("Pick a mood!")}
   }
 
   return (
