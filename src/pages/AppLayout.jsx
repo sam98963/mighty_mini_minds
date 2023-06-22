@@ -3,11 +3,12 @@ import NavBar from "../components/NavBar";
 import Header from "../components/Header";
 import "../App.css";
 import questionData from "../data/questions.json";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 
 export default function AppLayout({ handleThemeChange }) {
-  const [questions, setQuestions] = useState([]);
+  const [ entryId, setEntryId ] = useState(""); 
 
+  const [questions, setQuestions] = useState([]);
   // need a useEffect to get random questions from each key value pair in the json file and to stop infinite loop
   useEffect(() => {
     function randomQuestions() {
@@ -30,11 +31,11 @@ export default function AppLayout({ handleThemeChange }) {
       <main className="flex justify-center h-[63vh] md:h-[66vh] xl:h-[69vh]">
         <div className="w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 bg-white rounded-lg shadow-lg">
           {/* context instead of props needed to pass data to children for outlet */}
-          <Outlet context={questions} />
+            <Outlet context={[questions, entryId, setEntryId]} />
         </div>
       </main>
       <NavBar handleThemeChange={handleThemeChange} />
-    </div>
+      </div>
   );
 }
 

@@ -1,7 +1,12 @@
 import JournalEntry from "../components/JournalEntry";
+import { useGet } from "../hooks/useGet";
+
 export default function Journal() {
+const {data: entries, isLoading, isError, error} = useGet('41f9b8f0-0f71-11ee-8b95-47e24bd739d9');
+// if (isError) return <div>{error.message}</div>
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
+            <div>{isLoading? `loading...` : isError? JSON.stringify(error) : JSON.stringify(entries)}</div>
             <h1 className="font-bold text-2xl sm:text-4xl text-center mt-4">Check out your past journals</h1>
             <div className="flex justify-end items-center mt-4">
             <label className="font-bold sm:text-base">Search by</label>

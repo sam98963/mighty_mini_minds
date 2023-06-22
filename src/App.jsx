@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -6,20 +6,18 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import AppLayout from "./pages/AppLayout";  
+import AppLayout from "./pages/AppLayout";
 import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
-import WelcomePage from './pages/WelcomePage';
-import ThanksPage from './pages/ThanksPage';
-
+import WelcomePage from "./pages/WelcomePage";
+import ThanksPage from "./pages/ThanksPage";
+import ProtectedRoutes from "./ProtectedRoute";
+import { AuthProvider } from "./auth/AuthProvider";
 
 function App() {
   const [theme, setTheme] = useState("");
@@ -33,12 +31,17 @@ function App() {
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
-        <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
-          <Route path="journal" element={<Journal />} />
-          <Route path="moodMap" element={<MoodMap />} />
-          <Route path="addEntry" element={<AddEntry />} />
-          <Route path="welcomePage" element={<WelcomePage />} />
-          <Route path="thanksPage" element={<ThanksPage />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route
+            path="appLayout"
+            element={<AppLayout handleThemeChange={handleThemeChange} />}
+          >
+            <Route path="journal" element={<Journal />} />
+            <Route path="moodMap" element={<MoodMap />} />
+            <Route path="addEntry" element={<AddEntry />} />
+            <Route path="welcomePage" element={<WelcomePage />} />
+            <Route path="thanksPage" element={<ThanksPage />} />
+          </Route>
         </Route>
       </Route>
     )
@@ -49,7 +52,9 @@ function App() {
   return (
     <div className={`bg-skin-base ${theme} min-h-screen overflow-hidden`}>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router}/>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
       </QueryClientProvider>
     </div>
   );
