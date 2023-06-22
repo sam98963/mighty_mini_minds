@@ -1,18 +1,26 @@
 import logo from "../Img/logo-close.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function Login({ thankYouMessage }) {
   // const [thankYouMessage, setThankYouMessage] = useState("");
+  
+  const {mutate} = useMutation({
+    mutationFn: async (user) => {
+      const response = await axios.post(
+        "https://mighty-mini-minds-backend.onrender.com/users/login",
+        user
+      );
+      return console.log(response.data);
+    }
+  })
 
   const [login, setLogin] = useState({
     username: "",
     password: "",
   });
-
-  // function handleThankYouMessage(message) {
-  //   setThankYouMessage(message);
-  // }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +30,19 @@ export default function Login({ thankYouMessage }) {
     }));
     console.log(login);
   };
+
+  const handleLogin = () =>{
+    const user = {
+      username: login.username,
+      password: login.password,
+    }
+    if (login.username !== "" && login.password !== "") {
+      mutate(user);
+      console.log(user);
+    } else {
+      alert("Please fill in all fields");
+    }
+  }
   return (
     <div className="flex flex-col items-center justify-around h-screen">
       <img src={logo} alt="logo" className="h-28 w-44" />
@@ -49,13 +70,13 @@ export default function Login({ thankYouMessage }) {
           className="bg-skin-input shadow-md p-1 rounded-lg w-64"
         />
         <div className="flex justify-center mt-5">
-          <NavLink to="../appLayout/welcomePage">
+          {/* <NavLink to="../appLayout/welcomePage"> */}
             {" "}
             {/* ADD LINK TO WELCOME PAGE */}
-            <button className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125 ">
+            <button onClick={handleLogin} className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125 ">
               Login
             </button>
-          </NavLink>
+          {/* </NavLink> */}
         </div>
       </div>
       <div className="underline">

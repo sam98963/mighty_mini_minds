@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
-export default function usePost() {
+export function usePost() {
     return useMutation({
       mutationFn: async (entry) => {
         const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);
@@ -18,3 +18,4 @@ export default function usePost() {
       // },
     });
 }
+
