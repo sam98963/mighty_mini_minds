@@ -1,5 +1,7 @@
 import WelcomePage from "../pages/WelcomePage";
+import AppLayout from "../pages/AppLayout";
 import { render, fireEvent } from '@testing-library/react';
+import { useOutletContext } from "react-router";
  
 // First test - no mood, will not call mutate
 // it('test_click_submit_with_no_mood_selected_does_not_call_mutate_function', () => {
@@ -12,11 +14,16 @@ import { render, fireEvent } from '@testing-library/react';
 //   expect(mutate).not.toHaveBeenCalled();
 // });
 
-
-
-
+it("test_click_mood_button_updates_mood_state",() => {
+    const { getByText } = render(<WelcomePage />);
+    const moodButton = getByText('🙁');
+    fireEvent.click(moodButton);
+    const moodState = screen.getByText('Welcome, Sofia!').nextSibling;
+    expect(moodState.textContent).toBe('1');
+})
 
 // it('renders correct button classes based on mood state', () => {
+// render(<AppLayout />); 
 //   const { getByText } = render(<WelcomePage />);
 //   const sadButton = getByText('🙁');
 //   const neutralButton = getByText('😐');
