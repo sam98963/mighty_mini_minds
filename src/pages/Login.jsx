@@ -6,6 +6,9 @@ import axios from "axios";
 
 
 export default function Login() {
+  const [data, setData] = useState(null);
+  let tokenData = null; // Declare tokenData variable
+  
   const { mutate } = useMutation({
     mutationFn: async (user) => {
       const response = await axios.post(
@@ -16,11 +19,8 @@ export default function Login() {
       return data;
     },
     onSuccess: (data) => {
-      // Handle the token received in the onSuccess callback
-      const tokenData = JSON.stringify(data);
-      // Store the tokenData JSON string in localStorage
-      localStorage.setItem("tokenData", tokenData);
-      // Redirect or perform other actions
+      setData(data);
+      localStorage.setItem("tokenData", JSON.stringify(data.token));
     },
     onError: (err) => {
       const errorMessage = `Sorry, there was an error: ${err.message}`;
@@ -28,16 +28,10 @@ export default function Login() {
     },
   });
   
-  // Retrieving and using the token data from localStorage
-  const tokenDataString = localStorage.getItem("tokenData");
-  if (tokenDataString) {
-    const tokenData = JSON.parse(tokenDataString);
-    console.log(tokenData.userid);
-    console.log(tokenData.token);
-    console.log(tokenData.username);
-  } else {
-    console.log("Token data not found in localStorage");
-  }
+  console.log(data);
+  tokenData = JSON.parse(localStorage.getItem("tokenData")); // Get tokenData from localStorage
+  console.log(tokenData);
+  
 
   const [login, setLogin] = useState({
     username: "",
