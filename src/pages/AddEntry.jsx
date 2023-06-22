@@ -37,9 +37,10 @@ export default function AddEntry() {
         <input className ='bg-skin-input shadow-md py-8 px-3 mx-8' onChange={(e)=>handleOpenChange(e)}></input>
         </div>
 
-        <div className = 'flex justify-center'>
-        <NavLink to="../thanksPage"><button className="text-white shadow-md text-2xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6">Post!</button></NavLink>
+        <div className = 'flex justify-center sm:mb-4 md:mt-20'>
+        <NavLink to="../thanksPage"><button className="text-white shadow-md text-l transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6 mt-2 ">Post!</button></NavLink>
     </div>
     </div>
     );
 }
+
