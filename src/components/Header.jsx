@@ -8,8 +8,8 @@ export default function Header() {
         <img src={logo} alt="logo" className="h-12 w-20 sm:h-20 sm:w-32" />
       </div>
       <div className="after:emoji text-lg sm:text-4xl animate-bounce-slow"></div>
-      <div className="h-12 w-12 sm:h-20 sm:w-20 bg-skin-secondary rounded-full m-2 sm:m-10">  
-        <Avatar />
+      <div className="h-12 w-12 sm:h-20 sm:w-20 bg-skin-secondary rounded-full m-2 sm:m-10">
+        <Avatar w="12" smh="20" smw="20" />
       </div>
     </header>
   );

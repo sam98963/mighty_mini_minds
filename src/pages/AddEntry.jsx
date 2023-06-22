@@ -48,12 +48,11 @@ export default function AddEntry() {
             <label className='text-sm sm:text-base py-2 px-8 mt-6'>{questions[2]}</label>
             <input className='bg-skin-input shadow-md py-8 px-3 mx-8' onChange={(e) => setOpenA(e.target.value)}></input>
           </div>
-    
-          <div className='flex justify-center'>
-            <NavLink to="../thanksPage">
-              <button className="text-white shadow-md text-2xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6" onClick={submit}>Post!</button>
-            </NavLink>
-          </div>
+        <div className = 'flex justify-center sm:mb-4 md:mt-20'>
+            <NavLink to="../thanksPage"><button className="text-white shadow-md text-l transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6 mt-2 ">Post!</button></NavLink>
         </div>
-      );
-    }
+    </div>
+    );
+}
+
+
