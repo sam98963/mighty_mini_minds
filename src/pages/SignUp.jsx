@@ -14,9 +14,6 @@ export default function SignUp() {
       );
       return response.data;
     },
-    // onSuccess: (data) => {
-    //   const thankYouMessage = `Thank you for signing up, ${data.name}!`;
-    // },
   });
   // form state - handles all inputs
   const [signupData, setSignupData] = useState({
@@ -153,14 +150,12 @@ export default function SignUp() {
               <Avatar />
             </div>
           </div>
-          <NavLink to="../login" thankYouMessage={thankYouMessage}>
             <button
               className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125"
               type="Submit"
             >
               Sign Up
             </button>
-          </NavLink>
         </form>
       </div>
     </div>

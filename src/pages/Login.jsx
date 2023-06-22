@@ -4,16 +4,21 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
-export default function Login({ thankYouMessage }) {
-  // const [thankYouMessage, setThankYouMessage] = useState("");
-  
+export default function Login() {
   const {mutate} = useMutation({
     mutationFn: async (user) => {
       const response = await axios.post(
         "https://mighty-mini-minds-backend.onrender.com/users/login",
         user
       );
-      return console.log(response.data);
+      return response.data;
+    },
+    onSuccess: (data) => {
+      console.log(response.data);
+    },
+    onError: (err) => {
+      const errorMessage = `Sorry, there was an error: ${err.message}`;
+      console.log(errorMessage);
     }
   })
 
@@ -28,7 +33,6 @@ export default function Login({ thankYouMessage }) {
       ...prevLogin,
       [name]: value,
     }));
-    console.log(login);
   };
 
   const handleLogin = () =>{
@@ -38,7 +42,6 @@ export default function Login({ thankYouMessage }) {
     }
     if (login.username !== "" && login.password !== "") {
       mutate(user);
-      console.log(user);
     } else {
       alert("Please fill in all fields");
     }
