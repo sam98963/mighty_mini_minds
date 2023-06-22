@@ -21,17 +21,20 @@
     "@mui/material": "^5.13.4",
     "@tanstack/react-query": "^4.29.13",
     "axios": "^1.4.0",
+    "buffer": "^6.0.3",
     "font-awesome": "^4.7.0",
+    "jsonwebtoken": "^9.0.0",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.12.1",
-    "react-router-dom": "^6.12.1"
+    "react-router-dom": "^6.12.1",
+    "safe-buffer": "^5.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react-swc": "^3.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
