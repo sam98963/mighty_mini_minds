@@ -1,4 +1,4 @@
-import { NavLink, useOutletContext } from "react-router-dom";
+import { NavLink, useOutletContext, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import axios from 'axios';
 export default function WelcomePage() {
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
+  const navigate = useNavigate();
   const {mutate} = useMutation({
     mutationFn: async (entry) => {
       const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);
@@ -13,6 +14,7 @@ export default function WelcomePage() {
     },
     onSuccess: (data) => {
       setEntryId(data.uuid);
+      navigate('../addEntry');
     },
   });
   
@@ -77,11 +79,9 @@ export default function WelcomePage() {
             😁
           </button>
         </div>
-        <NavLink to="../addEntry">
           <button className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5" onClick={submitMood}>
             Go!
           </button>
-        </NavLink>
       </div>
     </>
   );
