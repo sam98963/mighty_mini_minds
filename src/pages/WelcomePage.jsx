@@ -7,7 +7,6 @@ import axios from 'axios';
 export default function WelcomePage() {
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
-  
   const {mutate} = useMutation({
     mutationFn: async (entry) => {
       const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);

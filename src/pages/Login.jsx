@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import logo from "../Img/logo-close.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useAuth } from "../auth/AuthProvider";
-
 import quotes from "../data/loginQuotes.json";
-console.log(quotes);
+import {useAuth} from "../auth/AuthProvider"
+
 export default function Login() {
-  // here starts the logic of the login page
-  const [shouldRedirect, setShouldRedirect] = useState(false);
+  const {handleAuthentication} = useAuth();
+  
   //state of the user data
   const [data, setData] = useState(null);
   // state of the login form
@@ -17,12 +16,7 @@ export default function Login() {
     username: "",
     password: "",
   });
-  // check if user is authenticated if so redirect to welcome page
-  // const auth = useAuth();
-  // if(auth.isAuthenticated) {
-  // return <Navigate to="/appLayout/welcomePage" />;
-  // }
-
+ 
   const navigate = useNavigate();
 // mutation for login using react-query
   const { mutate } = useMutation({
@@ -38,8 +32,9 @@ export default function Login() {
     onSuccess: (data) => {
       setData(data);
       localStorage.setItem("tokenData", JSON.stringify(data.token));
+      localStorage.setItem("userId", JSON.stringify(data.userId));
+      handleAuthentication(true),
       navigate("/appLayout/welcomePage");
-      setShouldRedirect(true);
     },
     onError: (err) => {
       const errorMessage = `Sorry, there was an error: ${err.message}`;

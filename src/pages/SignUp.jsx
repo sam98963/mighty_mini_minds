@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useAuth } from "../auth/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 
 export default function SignUp() {
   const [isRegistered, setIsRegistered] = useState(false);
+  
 
   const navigate = useNavigate();
   const { mutate } = useMutation({
@@ -171,11 +172,14 @@ export default function SignUp() {
             </div>
           </div>
           <div className= "flex justify-center mt-4 mb-10">
-          <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
+            <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Sign Up
             </button>
             </div>
         </form>
+      </div>
+      <div className="underline mt-4">
+      <NavLink to="/">Signed up? Login here!</NavLink>
       </div>
     </div>
   );
