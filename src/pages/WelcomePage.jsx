@@ -14,7 +14,7 @@ export default function WelcomePage() {
     },
     onSuccess: (data) => {
       setEntryId(data.uuid);
-      navigate('../addEntry');
+   
     },
   });
   
@@ -33,7 +33,10 @@ export default function WelcomePage() {
     };
     if (mood !==0){
     mutate(entry);
-    } else {alert("Pick a mood!")}
+    navigate('../addEntry');
+    } else {
+      alert('Please select a mood');
+    }
   }
 
   return (
