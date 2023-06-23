@@ -47,35 +47,35 @@ export default function WelcomePage() {
         </h1>
         <div className="flex justify-around w-full">
           <button
-            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '1' ? 'animate-pulse' : ''}`}
+            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '1' ? 'animate-pulse' : ''}`}
             value={1}
             onClick={(e) => handleClick(e)}
           >
             🙁
           </button>
           <button
-            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '2' ? 'animate-pulse' : ''}`}
+            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '2' ? 'animate-pulse' : ''}`}
             value={2}
             onClick={(e) => handleClick(e)}
           >
             😕
           </button>
           <button
-            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '3' ? 'animate-pulse' : ''}`}
+            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '3' ? 'animate-pulse' : ''}`}
             value={3}
             onClick={(e) => handleClick(e)}
           >
             😐
           </button>
           <button
-            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '4' ? 'animate-pulse' : ''}`}
+            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '4' ? 'animate-pulse' : ''}`}
             value={4}
             onClick={(e) => handleClick(e)}
           >
             🙂
           </button>
           <button
-            className={`text-6xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '5' ? 'animate-pulse' : ''}`}
+            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '5' ? 'animate-pulse' : ''}`}
             value={5}
             onClick={(e) => handleClick(e)}
           >
