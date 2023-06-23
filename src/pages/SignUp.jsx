@@ -94,6 +94,7 @@ export default function SignUp() {
                 name="password"
                 value={signupData.password}
                 onChange={handleInputChange}
+                type="password"
               />
             </div>
           </div>
@@ -150,14 +151,16 @@ export default function SignUp() {
               <Avatar />
             </div>
           </div>
-          <div className= "flex justify-center mt-4 mb-10">
-          <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
+          <div className="flex justify-center mt-4 mb-10">
+            <button
+              className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125"
+              type="Submit"
+            >
               Sign Up
             </button>
-            </div>
+          </div>
         </form>
       </div>
     </div>
   );
 }
-
