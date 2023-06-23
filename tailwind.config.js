@@ -35,6 +35,6 @@ export default {
          "-100": "-1",
       },
     },
-    },
     plugins: [],
+  },
 };
