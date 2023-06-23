@@ -119,6 +119,7 @@ export default function SignUp() {
                 name="password"
                 value={signupData.password}
                 onChange={handleInputChange}
+                type="password"
               />
             </div>
           </div>
