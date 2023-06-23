@@ -9,7 +9,6 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";
 import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
@@ -30,7 +29,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
-        {/*<Route path="login" element={<Login />} />*/}
+        {/* <Route path="login" element={<Login />} /> */}
         {/* protected routes by atuh goes here wrappep by ProtectedRoutes*/}
           <Route element={<ProtectedRoutes />}>
             <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>

@@ -3,14 +3,14 @@ import logo from "/logo-close.png";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-
 import { useAuth } from "../auth/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export default function SignUp() {
   const [isRegistered, setIsRegistered] = useState(false);
 
+  const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationFn: async (user) => {
       const response = await axios.post(
@@ -19,13 +19,17 @@ export default function SignUp() {
       );
       return response.data;
     },
+    onSuccess: (data) => { 
+      console.log(data);
+      navigate("/");
+    }
   });
 
   // check if user is authenticated if so redirect to home page
-  const auth = useAuth();
-  if(auth.isAuthenticated) {
-    return <Navigate to="/" />;
-  }
+  // const auth = useAuth();
+  // if(auth.isAuthenticated) {
+  //   return <Navigate to="/" />;
+  // }
 
   // form state - handles all inputs
   const [signupData, setSignupData] = useState({
@@ -73,9 +77,7 @@ export default function SignUp() {
     }
   }
   if(isRegistered) {
-    alert("You have successfully registered! Please log in to continue.")
     setIsRegistered(false);
-    return <Navigate to="/" />;
   }
   return (
     <div className="flex flex-col items-center">
@@ -168,10 +170,6 @@ export default function SignUp() {
               <Avatar />
             </div>
           </div>
-            <button
-              className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125"
-              type="Submit"
-            >
           <div className= "flex justify-center mt-4 mb-10">
           <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Sign Up
