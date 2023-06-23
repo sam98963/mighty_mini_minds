@@ -3,15 +3,9 @@ import logo from "/logo-close.png";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useAuth } from "../auth/AuthProvider";
-import { useNavigate, NavLink } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
-  const [isRegistered, setIsRegistered] = useState(false);
-  
-
-  const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationFn: async (user) => {
       const response = await axios.post(
@@ -20,22 +14,7 @@ export default function SignUp() {
       );
       return response.data;
     },
-    onSuccess: (data) => { 
-      console.log(data);
-      navigate("/");
-    }
   });
-
-   // onError: (err) => {
-    //   console.log(err.message);
-    // }
-
-  // check if user is authenticated if so redirect to home page
-  // const auth = useAuth();
-  // if(auth.isAuthenticated) {
-  //   return <Navigate to="/" />;
-  // }
-
   // form state - handles all inputs
   const [signupData, setSignupData] = useState({
     user: "",
@@ -75,14 +54,10 @@ export default function SignUp() {
       signupData.avatar !== ""
     ) {
       mutate(user);
-      setIsRegistered(true);
-
+      console.log(user);
     } else {
       alert("Please fill in all fields 😀");
     }
-  }
-  if(isRegistered) {
-    setIsRegistered(false);
   }
   return (
     <div className="flex flex-col items-center">
@@ -119,7 +94,6 @@ export default function SignUp() {
                 name="password"
                 value={signupData.password}
                 onChange={handleInputChange}
-                type="password"
               />
             </div>
           </div>
@@ -167,24 +141,21 @@ export default function SignUp() {
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Chicken">Chicken</option>
+                <option value="Tiger">Tiger</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>
             </div>
             <div className="flex flex-col mb-4 w-3/4 sm:w-2/3">
-              <Avatar selection={signupData.avatar} animation={true}/>
+              <Avatar />
             </div>
           </div>
           <div className= "flex justify-center mt-4 mb-10">
-            <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
+          <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Sign Up
             </button>
             </div>
         </form>
-      </div>
-      <div className="underline mt-4">
-      <NavLink to="/">Signed up? Login here!</NavLink>
       </div>
     </div>
   );

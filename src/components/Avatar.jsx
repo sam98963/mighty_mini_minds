@@ -1,28 +1,13 @@
-import bunnyAvatar from "../Img//avatar-animations/bunnyFrame-1.png";
-import chickenAvatar from "../Img//avatar-animations/chickenFrame-1.png";
-import goatAvatar from "../Img//avatar-animations/goatFrame-1.png";
-import catAvatar from "../Img//avatar-animations/catFrame-1.png";
+import avatar from "../Img/number7V3.png";
 
-export default function Avatar({ animation, h, smw, smh, selection }) {
-  let imageURL = bunnyAvatar
-  if(selection === "Bunny"){
-    imageURL = bunnyAvatar
-  }
-  if(selection === "Goat"){
-    imageURL = goatAvatar
-  }
-  if(selection === "Cat"){
-    imageURL = catAvatar
-  }
-  if(selection === "Chicken"){
-    imageURL = chickenAvatar
-  } else{}
-  const bounceAnimation = animation ? "animate-bounce" : "";
+export default function Avatar({ animation, h, smw, smh }) {
   return (
     <div className="flex justify-center items-center">
       {/* <img src={avatar} alt="avatar" className={`h-12 sm:h-20 sm:w-20 ${animation}`} /> */}
-      <img src={imageURL} alt="avatar" className={`h-${h} sm:w-${smw} sm:h-${smh} ${bounceAnimation}`} />
+      <img src={avatar} alt="avatar" className={`h-${h} sm:w-${smw} sm:h-${smh} ${animation}`} />
     </div>
   );
 }
 
+// sm:h-24
+// sm:h-22 sm:w-24
