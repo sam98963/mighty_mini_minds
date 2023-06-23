@@ -5,7 +5,20 @@ const AuthContext = createContext({
 });
 
 export function AuthProvider({children}) {
-    const [isAuthenticated, setAuthenticated] = useState(true);
+    const decodedToken = JSON.parse(localStorage.getItem("tokenData"));
+    
+    const [isAuthenticated, setAuthenticated] = useState(false);
+
+    useEffect(() => {
+        if (decodedToken !== null) {
+          setAuthenticated(true);
+        }
+        if (isAuthenticated === null) {
+            setAuthenticated(false);
+        }
+      }, [decodedToken]);
+
+      console.log(isAuthenticated);
 
     return(
         <AuthContext.Provider value={{ isAuthenticated }}>
