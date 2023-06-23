@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
-
 export default function WelcomePage() {
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
