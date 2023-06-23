@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import bunny1 from '../Img/avatar-animations/bunny-1.png';
-import bunny2 from '../Img/avatar-animations/bunny-2.png';
-import bunny3 from '../Img/avatar-animations/bunny-3.png';
-import bunny4 from '../Img/avatar-animations/bunny-4.png';
+import bunnyFrame1 from '../Img/avatar-animations/bunnyFrame-1.png';
+import bunnyFrame2 from '../Img/avatar-animations/bunnyFrame-2.png';
+import bunnyFrame3 from '../Img/avatar-animations/bunnyFrame-3.png';
+import bunnyFrame4 from '../Img/avatar-animations/bunnyFrame-4.png';
 
-export default function AnimatedAvatar() {
+export default function AnimatedAvatar({height, width, largeHeight, largeWidth}) {
   // Array of bunny images
-  const bunnies = [bunny1, bunny2, bunny3, bunny4];
+  const bunny = [bunnyFrame1, bunnyFrame2, bunnyFrame3, bunnyFrame4];
   // Total number of frames in the animation
   const totalFrames = 4;
   // Total duration of the animation (in milliseconds)
@@ -35,7 +35,7 @@ export default function AnimatedAvatar() {
       // If the elapsed time exceeds the time per frame
       if (timeFromLastUpdate > timePerFrame) {
         // Update the source attribute of the element with the current bunny image
-        element.src = bunnies[frameNumber];
+        element.src = bunny[frameNumber];
         // Update the time of the last update
         timeWhenLastUpdate = startTime;
 
@@ -68,7 +68,7 @@ export default function AnimatedAvatar() {
 
   return (
     <>
-      <img className="avatar-animation" src={bunnies[0]} alt="Animated Avatar" />
+      <img className={`avatar-animation h-${height} w-${width} ${largeHeight} ${largeWidth}`} src={bunny[0]} alt="Animated Avatar" />
     </>
   );
 }
