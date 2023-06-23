@@ -6,8 +6,19 @@ const AuthContext = createContext({
 
 export function AuthProvider({children}) {
     const decodedToken = JSON.parse(localStorage.getItem("tokenData"));
-    console.log(decodedToken);
+    
     const [isAuthenticated, setAuthenticated] = useState(false);
+
+    useEffect(() => {
+        if (decodedToken !== null) {
+          setAuthenticated(true);
+        }
+        if (isAuthenticated === null) {
+            setAuthenticated(false);
+        }
+      }, [decodedToken]);
+
+      console.log(isAuthenticated);
 
     return(
         <AuthContext.Provider value={{ isAuthenticated }}>

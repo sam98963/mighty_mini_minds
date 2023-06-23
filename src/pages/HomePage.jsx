@@ -3,20 +3,27 @@ import logo from "../Img/logo-close.png";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { useAuth } from "../auth/AuthProvider";
+import { Navigate } from "react-router-dom";
 
 export default function Root() {
   const location = useLocation();
   const isRoot = location.pathname === "/";
 
   // here starts the logic of the login page
+    const [shouldRedirect, setShouldRedirect] = useState(false);
     //state of the user data
     const [data, setData] = useState(null);
-    let tokenData = null; // Declare tokenData variable
     // state of the login form
     const [login, setLogin] = useState({
       username: "",
       password: "",
     });
+    // check if user is authenticated if so redirect to welcome page
+    // const auth = useAuth();
+    // if(auth.isAuthenticated) {
+    // return <Navigate to="/appLayout/welcomePage" />;
+    // }
   // mutation for login using react-query
     const { mutate } = useMutation({
       mutationFn: async (user) => {
@@ -30,6 +37,8 @@ export default function Root() {
       onSuccess: (data) => {
         setData(data);
         localStorage.setItem("tokenData", JSON.stringify(data.token));
+        setShouldRedirect(true);
+        <Navigate to="/appLayout/welcomePage"/>
       },
       onError: (err) => {
         const errorMessage = `Sorry, there was an error: ${err.message}`;
@@ -86,11 +95,11 @@ export default function Root() {
         className="bg-skin-input shadow-md p-1 rounded-lg w-64"
       />
       <div className="flex justify-center mt-5">
-        {/* <NavLink to="../appLayout/welcomePage"> */}
+        <NavLink to="../appLayout/welcomePage">
           <button onClick={handleLogin} className="rounded-md w-32 h-10 bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125 ">
             Login
           </button>
-        {/* </NavLink> */}
+         </NavLink>
       </div>
     </div>
     <div className="underline">

@@ -34,7 +34,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
-        <Route path="login" element={<Login />} />
+        {/*<Route path="login" element={<Login />} />*/}
         {/* protected routes by atuh goes here wrappep by ProtectedRoutes*/}
           <Route element={<ProtectedRoutes />}>
             <Route path="appLayout" element={<AppLayout handleThemeChange={handleThemeChange} />}>
