@@ -3,11 +3,12 @@ import { useState, useContext } from "react";
 // import { usePost } from "../hooks/usePost";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-
+// import { useAuth } from "../auth/AuthProvider";
 
 export default function AddEntry() {
   // useOutletContext is stupid so you must declate all variables in the array, but not setEntryId because it's a setter function
     const [questions, entryId]  = useOutletContext();
+    
     const {mutate} = useMutation({
         mutationFn: async (entry) => {
           const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`, entry);
