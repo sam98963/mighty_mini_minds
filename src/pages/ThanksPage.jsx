@@ -10,6 +10,7 @@ export default function ThanksPage() {
   const [share, setShare] = useState("message1");
   const navigate = useNavigate();
 
+  // function to set state and navigate to moodMap
   function handleClick(event) {
     setShare(event.target.value);
     console.log(entryId);
@@ -22,10 +23,13 @@ export default function ThanksPage() {
   // function to set state and return correct message
   function shareMessage() {
     if (share === "message1") {
+      // if share is false, return message1
       return "Would you like to share your thoughts with someone?";
     } else if (share === "message2") {
+      // if share is true, return message2 and navigate to moodMap
       return "Thanks for sharing your entry! It's on its way to your trusted person!";
     } else if (share === "message3") {
+      // if share is true, return message3 and navigate to moodMap
       return "Remember you can always share your thoughts anytime!";
     }
   }
@@ -81,19 +85,20 @@ export default function ThanksPage() {
         largeWidth="sm:w-52"
       />
 
+      {/* call shareMessage function to return correct message */}
       <h2 className="text-xl sm:text-2xl text-center px-4">{shareMessage()}</h2>
 
       <div className="flex flex-row justify-around items-center w-full">
         <button
           onClick={handleClick}
-          value={"message3"}
+          value={"message3"} // set share to true which will display message2 and navigate to moodMap
           className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5"
         >
           ✕
         </button>
         <button
           onClick={handleClick}
-          value={"message2"}
+          value={"message2"} // set share to true which will display message2 and navigate to moodMap
           className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5"
         >
           ✓
