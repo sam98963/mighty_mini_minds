@@ -8,7 +8,7 @@ import { useAuth } from "../auth/AuthProvider";
 export default function AddEntry() {
   // useOutletContext is stupid so you must declate all variables in the array, but not setEntryId because it's a setter function
     const [questions, entryId]  = useOutletContext();
-    const userId = localStorage.getItem('userId');
+    
     const {mutate} = useMutation({
         mutationFn: async (entry) => {
           const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`, entry);
@@ -28,7 +28,6 @@ export default function AddEntry() {
           answerOne: positiveA, // Use value from positiveA input field
           answerTwo: challengeA, // Use value from challengeA input field
           answerThree: openA, // Use value from openA input field
-          userUuid: userId,
         };
     
         mutate(entry);

@@ -23,10 +23,12 @@ export default function WelcomePage() {
     setMood(event.target.value);
   }
 
+  const userId = localStorage.getItem('userId');
   function submitMood() {
     const entry = {
       mood: mood,
       share: false,
+      userUuid: userId,
     };
     if (mood !==0){
     mutate(entry);
