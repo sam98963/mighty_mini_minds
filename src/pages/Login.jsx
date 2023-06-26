@@ -8,7 +8,8 @@ import {useAuth} from "../auth/AuthProvider"
 
 export default function Login() {
   const {handleAuthentication} = useAuth();
-  
+
+
   //state of the user data
   const [data, setData] = useState(null);
   // state of the login form
@@ -59,6 +60,8 @@ export default function Login() {
     }
     if (login.username !== "" && login.password !== "") {
       mutate(user);
+      // remove this later ---->
+      navigate("/appLayout/welcomePage");
     } else {
       alert("Please fill in all fields");
     }
