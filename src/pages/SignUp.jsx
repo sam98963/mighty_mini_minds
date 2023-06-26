@@ -3,9 +3,15 @@ import logo from "/logo-close.png";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { useAuth } from "../auth/AuthProvider";
+import { useNavigate, NavLink } from "react-router-dom";
+
 
 export default function SignUp() {
+  const [isRegistered, setIsRegistered] = useState(false);
+  
+
+  const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationFn: async (user) => {
       const response = await axios.post(
@@ -14,7 +20,22 @@ export default function SignUp() {
       );
       return response.data;
     },
+    onSuccess: (data) => { 
+      console.log(data);
+      navigate("/");
+    }
   });
+
+   // onError: (err) => {
+    //   console.log(err.message);
+    // }
+
+  // check if user is authenticated if so redirect to home page
+  // const auth = useAuth();
+  // if(auth.isAuthenticated) {
+  //   return <Navigate to="/" />;
+  // }
+
   // form state - handles all inputs
   const [signupData, setSignupData] = useState({
     user: "",
@@ -54,16 +75,20 @@ export default function SignUp() {
       signupData.avatar !== ""
     ) {
       mutate(user);
-      console.log(user);
+      setIsRegistered(true);
+
     } else {
       alert("Please fill in all fields 😀");
     }
   }
+  if(isRegistered) {
+    setIsRegistered(false);
+  }
   return (
-    <div className="flex flex-col items-center">
-      <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-10" />
+    <div className="flex flex-col items-center justify-around h-screen">
+      <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-4" />
 
-      <div className="w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 mt-4 bg-white rounded-lg shadow-lg">
+      <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
         <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
@@ -94,6 +119,7 @@ export default function SignUp() {
                 name="password"
                 value={signupData.password}
                 onChange={handleInputChange}
+                type="password"
               />
             </div>
           </div>
@@ -131,33 +157,35 @@ export default function SignUp() {
             </div>
           </div>
 
-          <div className="flex justify-between mb-4">
-            <div className="flex flex-col mb-4 w-1/4 sm:w-1/3">
+          <div className="flex justify-between my-4 items-center">
+            <div className="flex flex-col mb-4 w-1/3 sm:w-2/5">
               <label className="text-sm sm:text-base">Choose avatar</label>
               <select
-                className="bg-skin-input text-xs sm:text-base"
+                className="bg-skin-input text-xs sm:text-base h-6 shadow-md"
                 name="avatar"
                 value={signupData.avatar}
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Tiger">Tiger</option>
+                <option value="Chicken">Chicken</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>
             </div>
-            <div className="flex flex-col mb-4 w-3/4 sm:w-2/3">
-              <Avatar />
+            <div className="flex flex-col my-4 w-3/4 sm:w-2/3">
+              <Avatar selection={signupData.avatar} animation={true} h={20} smh={28}/> 
             </div>
           </div>
           <div className= "flex justify-center mt-4 mb-10">
-          <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
+            <button className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Sign Up
             </button>
-            </div>
+          </div>
         </form>
+      </div>
+      <div className="underline mt-4">
+      <NavLink to="/">Signed up? Login here!</NavLink>
       </div>
     </div>
   );
 }
-

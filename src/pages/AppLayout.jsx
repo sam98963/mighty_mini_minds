@@ -28,7 +28,7 @@ export default function AppLayout({ handleThemeChange }) {
     <div>
       <Header />
       {/* rendering all pages with navbar and header */}
-      <main className="flex justify-center h-[63vh] md:h-[66vh] xl:h-[69vh]">
+      <main className="flex justify-center h-[70vh] md:h-[74vh] xl:h-[78vh]">
         <div className="w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 bg-white rounded-lg shadow-lg">
           {/* context instead of props needed to pass data to children for outlet */}
             <Outlet context={[questions, entryId, setEntryId]} />
