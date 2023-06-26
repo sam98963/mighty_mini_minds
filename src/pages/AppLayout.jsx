@@ -4,8 +4,63 @@ import Header from "../components/Header";
 import "../App.css";
 import questionData from "../data/questions.json";
 import { useEffect, useState, createContext } from "react";
+import axios from "axios";
+import {useQuery} from "@tanstack/react-query"
 
 export default function AppLayout({ handleThemeChange }) {
+
+
+  const {data, error} = useQuery({queryKey: ["userEntries"], queryFn: async ()=>{
+    const accessToken = localStorage.getItem("tokenData")
+    const config = {
+      headers: {
+       'token': accessToken,
+      }
+    }
+
+
+
+    const response = await axios.get("https://mighty-mini-minds-backend.onrender.com/users/entries", config);
+    return response.data
+  },
+  // onSuccess:(data)=>{console.log(data)}, onError:(error)=>{console.log(error.message)}
+})
+
+
+/*
+const [entries, setEntries] = useState([])
+useEffect(
+  () => {
+  const accessToken = localStorage.getItem("tokenData")
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://mighty-mini-minds-backend.onrender.com/users/entries', {
+        headers: {
+          'token': accessToken
+        }
+      });
+      if (response) {
+        const data = await response.json();
+        setEntries(data);
+        console.log(entries)
+        console.log("success")
+      } else {
+        // Handle error case
+        console.log('Error:', response.statusText);
+      }
+    } catch (error) {
+      // Handle error case
+      console.log('Error:', error.message);
+    }
+  };
+
+  fetchData();
+}, []);
+
+*/
+
+
+
   const [ entryId, setEntryId ] = useState(""); 
 
   const [questions, setQuestions] = useState([]);
@@ -27,6 +82,7 @@ export default function AppLayout({ handleThemeChange }) {
   return (
     <div>
       <Header />
+      <div>{JSON.stringify(data)}</div>
       {/* rendering all pages with navbar and header */}
       <main className="flex justify-center h-[70vh] md:h-[74vh] xl:h-[78vh]">
         <div className="w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 bg-white rounded-lg shadow-lg">
