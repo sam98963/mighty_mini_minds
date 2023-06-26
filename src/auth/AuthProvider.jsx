@@ -7,7 +7,7 @@ const AuthContext = createContext({
 
 export function AuthProvider({children}) {
     const decodedToken = JSON.parse(localStorage.getItem("tokenData"));
-    const [isAuthenticated, setAuthenticated] = useState(false);
+    const [isAuthenticated, setAuthenticated] = useState(true);
 
     function handleAuthentication(value){
         setAuthenticated(value);
