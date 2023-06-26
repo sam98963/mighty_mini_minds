@@ -167,13 +167,13 @@ export default function SignUp() {
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Tiger">Tiger</option>
+                <option value="Chicken">Chicken</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>
             </div>
             <div className="flex flex-col mb-4 w-3/4 sm:w-2/3">
-              <Avatar />
+              <Avatar selection={signupData.avatar} animation={true}/>
             </div>
           </div>
           <div className= "flex justify-center mt-4 mb-10">
