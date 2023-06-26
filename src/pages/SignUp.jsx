@@ -180,7 +180,7 @@ export default function SignUp() {
             <button className="rounded-md w-32 h-10  bg-skin-secondary  text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Sign Up
             </button>
-            </div>
+          </div>
         </form>
       </div>
       <div className="underline mt-4">
@@ -189,4 +189,3 @@ export default function SignUp() {
     </div>
   );
 }
-

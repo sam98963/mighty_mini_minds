@@ -64,6 +64,7 @@ export default function Login() {
     }
   }
 
+  // function to generate a random quote
   const [randomQuote, setRandomQuote] = useState(null);
   useEffect(() => {
     function generateRandomQuote() {
