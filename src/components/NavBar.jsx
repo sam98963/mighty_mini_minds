@@ -49,7 +49,7 @@ export default function NavBar({ handleThemeChange }) {
       </button>
       {/* work in a future transition */}
       {isThemePickerOpen && (
-        <div className="absolute justify-center align-center bottom-5 right-0.1 mb-8 ">
+        <div className="absolute justify-center bottom-5 mb-8 ">
         <ThemePicker onThemeChange={handleThemeChange} />
         </div>
       )}
