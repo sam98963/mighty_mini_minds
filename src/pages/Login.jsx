@@ -111,7 +111,7 @@ export default function Login() {
       />
       </div>
         <div className="flex justify-center">
-          <button onClick={handleLogin} className="justify-center  rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 ">
+          <button onClick={handleLogin} className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 ">
             Login
           </button>
           </div>
