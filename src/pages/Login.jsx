@@ -98,13 +98,13 @@ export default function Login() {
     
     <div className="flex flex-col items-center">
       <label className="text-lg sm:text-2xl mt-4">Username</label>
-      <input
+      <input aria-label = "username"
         name="username"
         onChange={handleChange}
         className="bg-skin-input shadow-md p-1 rounded-lg w-64"
       />
       <label className="text-lg sm:text-2xl mt-5">Password</label>
-      <input
+      <input aria-label = "password"
         type="password"
         name="password"
         onChange={handleChange}
