@@ -26,7 +26,7 @@ export default function Thermometer(props) {
     mood = `${mood}%`;
     return mood;
   }
-// h-60 w-20 relative"
+  // h-60 w-20 relative"
   return (
     <div className=" w-12 relative mt-24 h-32 sm:h-48 sm:w-16 ml-8">
       <div

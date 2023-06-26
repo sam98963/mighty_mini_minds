@@ -1,25 +1,26 @@
 import { useContext, createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext({
-    isAuthenticated: false,
-    handleAuthentication: () => {},
+  isAuthenticated: false,
+  handleAuthentication: () => {},
 });
 
 export function AuthProvider({children}) {
     const decodedToken = JSON.parse(localStorage.getItem("tokenData"));
     const [isAuthenticated, setAuthenticated] = useState(true);
 
-    function handleAuthentication(value){
-        setAuthenticated(value);
-    }
 
-    console.log(isAuthenticated);
+  function handleAuthentication(value) {
+    setAuthenticated(value);
+  }
 
-    return(
-        <AuthContext.Provider value={{ isAuthenticated, handleAuthentication }}>
-            {children}
-        </AuthContext.Provider>
-    )
+  console.log(isAuthenticated);
+
+  return (
+    <AuthContext.Provider value={{ isAuthenticated, handleAuthentication }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export const useAuth = () => useContext(AuthContext);
