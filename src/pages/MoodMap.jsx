@@ -2,10 +2,21 @@ import Avatar from "../components/Avatar";
 import Emoji from "../components/Emoji";
 import Thermometer from "../components/Thermometer";
 import WordOfTheDay from "../components/WordOfTheDay";
-import SpeechBubble from "../Img/speech-bubble.png";
 import ReminderQuote from "../components/ReminderQuote";
+import moodData from "../data/data.json";
 
 export default function MoodMap() {
+  // create a function to get the mood data from the backend (json in the meantime)
+  // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
+  function moodPercentage() {
+    let mood = moodData[0].posts[0].mood_rating;
+    // turn mood into a percentage
+    mood = (mood - 1) * 20;
+    return mood;
+  }
+
+  console.log(moodData[0].posts[0].mood_rating);
+
   return (
     <div className="flex flex-col justify-around items-center w-full h-full">
       <h1 className="text-4xl sm:text-4xl text-center px-4 mt-4">My Week</h1>
@@ -23,7 +34,7 @@ export default function MoodMap() {
       <WordOfTheDay />
       <div className="flex w-full justify-evenly mt-4">
         {/* depends on the emojis over the last 7 days - initially lets just do for that day? */}
-        <Thermometer mood={90} />
+        <Thermometer mood={moodPercentage()} />
         {/* <div className="flex flex-row">
           <img src={SpeechBubble} alt="speech bubble" className="h-40 w-40" />
           <ReminderQuote /> */}
