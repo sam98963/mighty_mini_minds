@@ -82,21 +82,21 @@ export default function Login() {
   return (
     <div className="flex flex-col items-center justify-around h-screen">
     <img src={logo} alt="logo" className="h-28 w-44" />
-    <div className="flex flex-col justify-center align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-64 sm:h-96 mt-4 bg-white rounded-lg shadow-lg text-center">
-      <h1 className="font-bold text-center text-xl sm:text-4xl mb-6 sm:mb-12">
+    <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-3/5 sm:h-4/6 bg-white rounded-lg shadow-lg text-center">
+      <h1 className="font-bold text-center text-xl sm:text-4xl">
         Mighty Mini Minds
       </h1>
       {randomQuote && (
-        <>
+        <div className="flex flex-col">
           <p className="sm:text-xl font-semibold mx-5">{randomQuote.quote}</p>
-           <p className="italic text-sm mt-1 sm:mt-2 ">
+           <p className="italic text-sm mt-1">
             {randomQuote.book} by {randomQuote.author}
           </p>
-        </>
+        </div>
       )}
-    </div>
-    <div className="flex flex-col sm:h-64">
-      <label className="text-lg sm:text-2xl">Username</label>
+    
+    <div className="flex flex-col items-center">
+      <label className="text-lg sm:text-2xl mt-4">Username</label>
       <input
         name="username"
         onChange={handleChange}
@@ -109,11 +109,13 @@ export default function Login() {
         onChange={handleChange}
         className="bg-skin-input shadow-md p-1 rounded-lg w-64"
       />
-      <div className="flex justify-center sm:mt-5">
-          <button onClick={handleLogin} className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary text-white mt-10 transition-colors duration-300 ease-in-out transform hover:scale-125 ">
+      </div>
+        <div className="flex justify-center">
+          <button onClick={handleLogin} className="justify-center  rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 ">
             Login
           </button>
-      </div>
+          </div>
+    
     </div>
     <div className="underline sm:text-xl">
       <NavLink to="signup">No account? Sign up here!</NavLink>
