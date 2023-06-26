@@ -173,7 +173,7 @@ export default function SignUp() {
               </select>
             </div>
             <div className="flex flex-col my-4 w-3/4 sm:w-2/3">
-              <Avatar selection={signupData.avatar} animation={true} h={20} smh={28}/>
+              <Avatar selection={signupData.avatar} animation={true} h={20} smh={28}/> 
             </div>
           </div>
           <div className= "flex justify-center mt-4 mb-10">
