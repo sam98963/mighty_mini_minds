@@ -4,7 +4,7 @@ import bunnyFrame2 from '../Img/avatar-animations/bunnyFrame-2.png';
 import bunnyFrame3 from '../Img/avatar-animations/bunnyFrame-3.png';
 import bunnyFrame4 from '../Img/avatar-animations/bunnyFrame-4.png';
 
-export default function AnimatedAvatar({height, width, largeHeight, largeWidth}) {
+export default function AnimatedAvatar({height, width, smh, smw, largeHeight, largeWidth}) {
   // Array of bunny images
   const bunny = [bunnyFrame1, bunnyFrame2, bunnyFrame3, bunnyFrame4];
   // Total number of frames in the animation
@@ -68,7 +68,7 @@ export default function AnimatedAvatar({height, width, largeHeight, largeWidth})
 
   return (
     <>
-      <img className={`avatar-animation h-${height} w-${width} ${largeHeight} ${largeWidth}`} src={bunny[0]} alt="Animated Avatar" />
+      <img className={`avatar-animation sm:h-${smh} sm:w-${smw} h-${height} w-${width} ${largeHeight} ${largeWidth}`} src={bunny[0]} alt="Animated Avatar" />
     </>
   );
 }
