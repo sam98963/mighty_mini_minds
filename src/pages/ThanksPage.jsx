@@ -10,6 +10,16 @@ export default function ThanksPage() {
   const [share, setShare] = useState("message1");
   const navigate = useNavigate();
 
+  const { mutate } = useMutation({
+    mutationFn: async (entry) => {
+      const response = await axios.patch(
+        `https://mighty-mini-minds-backend.onrender.com/entries/${entryId}`,
+        entry
+      );
+      return response.data;
+    },
+  });
+
   // function to set state and navigate to moodMap
   function handleClick(event) {
     setShare(event.target.value);
@@ -36,26 +46,16 @@ export default function ThanksPage() {
 
   function updateEntry() {
     const entry = {
-      share: share,
+      share: true,
     };
     mutate(entry);
   }
 
   useEffect(() => {
-    if (share !== false) {
+    if (share === "message2") {
       updateEntry();
     }
   }, [share]);
-
-  const { mutate } = useMutation({
-    mutationFn: async (entry) => {
-      const response = await axios.patch(
-        `https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`,
-        entry
-      );
-      return response.data;
-    },
-  });
 
   return (
     <div className="flex flex-col justify-around items-center w-full h-full overflow-hidden">

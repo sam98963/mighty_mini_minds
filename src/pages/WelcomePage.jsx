@@ -4,17 +4,20 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
 export default function WelcomePage() {
+  const userId = localStorage.getItem('userId');
+
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
   const navigate = useNavigate();
   const {mutate} = useMutation({
     mutationFn: async (entry) => {
-      const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/entry', entry);
+      const url = `https://mighty-mini-minds-backend.onrender.com/entries/${userId}`;
+      const response = await axios.post(url.replace(/"/g, ''), entry);
       return response.data;
     },
     onSuccess: (data) => {
       setEntryId(data.uuid);
-   
+      console.log(data.uuid);
     },
   });
   
@@ -24,12 +27,10 @@ export default function WelcomePage() {
     setMood(event.target.value);
   }
 
-  const userId = localStorage.getItem('userId');
   function submitMood() {
     const entry = {
       mood: mood,
       share: false,
-      userUuid: userId,
     };
     if (mood !==0){
     mutate(entry);
