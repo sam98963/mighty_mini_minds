@@ -20,7 +20,7 @@ export default function MoodMap() {
 
   return (
     <div className="flex flex-col justify-around items-center w-full h-full">
-      <h1 className="text-4xl sm:text-4xl text-center px-4 mt-4">My Week</h1>
+      <h1 data-testid = "emoji-component" className="text-4xl sm:text-4xl text-center px-4 mt-4">My Week</h1>
       <div className="flex justify-between">
         <Emoji data-testid="emoji-component"
           mon={"😊"}

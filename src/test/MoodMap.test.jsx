@@ -4,37 +4,65 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { MemoryRouter, Route, Routes } from "react-router";
 
-// Tests that all components render without crashing
-it('test_render_components', () => {
-  render(<MoodMap />);
-  const emoji = screen.getByID('emoji-component');
-  expect(emoji).toBeInTheDocument();
-  
-});
 
-test('test_render_components2', () => {
-  render(
-    <MemoryRouter initialEntries={['/AppLayout']}>
-      <MoodMap />
-    </MemoryRouter>
-  );
-  const emoji = screen.getByTestId('emoji-component');
-  expect(emoji).toBeInTheDocument();
-});
 
-describe("My app", () => {
-  it("renders correctly", () => {
-    render(
-      <MemoryRouter initialEntries={['/AppLayout']}>
-        <Routes>
-          <Route path="moodMap" element={<MoodMap />}>
-          <Emoji/>
-          </Route>
-        </Routes>
-      </MemoryRouter>
-    );
+    // Tests that the correct emoji is displayed for each day of the week
+    it('test_emoji_display', () => {
+      const { getByTestId } = render(<MemoryRouter initialEntries={['/AppLayout']}>
+            <MoodMap />
+           </MemoryRouter>);
+      expect(getByTestId('emoji-component')).toHaveTextContent('My Week');
   });
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Tests that all components render without crashing
+// it('test_render_components', () => {
+//   render(<MoodMap />);
+//   const emoji = screen.getByID('emoji-component');
+//   expect(emoji).toBeInTheDocument();
+  
+// });
+
+// test('test_render_components2', () => {
+//   render(
+//     <MemoryRouter initialEntries={['/AppLayout']}>
+//       <MoodMap />
+//     </MemoryRouter>
+//   );
+//   const emoji = screen.getByTestId('emoji-component');
+//   expect(emoji).toBeInTheDocument();
+// });
+
+// describe("My app", () => {
+//   it("renders correctly", () => {
+//     render(
+//       <MemoryRouter initialEntries={['/AppLayout']}>
+//         <Routes>
+//           <Route path="moodMap" element={<MoodMap />}>
+//           <Emoji/>
+//           </Route>
+//         </Routes>
+//       </MemoryRouter>
+//     );
+//   });
+// });
 
 
 

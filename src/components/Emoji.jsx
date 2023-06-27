@@ -1,4 +1,4 @@
-export default function Emoji({mon, tue, wed, thu, fri, sat, sun}) {
+export default function Emoji({mon, tue, wed, thu, fri, sat, sun,}) {
     return (
         <div className="flex flex-row justify-center">
         <div className="flex flex-col items-center">
