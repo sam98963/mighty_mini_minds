@@ -1,9 +1,12 @@
 import JournalEntry from "../components/JournalEntry";
 import { useGet } from "../hooks/useGet";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 export default function Journal() {
-const {data: entries, isLoading, isError, error} = useGet('41f9b8f0-0f71-11ee-8b95-47e24bd739d9');
-// if (isError) return <div>{error.message}</div>
+// const {data: entries, isLoading, isError, error} = useGet();
+const {data: entries, isLoading, isError, error} = useGet();
+
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
             <div>{isLoading? `loading...` : isError? JSON.stringify(error) : JSON.stringify(entries)}</div>
