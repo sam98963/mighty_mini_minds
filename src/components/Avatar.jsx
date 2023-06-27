@@ -8,7 +8,6 @@ export default function Avatar({ animation, h, smw, smh, selection }) {
 
   const {data: avatar, isLoading, isError, error} = useGet();
   const userAvatar = avatar?avatar.avatar_url:null;
-  console.log("userAvatar", userAvatar)
 
   let imageURL = bunnyAvatar
 
