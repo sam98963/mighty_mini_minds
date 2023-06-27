@@ -24,6 +24,8 @@ export default function AppLayout({ handleThemeChange }) {
     setQuestions(randomQuestions());
   }, []);
 
+  
+
   return (
     <div>
       <Header />

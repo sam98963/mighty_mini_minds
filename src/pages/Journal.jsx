@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 export default function Journal() {
-// const {data: entries, isLoading, isError, error} = useGet();
 const {data: entries, isLoading, isError, error} = useGet();
+
 
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
