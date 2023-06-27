@@ -13,44 +13,46 @@ export default function Thermometer(props) {
 
   function getGradientColor(height) {
     let gradientColor = "";
-    
+
     if (height <= 33) {
-      gradientColor = "rgb(255,140,0)"
+      gradientColor = "rgb(255,140,0)";
     } else if (height <= 66) {
       gradientColor = "rgb(255, 240, 0)";
     } else {
-      gradientColor = "rgb(0, 255, 145)"; 
+      gradientColor = "rgb(0, 255, 145)";
     }
-    
+
     return gradientColor;
   }
 
-//   function getGradientColor(height) {
-//   let gradientColor = "";
-  
-//   if (height <= 33) {
-//     const red = 238;
-//     const green = Math.round(30 + height * (174 - 30) / 33);
-//     const blue = Math.round(11 + height * (55 - 11) / 33);
-//     gradientColor = `rgb(${red}, ${green}, ${blue})`;
-//   } else if (height <= 66) {
-//     const red = Math.round(238 - (height - 33) * (238 - 228) / 33);
-//     const green = Math.round(174 + (height - 33) * (255 - 174) / 33);
-//     const blue = Math.round(55 + (height - 33) * (145 - 55) / 33);
-//     gradientColor = `rgb(${red}, ${green}, ${blue})`;
-//   } else {
-//     const red = Math.round(228 - (height - 66) * (228 - 0) / 34);
-//     const green = Math.round(255 - (height - 66) * (255 - 0) / 34);
-//     const blue = Math.round(145 - (height - 66) * (145 - 0) / 34);
-//     gradientColor = `rgb(${red}, ${green}, ${blue})`;
-//   }
-  
-//   return `linear-gradient(to bottom, ${gradientColor} ${height}%,  ${gradientColor} ${height}%)`;
-// }
+  //   function getGradientColor(height) {
+  //   let gradientColor = "";
+
+  //   if (height <= 33) {
+  //     const red = 238;
+  //     const green = Math.round(30 + height * (174 - 30) / 33);
+  //     const blue = Math.round(11 + height * (55 - 11) / 33);
+  //     gradientColor = `rgb(${red}, ${green}, ${blue})`;
+  //   } else if (height <= 66) {
+  //     const red = Math.round(238 - (height - 33) * (238 - 228) / 33);
+  //     const green = Math.round(174 + (height - 33) * (255 - 174) / 33);
+  //     const blue = Math.round(55 + (height - 33) * (145 - 55) / 33);
+  //     gradientColor = `rgb(${red}, ${green}, ${blue})`;
+  //   } else {
+  //     const red = Math.round(228 - (height - 66) * (228 - 0) / 34);
+  //     const green = Math.round(255 - (height - 66) * (255 - 0) / 34);
+  //     const blue = Math.round(145 - (height - 66) * (145 - 0) / 34);
+  //     gradientColor = `rgb(${red}, ${green}, ${blue})`;
+  //   }
+
+  //   return `linear-gradient(to bottom, ${gradientColor} ${height}%,  ${gradientColor} ${height}%)`;
+  // }
 
   const thermometerStyle = {
     height: moodValue(),
-    background: getGradientColor(props.mood),
+    // background: getGradientColor(props.mood),
+    background:
+      "linear-gradient(0deg, rgba(238,102,11,1) 5%, rgba(235,224,3,0.9780287114845938) 40%, rgba(0,255,145,1) 100%",
   };
 
   return (
