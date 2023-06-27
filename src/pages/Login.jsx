@@ -60,8 +60,6 @@ export default function Login() {
     }
     if (login.username !== "" && login.password !== "") {
       mutate(user);
-      // remove this later ---->
-      navigate("/appLayout/welcomePage");
     } else {
       alert("Please fill in all fields");
     }
