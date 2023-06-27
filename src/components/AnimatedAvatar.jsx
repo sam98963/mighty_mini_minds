@@ -68,7 +68,7 @@ export default function AnimatedAvatar({height, width, smh, smw, largeHeight, la
 
   return (
     <>
-      <img className={`avatar-animation sm:h-${smh} sm:w-${smw} h-${height} w-${width} ${largeHeight} ${largeWidth}`} src={bunny[0]} alt="Animated Avatar" />
+      <img data-testid = "animated-avatar" className={`avatar-animation sm:h-${smh} sm:w-${smw} h-${height} w-${width} ${largeHeight} ${largeWidth}`} src={bunny[0]} alt="Animated Avatar" />
     </>
   );
 }
