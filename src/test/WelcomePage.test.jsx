@@ -2,10 +2,18 @@ import WelcomePage from "../pages/WelcomePage";
 import AppLayout from "../pages/AppLayout";
 import { render, fireEvent } from '@testing-library/react';
 import { useOutletContext } from "react-router";
- 
+import { describe, it, expect } from 'vitest';
+import { MemoryRouter, Route, Routes } from "react-router";
+
 it("test_click_mood_button_updates_mood_state",() => {
-    const { getByText } = render(<WelcomePage />);
-    const moodButton = getByText('🙁');
+    const { getByText } = render( 
+    <MemoryRouter initialEntries={['/AppLayout']}>
+    <Routes>
+        <Route path="/welcomePage" element="/src/pages/WelcomePage.jsx"/>
+    </Routes>
+    </MemoryRouter>
+    );
+    // const moodButton = getByText('🙁');
     fireEvent.click(moodButton);
     const moodState = screen.getByText('Welcome, Sofia!').nextSibling;
     expect(moodState.textContent).toBe('1');
