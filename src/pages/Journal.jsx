@@ -1,15 +1,16 @@
 import JournalEntry from "../components/JournalEntry";
 import { useGet } from "../hooks/useGet";
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+
 
 export default function Journal() {
-// const {data: entries, isLoading, isError, error} = useGet();
 const {data: entries, isLoading, isError, error} = useGet();
+
+entries? entries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)): null;
+
 
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
-            <div>{isLoading? `loading...` : isError? JSON.stringify(error) : JSON.stringify(entries)}</div>
+            {/* <div>{isLoading? `loading...` : isError? JSON.stringify(error) : JSON.stringify(entries)}</div> */}
             <h1 className="font-bold text-2xl sm:text-4xl text-center mt-4">Check out your past journals</h1>
             <div className="flex justify-end items-center mt-4">
             <label className="font-bold sm:text-base">Search by</label>
@@ -19,10 +20,53 @@ const {data: entries, isLoading, isError, error} = useGet();
                 <option value="LastMonth">Last Month</option>
               </select>
               </div>
-            <JournalEntry date="2021-10-01" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-            <JournalEntry date="2021-10-02" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-            <JournalEntry date="2021-10-03" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-            <JournalEntry date="2021-10-04" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
+          <div>
+          {entries? entries.map((entry) => (
+            
+        <JournalEntry
+          key={entry.uuid} // Ensure each entry has a unique key
+          date={new Date(entry.createdAt).toLocaleString('en-GB', {
+            weekday: 'short', // can use 'long'
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })} // Convert to DD-MM-YYYY format
+          res1={entry.answer_one}
+          res2={entry.answer_two}
+          res3={entry.answer_three}
+          q1={entry.question_one}
+          q2={entry.question_two}
+          q3={entry.question_three}
+        />
+      )) : null}
+      </div>
         </div>
     );
 }
+
+
+// {sortedEntries.map((entry) => {
+//   const entryDate = new Date(entry.createdAt);
+//   const options = {
+//     weekday: 'long',
+//     day: 'numeric',
+//     month: 'long',
+//     hour: '2-digit',
+//     minute: '2-digit'
+//   };
+//   const formattedDate = entryDate.toLocaleString('en-US', options);
+//   const dayNumber = entryDate.getDate();
+//   const daySuffix = getDaySuffix(dayNumber);
+
+//   return (
+//     <JournalEntry
+//       key={entry.uuid}
+//       date={formattedDate.replace('{day}', `${daySuffix} of`)} // Replace placeholder with day suffix
+//       res1={entry.answer_one}
+//       res2={entry.answer_two}
+//       res3={entry.answer_three}
+//     />
+//   );
+// })}
