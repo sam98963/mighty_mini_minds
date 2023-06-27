@@ -22,10 +22,11 @@ entries? entries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)): 
               </div>
           <div>
           {entries? entries.map((entry) => (
+            
         <JournalEntry
           key={entry.uuid} // Ensure each entry has a unique key
           date={new Date(entry.createdAt).toLocaleString('en-GB', {
-            weekday: 'long',
+            weekday: 'short', // can use 'long'
             day: '2-digit',
             month: '2-digit',
             year: 'numeric',
@@ -44,3 +45,28 @@ entries? entries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)): 
         </div>
     );
 }
+
+
+// {sortedEntries.map((entry) => {
+//   const entryDate = new Date(entry.createdAt);
+//   const options = {
+//     weekday: 'long',
+//     day: 'numeric',
+//     month: 'long',
+//     hour: '2-digit',
+//     minute: '2-digit'
+//   };
+//   const formattedDate = entryDate.toLocaleString('en-US', options);
+//   const dayNumber = entryDate.getDate();
+//   const daySuffix = getDaySuffix(dayNumber);
+
+//   return (
+//     <JournalEntry
+//       key={entry.uuid}
+//       date={formattedDate.replace('{day}', `${daySuffix} of`)} // Replace placeholder with day suffix
+//       res1={entry.answer_one}
+//       res2={entry.answer_two}
+//       res3={entry.answer_three}
+//     />
+//   );
+// })}
