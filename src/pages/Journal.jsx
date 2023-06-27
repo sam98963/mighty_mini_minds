@@ -5,14 +5,7 @@ import axios from 'axios';
 
 export default function Journal() {
 // const {data: entries, isLoading, isError, error} = useGet();
-const {data: entries, isLoading, isError, error} = useQuery({
-  queryKey: ['entries'],
-  queryFn: async () => {
-    const data = await axios.get(
-      'https://mighty-mini-minds-backend.onrender.com/users/entries');
-    return data.message;
-  },
-});
+const {data: entries, isLoading, isError, error} = useGet();
 
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">

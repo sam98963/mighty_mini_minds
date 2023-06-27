@@ -6,9 +6,9 @@ export function useGet() {
     queryKey: ['entries'],
     queryFn: async () => {
       const response = await axios.get(
-        'https://mighty-mini-minds-backend.onrender.com/users/entries');
+        'https://mighty-mini-minds-backend.onrender.com');
 
-      return response;
+      return response.data;
     },
   });
 }
