@@ -11,7 +11,6 @@ export function useGet() {
       const url = `https://mighty-mini-minds-backend.onrender.com/entries/${userUuid}`;
       const response = await axios.get(
         url.replace(/"/g, ''));
-
       return response.data;
     },
   });

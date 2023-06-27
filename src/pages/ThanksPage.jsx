@@ -36,13 +36,13 @@ export default function ThanksPage() {
 
   function updateEntry() {
     const entry = {
-      share: share,
+      share: true,
     };
     mutate(entry);
   }
 
   useEffect(() => {
-    if (share !== false) {
+    if (share === "message2") {
       updateEntry();
     }
   }, [share]);
@@ -50,7 +50,7 @@ export default function ThanksPage() {
   const { mutate } = useMutation({
     mutationFn: async (entry) => {
       const response = await axios.patch(
-        `https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`,
+        `https://mighty-mini-minds-backend.onrender.com/entries/${entryId}`,
         entry
       );
       return response.data;
