@@ -2,19 +2,25 @@ import bunnyAvatar from "../Img//avatar-animations/bunnyFrame-1.png";
 import chickenAvatar from "../Img//avatar-animations/chickenFrame-1.png";
 import goatAvatar from "../Img//avatar-animations/goatFrame-1.png";
 import catAvatar from "../Img//avatar-animations/catFrame-1.png";
+import { useGet } from "../hooks/useGet";
 
 export default function Avatar({ animation, h, smw, smh, selection }) {
+
+  const {data: avatar, isLoading, isError, error} = useGet();
+  const userAvatar = avatar? avatar.avatar_url:null;
+
   let imageURL = bunnyAvatar
-  if(selection === "Bunny"){
+
+  if(selection === "Bunny" || userAvatar === "Bunny"){
     imageURL = bunnyAvatar
   }
-  if(selection === "Goat"){
+  if(selection === "Goat" || userAvatar === "Goat"){
     imageURL = goatAvatar
   }
-  if(selection === "Cat"){
+  if(selection === "Cat" || userAvatar === "Cat"){
     imageURL = catAvatar
   }
-  if(selection === "Chicken"){
+  if(selection === "Chicken" || userAvatar === "Chicken"){
     imageURL = chickenAvatar
   } else{}
   const bounceAnimation = animation ? "animate-bounce" : "";
