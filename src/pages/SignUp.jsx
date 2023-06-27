@@ -23,7 +23,10 @@ export default function SignUp() {
     onSuccess: (data) => { 
       console.log(data);
       navigate("/");
-    }
+    },
+    onError: (err) => {
+      console.log(err.message);
+    },
   });
 
    // onError: (err) => {
@@ -59,10 +62,10 @@ export default function SignUp() {
       name: signupData.user,
       username: signupData.username,
       password: signupData.password,
-      contactEmail: signupData.email,
-      contactName: signupData.contactName,
-      contactRelationship: signupData.relationship,
-      avatarUrl: signupData.avatar,
+      contact_email: signupData.email,
+      contact_name: signupData.contactName,
+      contact_relationship: signupData.relationship,
+      avatar_url: signupData.avatar,
     };
 
     if (

@@ -7,20 +7,21 @@ import { useGet } from "../hooks/useGet";
 export default function Avatar({ animation, h, smw, smh, selection }) {
 
   const {data: avatar, isLoading, isError, error} = useGet();
-  const userAvatar = avatar? avatar.avatar_url:null;
+  const userAvatar = avatar?avatar.avatar_url:null;
+  console.log("userAvatar", userAvatar)
 
   let imageURL = bunnyAvatar
 
-  if(selection === "Bunny" || userAvatar === "Bunny"){
+  if(userAvatar === "Bunny" || selection === "Bunny"){
     imageURL = bunnyAvatar
   }
-  if(selection === "Goat" || userAvatar === "Goat"){
+  if(userAvatar === "Goat" || selection === "Goat"){
     imageURL = goatAvatar
   }
-  if(selection === "Cat" || userAvatar === "Cat"){
+  if(userAvatar === "Cat" || selection === "Cat"){
     imageURL = catAvatar
   }
-  if(selection === "Chicken" || userAvatar === "Chicken"){
+  if(userAvatar === "Chicken" || selection === "Chicken"){
     imageURL = chickenAvatar
   } else{}
   const bounceAnimation = animation ? "animate-bounce" : "";
