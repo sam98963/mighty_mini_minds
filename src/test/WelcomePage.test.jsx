@@ -13,7 +13,7 @@ it("test_click_mood_button_updates_mood_state",() => {
     </Routes>
     </MemoryRouter>
     );
-    // const moodButton = getByText('🙁');
+    const moodButton = getByText('🙁');
     fireEvent.click(moodButton);
     const moodState = screen.getByText('Welcome, Sofia!').nextSibling;
     expect(moodState.textContent).toBe('1');
