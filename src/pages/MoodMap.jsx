@@ -12,17 +12,32 @@ export default function MoodMap() {
 
   const sortedEntries = entries?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  ).slice(0, 7);
+  ).slice(0, 7).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
   
   
-
+  // function moodPercentage() {
+  //   let mood = moodData[0].posts[0].mood_rating;
+  //   // turn mood into a percentage
+  //   mood = (mood - 1) * 20;
+  //   return mood;
+  // }
   // create a function to get the mood data from the backend (json in the meantime)
   // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
   function moodPercentage() {
-    let mood = moodData[0].posts[0].mood_rating;
-    // turn mood into a percentage
-    mood = (mood - 1) * 20;
-    return mood;
+    if (!sortedEntries || sortedEntries.length === 0) {
+      return 0;
+    }
+
+    let totalMood = 0;
+
+    sortedEntries.forEach((entry) => {
+      totalMood += entry.mood;
+    });
+
+    const averageMood = totalMood / sortedEntries.length;
+    const moodPercentage = (averageMood - 1) * 20;
+
+    return moodPercentage;
   }
 
   return (

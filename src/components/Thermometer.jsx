@@ -1,19 +1,3 @@
-// import ThermometerPic from "../Img/Therm_final.png";
-
-// export default function Thermometer(props) {
-//   return (
-//     <div className="h-60 w-24">
-//       <img
-//         src={ThermometerPic}
-//         alt="thermometer"
-//         className="h-full w-full z-10"
-//       />
-//       <div className={`h-${props.mood} w-5 bg-black`}></div>
-
-//       {/* <div className="h-20 w-5 bg-black"></div> */}
-//     </div>
-//   );
-// }
 import ThermometerPic from "../Img/Therm_final.png";
 
 export default function Thermometer(props) {
@@ -26,12 +10,54 @@ export default function Thermometer(props) {
     mood = `${mood}%`;
     return mood;
   }
-  // h-60 w-20 relative"
+
+  function getGradientColor(height) {
+    let gradientColor = "";
+    
+    if (height <= 33) {
+      gradientColor = "rgb(255,140,0)"
+    } else if (height <= 66) {
+      gradientColor = "rgb(255, 240, 0)";
+    } else {
+      gradientColor = "rgb(0, 255, 145)"; 
+    }
+    
+    return gradientColor;
+  }
+
+//   function getGradientColor(height) {
+//   let gradientColor = "";
+  
+//   if (height <= 33) {
+//     const red = 238;
+//     const green = Math.round(30 + height * (174 - 30) / 33);
+//     const blue = Math.round(11 + height * (55 - 11) / 33);
+//     gradientColor = `rgb(${red}, ${green}, ${blue})`;
+//   } else if (height <= 66) {
+//     const red = Math.round(238 - (height - 33) * (238 - 228) / 33);
+//     const green = Math.round(174 + (height - 33) * (255 - 174) / 33);
+//     const blue = Math.round(55 + (height - 33) * (145 - 55) / 33);
+//     gradientColor = `rgb(${red}, ${green}, ${blue})`;
+//   } else {
+//     const red = Math.round(228 - (height - 66) * (228 - 0) / 34);
+//     const green = Math.round(255 - (height - 66) * (255 - 0) / 34);
+//     const blue = Math.round(145 - (height - 66) * (145 - 0) / 34);
+//     gradientColor = `rgb(${red}, ${green}, ${blue})`;
+//   }
+  
+//   return `linear-gradient(to bottom, ${gradientColor} ${height}%,  ${gradientColor} ${height}%)`;
+// }
+
+  const thermometerStyle = {
+    height: moodValue(),
+    background: getGradientColor(props.mood),
+  };
+
   return (
     <div className=" w-12 relative mt-24 h-32 sm:h-48 sm:w-16 ml-8">
       <div
         className="w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0"
-        style={{ height: moodValue() }}
+        style={thermometerStyle}
       ></div>
       <img
         src={ThermometerPic}
