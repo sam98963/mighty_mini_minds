@@ -6,17 +6,41 @@ import { MemoryRouter, Route, Routes } from "react-router";
 
 
 
+
     // Tests that the correct emoji is displayed for each day of the week
     it('test_emoji_display', () => {
       const { getByTestId } = render(<MemoryRouter initialEntries={['/AppLayout']}>
             <MoodMap />
            </MemoryRouter>);
-      expect(getByTestId('emoji-component')).toHaveTextContent('My Week');
+      expect(getByTestId('emoji-component')).toHaveTextContent('😊');
   });
 
 
+  it('test_emoji_display2', () => {
+     const {getByText} = render(<MemoryRouter initialEntries={['/AppLayout/moodMap']}>
+          <Emoji 
+          mon={"😊"}
+          tue={"🙁"}
+          wed={"😐"}
+          thu={"😐"}
+          fri={"🙁"}
+          sat={"😁"}
+          sun={"😁"}/>
+         </MemoryRouter>);
+         const emojiElement = getByText("😊");
+         expect(emojiElement).toBeInTheDocument();;
+    
+});
 
-
+test('h1_renders_in_moodmap', () => {
+  render(
+    <MemoryRouter initialEntries={['/AppLayout']}>
+      <MoodMap />
+    </MemoryRouter>
+  );
+  const h1 = screen.getByTestId('h1');
+  expect(h1).toBeInTheDocument();
+});
 
 
 
@@ -40,51 +64,13 @@ import { MemoryRouter, Route, Routes } from "react-router";
   
 // });
 
-// test('test_render_components2', () => {
-//   render(
-//     <MemoryRouter initialEntries={['/AppLayout']}>
-//       <MoodMap />
-//     </MemoryRouter>
-//   );
-//   const emoji = screen.getByTestId('emoji-component');
-//   expect(emoji).toBeInTheDocument();
-// });
-
-// describe("My app", () => {
-//   it("renders correctly", () => {
-//     render(
-//       <MemoryRouter initialEntries={['/AppLayout']}>
-//         <Routes>
-//           <Route path="moodMap" element={<MoodMap />}>
-//           <Emoji/>
-//           </Route>
-//         </Routes>
-//       </MemoryRouter>
-//     );
-//   });
-// });
 
 
 
-// expect(screen.getByText('My Week')).toBeInTheDocument();
-  // expect(screen.getByText('😊')).toBeInTheDocument();
-  // expect(screen.getByText('🙁')).toBeInTheDocument();
-  // expect(screen.getByText('🙃')).toBeInTheDocument();
-  // expect(screen.getByText('😐')).toBeInTheDocument();
-  // expect(screen.getByText('😢')).toBeInTheDocument();
-  // expect(screen.getByText('😁')).toBeInTheDocument();
-  // expect(screen.getByText('😍')).toBeInTheDocument();
-  // expect(screen.getByText('Word of The Day')).toBeInTheDocument();
-  // expect(screen.getByText(/"/)).toBeInTheDocument();
+
+
+
+
 
 
   
-// describe('something truthy and falsy', () => {
-//   it('true to be true', () => {
-//     expect(true).toBe(true);
-//   });
-
-//   it('false to be false', () => {
-//     expect(false).toBe(false);
-//   });
-// });
