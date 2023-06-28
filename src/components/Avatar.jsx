@@ -2,11 +2,11 @@ import bunnyAvatar from "../Img//avatar-animations/bunnyFrame-1.png";
 import chickenAvatar from "../Img//avatar-animations/chickenFrame-1.png";
 import goatAvatar from "../Img//avatar-animations/goatFrame-1.png";
 import catAvatar from "../Img//avatar-animations/catFrame-1.png";
-import { useGet } from "../hooks/useGet";
+import { useGetUser } from "../hooks/useGetUser";
 
 export default function Avatar({ animation, h, smw, smh, selection }) {
 
-  const {data: avatar, isLoading, isError, error} = useGet();
+  const {data: avatar} = useGetUser();
   const userAvatar = avatar?avatar.avatar_url:null;
   console.log("userAvatar", userAvatar)
 

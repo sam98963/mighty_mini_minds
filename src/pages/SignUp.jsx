@@ -53,6 +53,7 @@ export default function SignUp() {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setSignupData((prevState) => ({ ...prevState, [name]: value }));
+    console.log(signupData.avatar);
   }
 
   function handleSubmit(event) {
@@ -65,7 +66,7 @@ export default function SignUp() {
       contact_email: signupData.email,
       contact_name: signupData.contactName,
       contact_relationship: signupData.relationship,
-      avatar_url: signupData.avatar,
+      avatar_url: signupData.avatar
     };
 
     if (
