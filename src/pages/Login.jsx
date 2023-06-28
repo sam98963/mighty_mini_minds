@@ -119,6 +119,9 @@ export default function Login() {
     <div className="underline sm:text-xl">
       <NavLink to="signup">No account? Sign up here!</NavLink>
     </div>
+    <div className="underline sm:text-lg">
+      <NavLink to="./about">About Us</NavLink>
+    </div>
   </div>
   );
 }
