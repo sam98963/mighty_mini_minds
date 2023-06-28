@@ -6,10 +6,12 @@ import WordOfTheDay from "../components/WordOfTheDay";
 import ReminderQuote from "../components/ReminderQuote";
 import moodData from "../data/data.json";
 import { useGet } from "../hooks/useGet";
+import { useState } from "react";
 
 export default function MoodMap() {
+  const [sharePopup, setSharePopup] = useState(false)
+  const [popupDone, setPopupDone] = useState(false)
   const {data: entries, isLoading, isError, error} = useGet();
-
   const sortedEntries = entries?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   ).slice(0, 7).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
@@ -35,10 +37,19 @@ export default function MoodMap() {
     });
 
     const averageMood = totalMood / sortedEntries.length;
-    const moodPercentage = (averageMood - 1) * 20;
+    const moodPercentageVariable = (averageMood) * 25;
+    if(moodPercentageVariable < 40 && popupDone === false) {
+       setTimeout(() => {
+      confirm("Looks like you are having a tough week, would you like us to let someone know?")
+    }, 1000);
+     setSharePopup(true)
+     setPopupDone(true)
+    }
 
-    return moodPercentage;
+    return moodPercentageVariable;
   }
+
+  
 
   return (
     <div className="flex flex-col justify-around items-center w-full h-full">
@@ -47,7 +58,7 @@ export default function MoodMap() {
       {sortedEntries? sortedEntries.map((entry) => (
         <Emoji data-testid="emoji-component"
           key={entry.id}
-          mood={entry.mood} 
+          mood={(entry.mood)} 
           date={new Date(entry.createdAt).toLocaleString('en-GB', {
             weekday: 'short',
           })}
