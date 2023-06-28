@@ -60,13 +60,12 @@ export default function ProfilePage() {
       <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-4" />
 
       <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
-        <h1 className="text-3xl sm:text-4xl mt-2 text-center">Your Profile</h1>
-        <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
-          <div className="flex flex-col mb-4">
-            <label className="text-sm sm:text-base">What is your name?</label>
+        <form className="flex flex-col mx-8 mt-4 justify-between h-full" onSubmit={handleSubmit}>
+          <div className="mb-4 sm:mt-4">
+            <label className="text-sm sm:text-lg mr-2">Name:</label>
             {/* input user */}
             <input
-              className="bg-skin-input shadow-md"
+              className="bg-skin-input shadow-md w-4/5"
               name="user"
               value={signupData.user}
               onChange={handleInputChange}
@@ -75,7 +74,7 @@ export default function ProfilePage() {
 
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
-              <label className="text-sm sm:text-base">Username</label>
+              <label className="text-sm sm:text-lg">Username</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="username"
@@ -84,7 +83,7 @@ export default function ProfilePage() {
               />
             </div>
             <div className="flex flex-col w-1/2 ml-2">
-              <label className="text-sm sm:text-base">Password</label>
+              <label className="text-sm sm:text-lg">Password</label>
               <input required
                 className="bg-skin-input shadow-md"
                 name="password"
@@ -96,7 +95,7 @@ export default function ProfilePage() {
           </div>
 
           <div className="flex flex-col mb-4">
-            <label className="text-sm sm:text-base">
+            <label className="text-sm sm:text-lg">
               Email of someone you trust*
             </label>
             <input
@@ -109,7 +108,7 @@ export default function ProfilePage() {
 
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
-              <label className="text-sm sm:text-base">Contact name</label>
+              <label className="text-sm sm:text-lg">Contact name</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="contactName"
@@ -118,7 +117,7 @@ export default function ProfilePage() {
               />
             </div>
             <div className="flex flex-col w-1/2 ml-2">
-              <label className="text-sm sm:text-base">Relationship</label>
+              <label className="text-sm sm:text-lg">Relationship</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="relationship"
@@ -130,7 +129,7 @@ export default function ProfilePage() {
 
           <div className="flex justify-between my-4 items-center">
             <div className="flex flex-col mb-4 w-1/3 sm:w-2/5">
-              <label className="text-sm sm:text-base">Choose avatar</label>
+              <label className="text-sm sm:text-lg">Choose avatar</label>
               <select
                 className="bg-skin-input text-xs sm:text-base h-6 shadow-md"
                 name="avatar"
@@ -143,12 +142,12 @@ export default function ProfilePage() {
                 <option value="Cat">Cat</option>
               </select>
             </div>
-            <div className="flex flex-col my-4 w-3/4 sm:w-2/3">
+            <div className="flex flex-col mt-2 w-3/4 sm:w-2/3">
               <Avatar selection={signupData.avatar} animation={true} h={20} smh={28}/> 
             </div>
           </div>
           <div className='flex flex-col'>
-          <label className="text-sm sm:text-base">Please input your old password to update profile:</label>
+          <label className="text-sm sm:text-lg">Please input your old password to update your profile:</label>
               <input required
                 className="bg-skin-input shadow-md"
                 name="oldPassword"
@@ -156,7 +155,7 @@ export default function ProfilePage() {
               />
           </div>
           <div className= "flex justify-center mt-4 mb-10">
-            <button className="mt-2 sm:mt-6 rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
+            <button className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Update Profile
             </button>
           </div>

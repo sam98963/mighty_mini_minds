@@ -94,7 +94,7 @@ export default function SignUp() {
         <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
-            <label className="text-sm sm:text-base">What is your name?</label>
+            <label className="text-sm sm:text-lg">What is your name?</label>
             {/* input user */}
             <input
               className="bg-skin-input shadow-md"
@@ -106,7 +106,7 @@ export default function SignUp() {
 
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
-              <label className="text-sm sm:text-base">Username</label>
+              <label className="text-sm sm:text-lg">Username</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="username"
@@ -115,7 +115,7 @@ export default function SignUp() {
               />
             </div>
             <div className="flex flex-col w-1/2 ml-2">
-              <label className="text-sm sm:text-base">Password</label>
+              <label className="text-sm sm:text-lg">Password</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="password"
@@ -127,7 +127,7 @@ export default function SignUp() {
           </div>
 
           <div className="flex flex-col mb-4">
-            <label className="text-sm sm:text-base">
+            <label className="text-sm sm:text-lg">
               Email of someone you trust*
             </label>
             <input
@@ -140,7 +140,7 @@ export default function SignUp() {
 
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
-              <label className="text-sm sm:text-base">Contact name</label>
+              <label className="text-sm sm:text-lg">Contact name</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="contactName"
@@ -149,7 +149,7 @@ export default function SignUp() {
               />
             </div>
             <div className="flex flex-col w-1/2 ml-2">
-              <label className="text-sm sm:text-base">Relationship</label>
+              <label className="text-sm sm:text-lg">Relationship</label>
               <input
                 className="bg-skin-input shadow-md"
                 name="relationship"
@@ -161,7 +161,7 @@ export default function SignUp() {
 
           <div className="flex justify-between my-4 items-center">
             <div className="flex flex-col mb-4 w-1/3 sm:w-2/5">
-              <label className="text-sm sm:text-base">Choose avatar</label>
+              <label className="text-sm sm:text-lg">Choose avatar</label>
               <select
                 className="bg-skin-input text-xs sm:text-base h-6 shadow-md"
                 name="avatar"
