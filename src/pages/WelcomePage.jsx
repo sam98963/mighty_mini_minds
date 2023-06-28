@@ -31,6 +31,7 @@ export default function WelcomePage() {
     const entry = {
       mood: mood,
       share: false,
+      // user_uuid: userId,
     };
     if (mood !==0){
     mutate(entry);
