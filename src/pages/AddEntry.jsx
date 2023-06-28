@@ -11,9 +11,15 @@ export default function AddEntry() {
     
     const {mutate} = useMutation({
         mutationFn: async (entry) => {
-          const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entry/${entryId}`, entry);
+          const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entries/${entryId}`, entry);
           return response.data;
         },
+        onSuccess: (data) => {
+          console.log(data);
+        },
+        onError: (error) => {
+          console.log(error);
+        }
     });
     // return the outlet context using the useOutletContext hook
     const [positiveA, setPositiveA] = useState("")

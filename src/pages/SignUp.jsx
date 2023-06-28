@@ -23,12 +23,11 @@ export default function SignUp() {
     onSuccess: (data) => { 
       console.log(data);
       navigate("/");
-    }
+    },
+    onError: (err) => {
+      console.log(err.message);
+    },
   });
-
-   // onError: (err) => {
-    //   console.log(err.message);
-    // }
 
   // check if user is authenticated if so redirect to home page
   // const auth = useAuth();
@@ -44,12 +43,13 @@ export default function SignUp() {
     email: "",
     contactName: "",
     relationship: "",
-    avatar: "Bunny",
+    avatar: "",
   });
   // function to handle input changes
   function handleInputChange(event) {
     const { name, value } = event.target;
     setSignupData((prevState) => ({ ...prevState, [name]: value }));
+    console.log(signupData.avatar);
   }
 
   function handleSubmit(event) {
@@ -59,10 +59,10 @@ export default function SignUp() {
       name: signupData.user,
       username: signupData.username,
       password: signupData.password,
-      contactEmail: signupData.email,
-      contactName: signupData.contactName,
-      contactRelationship: signupData.relationship,
-      avatarUrl: signupData.avatar,
+      contact_email: signupData.email,
+      contact_name: signupData.contactName,
+      contact_relationship: signupData.relationship,
+      avatar_url: signupData.avatar
     };
 
     if (
@@ -76,6 +76,9 @@ export default function SignUp() {
     ) {
       mutate(user);
       setIsRegistered(true);
+      console.log(signupData.avatar)
+      console.log(user.avatar_url)
+      console.log(user)
 
     } else {
       alert("Please fill in all fields 😀");

@@ -6,7 +6,7 @@ import questionData from "../data/questions.json";
 import { useEffect, useState, createContext } from "react";
 
 export default function AppLayout({ handleThemeChange }) {
-  const [ entryId, setEntryId ] = useState(""); 
+  const [ entryId, setEntryId ] = useState(null); 
 
   const [questions, setQuestions] = useState([]);
   // need a useEffect to get random questions from each key value pair in the json file and to stop infinite loop
