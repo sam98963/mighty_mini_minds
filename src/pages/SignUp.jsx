@@ -47,7 +47,7 @@ export default function SignUp() {
     email: "",
     contactName: "",
     relationship: "",
-    avatar: "Bunny",
+    avatar: "",
   });
   // function to handle input changes
   function handleInputChange(event) {
@@ -80,6 +80,9 @@ export default function SignUp() {
     ) {
       mutate(user);
       setIsRegistered(true);
+      console.log(signupData.avatar)
+      console.log(user.avatar_url)
+      console.log(user)
 
     } else {
       alert("Please fill in all fields 😀");
