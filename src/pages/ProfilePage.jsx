@@ -85,7 +85,7 @@ export default function ProfilePage() {
             </div>
             <div className="flex flex-col w-1/2 ml-2">
               <label className="text-sm sm:text-base">Password</label>
-              <input
+              <input required
                 className="bg-skin-input shadow-md"
                 name="password"
                 value={signupData.password}
