@@ -15,6 +15,7 @@ import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
 import WelcomePage from "./pages/WelcomePage";
 import ThanksPage from "./pages/ThanksPage";
+import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoutes from "./ProtectedRoute";
 import { AuthProvider } from "./auth/AuthProvider";
 
@@ -29,6 +30,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
+        <Route path="profile" element={<ProfilePage />} />
         {/* <Route path="login" element={<Login />} /> */}
         {/* protected routes by atuh goes here wrappep by ProtectedRoutes*/}
           <Route element={<ProtectedRoutes />}>
