@@ -22,12 +22,12 @@ export default function AddEntry() {
 
     function submit() {
         const entry = {
-          questionOne: questions[0],
-          questionTwo: questions[1],
-          questionThree: questions[2],
-          answerOne: positiveA, // Use value from positiveA input field
-          answerTwo: challengeA, // Use value from challengeA input field
-          answerThree: openA, // Use value from openA input field
+          question_one: questions[0],
+          question_two: questions[1],
+          question_three: questions[2],
+          answer_one: positiveA, // Use value from positiveA input field
+          answer_two: challengeA, // Use value from challengeA input field
+          answer_three: openA, // Use value from openA input field
         };
     
         mutate(entry);
