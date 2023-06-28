@@ -9,7 +9,7 @@ export default function Avatar({ animation, h, smw, smh, selection }) {
   const {data: avatar} = useGetUser();
   const userAvatar = avatar?avatar.avatar_url:null;
 
-  let imageURL = bunnyAvatar
+  let imageURL = bunnyAvatar;
 
   if(userAvatar === "Bunny" || selection === "Bunny"){
     imageURL = bunnyAvatar

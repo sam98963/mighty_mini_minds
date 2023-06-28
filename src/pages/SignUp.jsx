@@ -29,10 +29,6 @@ export default function SignUp() {
     },
   });
 
-   // onError: (err) => {
-    //   console.log(err.message);
-    // }
-
   // check if user is authenticated if so redirect to home page
   // const auth = useAuth();
   // if(auth.isAuthenticated) {
