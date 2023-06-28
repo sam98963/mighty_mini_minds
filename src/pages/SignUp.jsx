@@ -53,6 +53,7 @@ export default function SignUp() {
   }
 
   function handleSubmit(event) {
+    event.preventDefault();
     const user = {
       name: signupData.user,
       username: signupData.username,

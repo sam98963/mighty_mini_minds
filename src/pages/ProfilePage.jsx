@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function ProfilePage() {
     const userId = localStorage.getItem('userId');
+    const url = `https://mighty-mini-minds-backend.onrender.com/users/${userId}`;
     const {data: user} = useGetUser();
     const [signupData, setSignupData] = useState({
         user: user?.name || '',
@@ -21,13 +22,12 @@ export default function ProfilePage() {
 
 
     const {mutate} = useMutation({
-        mutationFn: async () => {
-        const url = `https://mighty-mini-minds-backend.onrender.com/users/${userId}`;
-          const response = await axios.patch(url.replace(/"/g, ''));
+        mutationFn: async (user) => {
+          const response = await axios.patch(url.replace(/"/g, ''), user);
           return response.data;
         },
         onSuccess: (data) => {
-            navigate("/applayout/journal");
+            // navigate("../appLayout/journal");
             console.log(data);
         },
         onError: (error) => {
@@ -40,7 +40,8 @@ export default function ProfilePage() {
         setSignupData((prevState) => ({ ...prevState, [name]: value }));
     }
 
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault();
         const user = {
           name: signupData.user,
           username: signupData.username,
@@ -51,6 +52,7 @@ export default function ProfilePage() {
           avatar_url: signupData.avatar
         };
         mutate(user);
+        alert("Your profile has been updated!");
     }
 
     return (
@@ -145,8 +147,16 @@ export default function ProfilePage() {
               <Avatar selection={signupData.avatar} animation={true} h={20} smh={28}/> 
             </div>
           </div>
+          <div className='flex flex-col'>
+          <label className="text-sm sm:text-base">Please input your old password to update profile:</label>
+              <input required
+                className="bg-skin-input shadow-md"
+                name="oldPassword"
+                onChange={handleInputChange}
+              />
+          </div>
           <div className= "flex justify-center mt-4 mb-10">
-            <button className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
+            <button className="mt-2 sm:mt-6 rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125" type="Submit">
               Update Profile
             </button>
           </div>
