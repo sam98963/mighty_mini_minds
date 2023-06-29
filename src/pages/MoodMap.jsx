@@ -4,18 +4,20 @@ import Thermometer from "../components/Thermometer";
 import WordOfTheDay from "../components/WordOfTheDay";
 // import SpeechBubble from "../Img/speech-bubble.png";
 import ReminderQuote from "../components/ReminderQuote";
-// import moodData from "../data/data.json";
+import moodData from "../data/data.json";
 import { useGet } from "../hooks/useGet";
-import { useState } from "react";
 
 export default function MoodMap() {
-  const [sharePopup, setSharePopup] = useState(false)
-  const [popupDone, setPopupDone] = useState(false)
   const {data: entries, isLoading, isError, error} = useGet();
   const sortedEntries = entries?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   ).slice(0, 7).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
   
+  let hardcodedDates = ['2023-06-22T15:28:32.347Z', '2023-06-23T15:28:32.347Z', '2023-06-24T15:28:32.347Z', '2023-06-25T15:28:32.347Z', '2023-06-26T15:28:32.347Z','2023-06-27T15:28:32.347Z','2023-06-28T15:28:32.347Z','2023-06-29T15:28:32.347Z']
+
+  sortedEntries?.forEach((entry,index)=>{
+      entry.createdAt = hardcodedDates[index];
+    })
   
   // function moodPercentage() {
   //   let mood = moodData[0].posts[0].mood_rating;
@@ -37,19 +39,10 @@ export default function MoodMap() {
     });
 
     const averageMood = totalMood / sortedEntries.length;
-    const moodPercentageVariable = (averageMood) * 25;
-    if(moodPercentageVariable < 40 && popupDone === false) {
-       setTimeout(() => {
-      confirm("Looks like you are having a tough week, would you like us to let someone know?")
-    }, 1000);
-     setSharePopup(true)
-     setPopupDone(true)
-    }
+    const moodPercentage = (averageMood - 1) * 20;
 
-    return moodPercentageVariable;
+    return moodPercentage;
   }
-
-  
 
   return (
     <div className="flex flex-col justify-around items-center w-full h-full">
@@ -58,7 +51,7 @@ export default function MoodMap() {
       {sortedEntries? sortedEntries.map((entry) => (
         <Emoji data-testid="emoji-component"
           key={entry.id}
-          mood={(entry.mood)} 
+          mood={entry.mood} 
           date={new Date(entry.createdAt).toLocaleString('en-GB', {
             weekday: 'short',
           })}

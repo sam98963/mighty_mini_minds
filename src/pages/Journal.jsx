@@ -6,7 +6,11 @@ export default function Journal() {
 const {data: entries, isLoading, isError, error} = useGet();
 
 entries? entries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)): null;
-
+let hardcodedDates = ['2023-06-22T15:28:32.347Z', '2023-06-23T15:28:32.347Z', '2023-06-24T15:28:32.347Z', '2023-06-25T15:28:32.347Z', '2023-06-26T15:28:32.347Z','2023-06-27T15:28:32.347Z','2023-06-28T15:28:32.347Z','2023-06-29T15:28:32.347Z']
+entries?.forEach((entry,index)=>{
+    entry.createdAt = hardcodedDates[index];
+  })
+entries?.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
 
     return (
         <div className=" h-full w-full overflow-y-scroll bg-red ">
