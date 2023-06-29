@@ -18,20 +18,21 @@ import ReminderQuote from "../components/ReminderQuote";
   // });
 
 
-it('test_emoji_display2', () => {
+it('test_emoji_display and test date display', () => {
+
+  const entry = {id:"12345", mood:5, createdAt: "2023-06-28T09:44:22.779Z"}
      const {getByText} = render(<MemoryRouter initialEntries={['/AppLayout/moodMap']}>
           <Emoji 
-          mon={"😊"}
-          tue={"🙁"}
-          wed={"😐"}
-          thu={"😐"}
-          fri={"🙁"}
-          sat={"😁"}
-          sun={"😁"}/>
+         key={entry.id}
+  mood={entry.mood} 
+  date={new Date(entry.createdAt).toLocaleString('en-GB', {
+    weekday: 'short',})}/>
          </MemoryRouter>);
-         const emojiElement = getByText("😊");
-         expect(emojiElement).toBeInTheDocument();;
-    
+         const emojiElement = getByText("😁");
+         const dateElement = getByText("Wed")
+         expect(emojiElement).toBeInTheDocument();
+         expect(dateElement).toBeInTheDocument();
+
 });
 
 it('image renders on animated avatar component', () => {

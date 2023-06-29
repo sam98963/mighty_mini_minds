@@ -10,3 +10,5 @@ export default defineConfig({
   },
 });
 
+// enable tests to run
+

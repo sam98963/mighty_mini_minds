@@ -1,5 +1,5 @@
 import { NavLink, useOutletContext } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState } from "react";
 // import { usePost } from "../hooks/usePost";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
@@ -13,9 +13,6 @@ export default function AddEntry() {
         mutationFn: async (entry) => {
           const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entries/${entryId}`, entry);
           return response.data;
-        },
-        onSuccess: (data) => {
-          console.log(data);
         },
         onError: (error) => {
           console.log(error);

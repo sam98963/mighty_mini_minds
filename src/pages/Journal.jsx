@@ -39,6 +39,7 @@ entries? entries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)): 
           q1={entry.question_one}
           q2={entry.question_two}
           q3={entry.question_three}
+          id={entry.uuid}
         />
       )) : null}
       </div>

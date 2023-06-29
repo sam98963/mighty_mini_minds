@@ -1,10 +1,12 @@
-import { NavLink, useOutletContext, useNavigate } from "react-router-dom";
+import {  useOutletContext, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-
+import { useGetUser } from "../hooks/useGetUser";
 export default function WelcomePage() {
   const userId = localStorage.getItem('userId');
+
+  const { data: user} = useGetUser();
 
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
@@ -31,6 +33,7 @@ export default function WelcomePage() {
     const entry = {
       mood: mood,
       share: false,
+      // user_uuid: userId,
     };
     if (mood !==0){
     mutate(entry);
@@ -44,40 +47,40 @@ export default function WelcomePage() {
     <>
       <div className="flex flex-col justify-around items-center w-full h-full">
         <h1 className="text-2xl sm:text-4xl text-center px-4">
-          Welcome, Sofia! How are you feeling today?
+          Welcome, {user.name}! How are you feeling today?
         </h1>
         <div className="flex justify-around w-full">
+          <button
+            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '0' ? 'animate-pulse' : ''}`}
+            value={0}
+            onClick={(e) => handleClick(e)}
+          >
+            🙁
+          </button>
           <button
             className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '1' ? 'animate-pulse' : ''}`}
             value={1}
             onClick={(e) => handleClick(e)}
           >
-            🙁
+            😕
           </button>
           <button
             className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '2' ? 'animate-pulse' : ''}`}
             value={2}
             onClick={(e) => handleClick(e)}
           >
-            😕
+            😐
           </button>
           <button
             className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '3' ? 'animate-pulse' : ''}`}
             value={3}
             onClick={(e) => handleClick(e)}
           >
-            😐
+            🙂
           </button>
           <button
             className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '4' ? 'animate-pulse' : ''}`}
             value={4}
-            onClick={(e) => handleClick(e)}
-          >
-            🙂
-          </button>
-          <button
-            className={`text-4xl sm:text-6xl md:text-7xl transition-all duration-300 ease-in-out transform hover:scale-125 ${mood === '5' ? 'animate-pulse' : ''}`}
-            value={5}
             onClick={(e) => handleClick(e)}
           >
             😁
