@@ -1,4 +1,4 @@
-import mmmStatement from "../Img/mmm-Statement.png";
+import mmmStatement from "../Img/mmm-statement.png";
 import logo from "../Img/logo-close.png";
 import { NavLink } from "react-router-dom";
 
