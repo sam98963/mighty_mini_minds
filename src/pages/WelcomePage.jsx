@@ -2,9 +2,11 @@ import {  useOutletContext, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-
+import { useGetUser } from "../hooks/useGetUser";
 export default function WelcomePage() {
   const userId = localStorage.getItem('userId');
+
+  const { data: user} = useGetUser();
 
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
@@ -45,7 +47,7 @@ export default function WelcomePage() {
     <>
       <div className="flex flex-col justify-around items-center w-full h-full">
         <h1 className="text-2xl sm:text-4xl text-center px-4">
-          Welcome, Sofia! How are you feeling today?
+          Welcome, {user.name}! How are you feeling today?
         </h1>
         <div className="flex justify-around w-full">
           <button
