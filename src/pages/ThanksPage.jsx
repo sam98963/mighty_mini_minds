@@ -1,5 +1,6 @@
+import avatar from "../Img/number7V3.png";
 import AnimatedAvatar from "../components/AnimatedAvatar";
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { NavLink, useOutletContext, useNavigate } from "react-router-dom";
 import Confetti from "react-confetti";
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
