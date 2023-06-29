@@ -20,7 +20,7 @@ import ReminderQuote from "../components/ReminderQuote";
 
 it('test_emoji_display and test date display', () => {
 
-  const entry = {id:"12345", mood:5, createdAt: "2023-06-28T09:44:22.779Z"}
+  const entry = {id:"12345", mood:4, createdAt: "2023-06-28T09:44:22.779Z"}
      const {getByText} = render(<MemoryRouter initialEntries={['/AppLayout/moodMap']}>
           <Emoji 
          key={entry.id}
