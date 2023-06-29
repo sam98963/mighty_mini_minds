@@ -33,6 +33,7 @@ export default function Login() {
       localStorage.setItem("tokenData", JSON.stringify(data.token));
       localStorage.setItem("userId", JSON.stringify(data.userId));
       handleAuthentication(true), navigate("/appLayout/welcomePage");
+      console.log(data.token);
     },
     onError: (err) => {
       const errorMessage = `Sorry, there was an error: ${err.message}`;

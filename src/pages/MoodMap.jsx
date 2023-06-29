@@ -4,7 +4,7 @@ import Thermometer from "../components/Thermometer";
 import WordOfTheDay from "../components/WordOfTheDay";
 // import SpeechBubble from "../Img/speech-bubble.png";
 import ReminderQuote from "../components/ReminderQuote";
-import moodData from "../data/data.json";
+// import moodData from "../data/data.json";
 import { useGet } from "../hooks/useGet";
 import { useState } from "react";
 

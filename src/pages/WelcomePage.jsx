@@ -47,7 +47,7 @@ export default function WelcomePage() {
     <>
       <div className="flex flex-col justify-around items-center w-full h-full">
         <h1 className="text-2xl sm:text-4xl text-center px-4">
-          Welcome, {user.name}! How are you feeling today?
+          Welcome, {user?user.name: ''}! How are you feeling today?
         </h1>
         <div className="flex justify-around w-full">
           <button
