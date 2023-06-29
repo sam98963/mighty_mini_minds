@@ -14,9 +14,6 @@ export default function AddEntry() {
           const response = await axios.patch(`https://mighty-mini-minds-backend.onrender.com/entries/${entryId}`, entry);
           return response.data;
         },
-        onSuccess: (data) => {
-          console.log(data);
-        },
         onError: (error) => {
           console.log(error);
         }
