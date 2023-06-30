@@ -17,21 +17,21 @@ export default function NavBar({ handleThemeChange }) {
     <div className="flex justify-center align-center">
       {/* nav bar white box start here */}
     <div className="flex justify-around fixed bottom-3 w-9/12  h-12  bg-white rounded-lg">
-      <NavLink to="welcomePage" className="flex items-center ">
+      <NavLink aria-label="link to the welcome page" to="welcomePage" className="flex items-center">
         {/* Icon imported from Font Awesome */}
         <FontAwesomeIcon 
         icon={faCirclePlus}
         className="w-8 h-8 transition-colors duration-300 ease-in-out transform hover:scale-125"
         style={{ color: "var(--color-icon-secondary)" }} />
         </NavLink>
-      <NavLink to="Journal" className="flex items-center">
+      <NavLink aria-label="link to the journal page" to="Journal" className="flex items-center">
         <FontAwesomeIcon 
         icon={faBook}
         className="w-7 h-7 transition-colors duration-300 ease-in-out transform hover:scale-125"
         style={{ color: "var(--color-icon-secondary)" }}
         />
         </NavLink>
-      <NavLink to="MoodMap" className="flex items-center">
+      <NavLink aria-label="link to the mood map page" to="MoodMap" className="flex items-center">
         <FontAwesomeIcon 
         icon={faTemperatureHalf}
         className="w-8 h-8 transition-colors duration-300 ease-in-out transform hover:scale-125"
@@ -39,7 +39,7 @@ export default function NavBar({ handleThemeChange }) {
          />
         </NavLink>
     <div className="relative flex items-center">
-      <button onClick={toggleThemePicker}>
+      <button aria-label="theme changer" onClick={toggleThemePicker}>
         {/* Clickeanble palete*/}
         <FontAwesomeIcon 
         icon={faPalette}
