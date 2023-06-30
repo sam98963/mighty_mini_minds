@@ -65,7 +65,7 @@ export default function MoodMap() {
         />
       )) : null}
       </div>
-      <WordOfTheDay />
+      <WordOfTheDay data-testid="word-of-the-day"/>
       <div className="flex w-full justify-evenly mt-4">
         <Thermometer mood={moodPercentage()} />
         <div className="flex flex-row relative">

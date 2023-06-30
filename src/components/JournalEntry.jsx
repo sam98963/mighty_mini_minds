@@ -77,16 +77,16 @@ export default function JournalEntry(props) {
         <h4 className="font-bold ml-5">{props.date}</h4>
         <div className = 'flex flex-col justify-start items-start bg-skin-input mx-4 mb-4 p-2 rounded-lg shadow-md'>
             <h2 className="font-bold">{props.q1}</h2>
-            <p data-testid="journal-entry-1">{props.res1}</p>
+            <p className='break-words w-full' data-testid="journal-entry-1">{props.res1}</p>
             <br/>
             <h2 className="font-bold">{props.q2}</h2>
-            <p>{props.res2}</p>
+            <p className='break-words w-full'>{props.res2}</p>
             <br/>
             <h2 className="font-bold">{props.q3}</h2>
-            <p>{props.res3}</p>
-            <div className='flex flex-row item-start justify-end w-full gap-5 mb-5'>
-                <button onClick={()=>handleEdit(props.id)} className='rounded-md w-10 h-10 bg-skin-secondary text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 '><FontAwesomeIcon icon={faPencil} className='' /></button>
-                <button onClick={()=>handleDeleteEntry(props.id)} className='rounded-md w-10 h-10 bg-skin-secondary text-white mr-5 transition-colors duration-300 ease-in-out transform hover:scale-125'><FontAwesomeIcon icon={faTrash} className='' /></button>
+            <p className='break-words w-full'>{props.res3}</p>
+            <div className='flex flex-row item-start justify-end w-full gap-5 mt-4 mb-5'>
+                <button aria-label="edit-button" onClick={()=>handleEdit(props.id)} className='rounded-md w-10 h-10 bg-skin-secondary text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 '><FontAwesomeIcon icon={faPencil} /></button>
+                <button aria-label="delete-button" onClick={()=>handleDeleteEntry(props.id)} className='rounded-md w-10 h-10 bg-skin-secondary text-white mr-5 transition-colors duration-300 ease-in-out transform hover:scale-125'><FontAwesomeIcon icon={faTrash}  /></button>
             </div>
         </div>
         </>)
@@ -95,7 +95,7 @@ export default function JournalEntry(props) {
             <div className="flex flex-col justify-start items-start bg-skin-input mx-4 mb-4 p-2 rounded-lg shadow-md ">
             <h1 className='font-bold mb-4'>Edit Your Journal</h1>
             <h2 className="font-bold">{props.q1}</h2>
-            <input type="text"
+            <textarea type="text" rows="4"
              className="border-2 border-skin-primary w-full rounded-md p-1"
              name="res1"
              value={editEntry.res1} 
@@ -103,7 +103,7 @@ export default function JournalEntry(props) {
              />
             <br/>
             <h2 className="font-bold">{props.q2}</h2>
-            <input type="text" 
+            <textarea type="text" rows="4"
             name='res2'
             className="border-2 border-skin-primary w-full rounded-md  p-1" 
             value={editEntry.res2}
@@ -111,18 +111,18 @@ export default function JournalEntry(props) {
             />
             <br/>
             <h2 className="font-bold">{props.q3}</h2>
-            <input type="text"
+            <textarea type="text" rows="4"
              className="border-2 border-skin-primary w-full rounded-md p-1 mb-4" 
              name="res3"
              value={editEntry.res3}
              onChange={handleInputChange}
              />
 
-            <div className="flex flex-row item-start justify-end w-full gap-5 mb-5">
-                <button onClick={handleEdit} className="rounded-md w-10 h-10 bg-skin-secondary text-white transition-colors duration-300 ease-in-out transform hover:scale-125">
+            <div className="flex flex-row item-start justify-end w-full gap-5 mt-2 mb-5">
+                <button aria-label="cancel-edit-button" onClick={handleEdit} className="rounded-md w-10 h-10 bg-skin-secondary text-white transition-colors duration-300 ease-in-out transform hover:scale-125">
                 X
                 </button>
-                <button onClick={handleEditEntry} className="rounded-md w-10 h-10 bg-skin-secondary text-white mr-5 transition-colors duration-300 ease-in-out transform hover:scale-125">
+                <button aria-label="cancel-edit-button" onClick={handleEditEntry} className="rounded-md w-10 h-10 bg-skin-secondary text-white mr-5 transition-colors duration-300 ease-in-out transform hover:scale-125">
                 ✓
                 </button>
             </div>

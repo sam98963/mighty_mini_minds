@@ -29,6 +29,7 @@ export default {
           base: "var(--color-bg-base)",
           secondary: "var(--color-bg-secondary)",
           input: "var(--color-bg-input)",
+          primary: "var(--color-text-primary)",
         },
       },
       scale: {

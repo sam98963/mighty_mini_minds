@@ -64,7 +64,7 @@ export default function ProfilePage() {
           <div className="mb-4 sm:mt-4">
             <label className="text-sm sm:text-lg mr-2">Name:</label>
             {/* input user */}
-            <input
+            <input aria-label="your name"
               className="bg-skin-input shadow-md w-4/5"
               name="user"
               value={signupData.user}
@@ -75,7 +75,7 @@ export default function ProfilePage() {
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
               <label className="text-sm sm:text-lg">Username</label>
-              <input
+              <input aria-label="username"
                 className="bg-skin-input shadow-md"
                 name="username"
                 value={signupData.username}
@@ -84,7 +84,7 @@ export default function ProfilePage() {
             </div>
             <div className="flex flex-col w-1/2 ml-2">
               <label className="text-sm sm:text-lg">Password</label>
-              <input required
+              <input required aria-label="password"
                 className="bg-skin-input shadow-md"
                 name="password"
                 value={signupData.password}
@@ -99,6 +99,7 @@ export default function ProfilePage() {
               Email of someone you trust*
             </label>
             <input
+              aria-label="email of someone you trust"
               className="bg-skin-input shadow-md"
               name="email"
               value={signupData.email}
@@ -109,7 +110,7 @@ export default function ProfilePage() {
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
               <label className="text-sm sm:text-lg">Contact name</label>
-              <input
+              <input aria-label="contact's name"
                 className="bg-skin-input shadow-md"
                 name="contactName"
                 value={signupData.contactName}
@@ -118,7 +119,7 @@ export default function ProfilePage() {
             </div>
             <div className="flex flex-col w-1/2 ml-2">
               <label className="text-sm sm:text-lg">Relationship</label>
-              <input
+              <input aria-label="relationship to your contact"
                 className="bg-skin-input shadow-md"
                 name="relationship"
                 value={signupData.relationship}
@@ -130,7 +131,7 @@ export default function ProfilePage() {
           <div className="flex justify-between my-4 items-center">
             <div className="flex flex-col mb-4 w-1/3 sm:w-2/5">
               <label className="text-sm sm:text-lg">Choose avatar</label>
-              <select
+              <select aria-label="choose an avatar"
                 className="bg-skin-input text-xs sm:text-base h-6 shadow-md"
                 name="avatar"
                 value={signupData.avatar}
@@ -148,7 +149,7 @@ export default function ProfilePage() {
           </div>
           <div className='flex flex-col'>
           <label className="text-sm sm:text-lg">Please input your old password to update your profile:</label>
-              <input required
+              <input required aria-label="input your old password to update your profile"
                 className="bg-skin-input shadow-md"
                 name="oldPassword"
                 onChange={handleInputChange}
@@ -161,7 +162,7 @@ export default function ProfilePage() {
           </div>
         </form>
       </div>
-      <div className="underline mt-4">
+      <div className="underline mt-4 text-skin-primary">
       <NavLink to="/appLayout/journal">Back to Journal</NavLink>
       </div>
     </div>

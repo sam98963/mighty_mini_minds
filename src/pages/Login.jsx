@@ -118,11 +118,11 @@ export default function Login() {
           </button>
         </div>
       </div>
-      <div className="space-y-2 text-center">
-        <div className="underline sm:text-xl">
+      <div className="space-y-2 mb-2 text-center">
+        <div className="underline sm:text-xl text-skin-primary">
           <NavLink to="signup">No account? Sign up here!</NavLink>
         </div>
-        <div className="underline sm:text-lg">
+        <div className="underline sm:text-lg text-skin-primary">
           <NavLink to="./about">About Us</NavLink>
         </div>
       </div>
