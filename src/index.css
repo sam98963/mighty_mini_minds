@@ -14,9 +14,9 @@
   /*default*/
   .theme-beach {
     --color-bg-base: #ccffff;
-    --color-bg-secondary: #ffcc33;
+    --color-bg-secondary: #FE8714;
     --color-bg-input: #ffcc333c;
-    --color-icon-secondary: #ffcc33;
+    --color-icon-secondary: #FE8714;
   }
   .theme-forest {
     --color-bg-base: #b2e2d0;
@@ -38,9 +38,9 @@
   }
   .theme-stars {
     --color-bg-base: #040f72;
-    --color-bg-secondary: #fcd53f;
-    --color-bg-input: #fff3cd83;
-    --color-icon-secondary: #fcd53f;
+    --color-bg-secondary: #f3b332f8;
+    --color-bg-input: #e0b21883;
+    --color-icon-secondary: #f3b332f8;
   }
 }
 
