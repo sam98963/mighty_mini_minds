@@ -54,9 +54,9 @@ export default function MoodMap() {
     const moodPercentageVariable = (averageMood) * 25;
     if(moodPercentageVariable < 40 && popupDone === false) {
        setTimeout(() => {
-      if(confirm("Looks like you are having a tough week, would you like us to let someone know?")){
-        handleEmail()
-      }
+      // if(confirm("Looks like you are having a tough week, would you like us to let someone know?")){
+      //   handleEmail()
+      // }
     }, 1000);
      setSharePopup(true)
      setPopupDone(true)
