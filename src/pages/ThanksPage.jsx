@@ -19,11 +19,24 @@ export default function ThanksPage() {
     },
   });
 
+  const handleEmail = async () => { 
+    try {
+      const response = await axios.post(`https://mighty-mini-minds-backend.onrender.com/sendemail/${entryId}`);
+      console.log(response);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    }
+  }
+
+  
+
   // function to set state and navigate to moodMap
   function handleClick(event) {
     setShare(event.target.value);
+    if (event.target.value === "message2") {
+      handleEmail();
+    }
     console.log(entryId);
-
     setTimeout(() => {
       navigate("../moodMap");
     }, 2000);

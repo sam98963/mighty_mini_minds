@@ -7,6 +7,7 @@ import ReminderQuote from "../components/ReminderQuote";
 // import moodData from "../data/data.json";
 import { useGet } from "../hooks/useGet";
 import { useState } from "react";
+import axios from "axios"
 
 export default function MoodMap() {
   const [sharePopup, setSharePopup] = useState(false)
@@ -16,7 +17,7 @@ export default function MoodMap() {
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   ).slice(0, 7).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
   
-  
+  const uuid = localStorage.getItem("userId")
   // function moodPercentage() {
   //   let mood = moodData[0].posts[0].mood_rating;
   //   // turn mood into a percentage
@@ -25,6 +26,19 @@ export default function MoodMap() {
   // }
   // create a function to get the mood data from the backend (json in the meantime)
   // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
+
+  const handleEmail = async () => { 
+    console.log("function called")
+    try {
+      const response = await axios.post(`https://mighty-mini-minds-backend.onrender.com/sendbademail/${uuid}`);
+      console.log(response);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    }
+  }
+
+  console.log(uuid)
+
   function moodPercentage() {
     if (!sortedEntries || sortedEntries.length === 0) {
       return 0;
@@ -40,7 +54,9 @@ export default function MoodMap() {
     const moodPercentageVariable = (averageMood) * 25;
     if(moodPercentageVariable < 40 && popupDone === false) {
        setTimeout(() => {
-      confirm("Looks like you are having a tough week, would you like us to let someone know?")
+      // if(confirm("Looks like you are having a tough week, would you like us to let someone know?")){
+      //   handleEmail()
+      // }
     }, 1000);
      setSharePopup(true)
      setPopupDone(true)
