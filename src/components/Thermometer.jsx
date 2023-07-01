@@ -59,7 +59,7 @@ export default function Thermometer(props) {
   return (
     <div className=" w-12 relative mt-24 h-32 sm:h-48 sm:w-16 ml-8">
       <div
-        className="w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0"
+        className="w-10/12 bg-green-300 absolute bottom-2 left-0 right-0 mx-auto z-0 sm:max-h-[95%] max-h-[93%]"
         style={thermometerStyle}
       ></div>
       <img
