@@ -1,5 +1,5 @@
 import ThermometerPic from "../Img/Therm_final.png";
-import Thermometer from "../Img/Therm_final_rectangle.png";
+import ThermometerImage from "../Img/Therm_final_rectangle.png";
 
 export default function Thermometer(props) {
   // function to take in props.mood as a value number, and reduce the value of the percentage
@@ -63,7 +63,7 @@ export default function Thermometer(props) {
         style={thermometerStyle}
       ></div>
       <img
-        src={Thermometer}
+        src={ThermometerImage}
         alt="thermometer"
         className="h-full w-full z-10"
         style={{ position: "relative", zIndex: 1 }}
