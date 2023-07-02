@@ -39,18 +39,18 @@ export default function AddEntry() {
       return (
         <div className='flex flex-col justify-between h-full'>
           <div className='flex flex-col mt-2'>
-            <label className='text-base sm:text-xl py-2 px-8 sm:mt-6'>{questions[0]}</label>
-            <input aria-label="input your answer to the positive question" className='bg-skin-input shadow-md h-20 sm:h-28 py-8 px-3 mx-8' onChange={(e) => setPositiveA(e.target.value)}></input>
+            <label className='text-sm sm:text-xl py-2 px-8 sm:mt-6'>{questions[0]}</label>
+            <textarea type="text"  aria-label="input your answer to the positive question" className='bg-skin-input shadow-md h-[4.3rem] sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg' onChange={(e) => setPositiveA(e.target.value)}></textarea>
           </div>
     
           <div className='flex flex-col'>
-            <label className='text-base sm:text-xl py-2 p-8 sm:mt-6'>{questions[1]}</label>
-            <input aria-label="input your answer to the challenge question" className='bg-skin-input shadow-md h-20 sm:h-28 py-8 px-3 mx-8' onChange={(e) => setChallengeA(e.target.value)}></input>
+            <label className='text-sm sm:text-xl py-2 p-8 sm:mt-6'>{questions[1]}</label>
+            <textarea type="text"  aria-label="input your answer to the challenge question" className='bg-skin-input shadow-md h-[4.3rem] sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg' onChange={(e) => setChallengeA(e.target.value)}></textarea>
           </div>
     
           <div className='flex flex-col'>
-            <label className='text-base sm:text-xl py-2 px-8 sm:mt-6'>{questions[2]}</label>
-            <input aria-label="input your answer to the open question" className='bg-skin-input shadow-md h-20 sm:h-28 py-8 px-3 mx-8' onChange={(e) => setOpenA(e.target.value)}></input>
+            <label className='text-sm sm:text-xl py-2 px-8 sm:mt-6'>{questions[2]}</label>
+            <textarea type="text" aria-label="input your answer to the open question" className='bg-skin-input shadow-md h-[4.3rem] sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg' onChange={(e) => setOpenA(e.target.value)}></textarea>
           </div>
         <div className = 'flex justify-center mt-2 sm:mb-4 md:mt-8'>
             <NavLink to="../thanksPage"><button onClick={submit} className="text-white shadow-md text-lg sm:text-3xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-1.5 px-3 m-6 mt-2 ">Post!</button></NavLink>
