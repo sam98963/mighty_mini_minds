@@ -9,13 +9,14 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "./pages/HomePage";
 import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";
 import Journal from "./pages/Journal";
 import MoodMap from "./pages/MoodMap";
 import AddEntry from "./pages/AddEntry";
 import WelcomePage from "./pages/WelcomePage";
 import ThanksPage from "./pages/ThanksPage";
+import ProfilePage from "./pages/ProfilePage";
+import About from "./pages/About";
 import ProtectedRoutes from "./ProtectedRoute";
 import { AuthProvider } from "./auth/AuthProvider";
 
@@ -30,7 +31,9 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
-        <Route path="login" element={<Login />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="about" element={<About />} />
+        {/* protected routes by atuh goes here wrappep by ProtectedRoutes*/}
         <Route element={<ProtectedRoutes />}>
           <Route
             path="appLayout"
