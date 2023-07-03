@@ -6,9 +6,6 @@ import axios from "axios";
 import quotes from "../data/loginQuotes.json";
 import { useAuth } from "../auth/AuthProvider";
 
-
-import quotes from "../data/loginQuotes.json";
-console.log(quotes);
 export default function Login() {
   const { handleAuthentication } = useAuth();
   //state of the user data
