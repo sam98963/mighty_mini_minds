@@ -3,41 +3,55 @@ import Emoji from "../components/Emoji";
 import Thermometer from "../components/Thermometer";
 import WordOfTheDay from "../components/WordOfTheDay";
 // import SpeechBubble from "../Img/speech-bubble.png";
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReminderQuote from "../components/ReminderQuote";
 // import moodData from "../data/data.json";
 import { useGet } from "../hooks/useGet";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"
 
 export default function MoodMap() {
   const [sharePopup, setSharePopup] = useState(false)
-  const [popupDone, setPopupDone] = useState(false)
+  const [popUpDone, setPopUpDone] = useState(false)
+  const [shareMessageTrue, setShareMessageTrue] = useState(false)
+  const [message, setMessage] = useState('');
   const {data: entries, isLoading, isError, error} = useGet();
   const sortedEntries = entries?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   ).slice(0, 7).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
   
   const uuid = localStorage.getItem("userId")
-  // function moodPercentage() {
-  //   let mood = moodData[0].posts[0].mood_rating;
-  //   // turn mood into a percentage
-  //   mood = (mood - 1) * 20;
-  //   return mood;
-  // }
-  // create a function to get the mood data from the backend (json in the meantime)
-  // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
 
   const handleEmail = async () => { 
+    setSharePopup(false)
     console.log("function called")
     try {
-      const response = await axios.post(`https://mighty-mini-minds-backend.onrender.com/sendbademail/${uuid}`);
+      const response = await axios.post('https://mighty-mini-minds-backend.onrender.com/sendbademail/'+uuid.replace(/"/g, ''));
       console.log(response);
+      setShareMessageTrue(true)
+      setMessage("Thanks for sharing your entry! It's on its way to your trusted person!")
     } catch (error) {
       console.error("Failed to send email:", error);
     }
   }
 
-  console.log(uuid)
+  function shareMessage() {
+    setMessage('Would you like to share your thoughts with someone?');
+    setShareMessageTrue(true);
+}
+
+
+
+useEffect(() => {
+  const timeout = setTimeout(() => {
+    setShareMessageTrue(false);
+  }, 5000);
+
+  return () => {
+    clearTimeout(timeout);
+  };
+}, [shareMessageTrue]);
 
   function moodPercentage() {
     if (!sortedEntries || sortedEntries.length === 0) {
@@ -52,15 +66,10 @@ export default function MoodMap() {
 
     const averageMood = totalMood / sortedEntries.length;
     const moodPercentageVariable = (averageMood) * 25;
-    if(moodPercentageVariable < 40 && popupDone === false) {
-       setTimeout(() => {
-      // if(confirm("Looks like you are having a tough week, would you like us to let someone know?")){
-      //   handleEmail()
-      // }
-    }, 1000);
+    if(moodPercentageVariable < 40 && popUpDone === false) {
      setSharePopup(true)
-     setPopupDone(true)
-    }
+     setPopUpDone(true)
+    } 
 
     return moodPercentageVariable;
   }
@@ -83,7 +92,10 @@ export default function MoodMap() {
       </div>
       <WordOfTheDay data-testid="word-of-the-day"/>
       <div className="flex w-full justify-evenly mt-4">
+        {sharePopup?<button aria-label="share-button" onMouseOver={shareMessage} onClick={handleEmail} className='rounded-md w-10 h-10 bg-skin-secondary text-white transition-colors duration-300 ease-in-out transform hover:scale-125 mx-3'><FontAwesomeIcon icon={faShare}/></button>:null}
+        {shareMessageTrue? <p className="text-xs">{message}</p>: null}
         <Thermometer mood={moodPercentage()} />
+        {/* {props.share === false? <button aria-label="share-button"  onMouseOver={shareMessage} onClick={()=>handleShare(props.id)} className='rounded-md w-10 h-10 bg-skin-secondary text-white transition-colors duration-300 ease-in-out transform hover:scale-125'><FontAwesomeIcon icon={faShare}  /></button>: null} */}
         <div className="flex flex-row relative">
           <div className="flex flex-wrap mb-32 text-center items-center justify-center w-36 sm:w-44 sm:max-h-48 sm:max-w-48 bg-contain bg-no-repeat bg-center bg-[url('./img/speech-bubble.avif')]">
             <ReminderQuote />
