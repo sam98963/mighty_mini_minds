@@ -49,7 +49,8 @@ export default function Thermometer(props) {
   //   return `linear-gradient(to bottom, ${gradientColor} ${height}%,  ${gradientColor} ${height}%)`;
   // }
 
-  const thermometerStyle = {
+
+  const thermometerStyle = { 
     height: moodValue(),
     // background: getGradientColor(props.mood),
     background:
