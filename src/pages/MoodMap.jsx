@@ -80,7 +80,7 @@ export default function MoodMap() {
             <ReminderQuote />
           </div>
           <div className="transform -scale-x-100 mt-36 sm:mt-40 mr-4 sm:mr-0">
-            <AnimatedAvatar height={20} smh={28} />
+            <AnimatedAvatar height={20} width={20} smh={32} smw={32}/>
           </div>
         </div>
       </div>
