@@ -2,9 +2,7 @@ import AnimatedAvatar from "../components/AnimatedAvatar";
 import Emoji from "../components/Emoji";
 import Thermometer from "../components/Thermometer";
 import WordOfTheDay from "../components/WordOfTheDay";
-// import SpeechBubble from "../Img/speech-bubble.png";
 import ReminderQuote from "../components/ReminderQuote";
-// import moodData from "../data/data.json";
 import { useGet } from "../hooks/useGet";
 import axios from "axios";
 
