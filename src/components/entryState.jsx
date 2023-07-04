@@ -197,3 +197,11 @@ export function useEntryState() {
       //     Authorization: `Bearer ${localStorage.getItem('tokenData')}`,
       //   },
       // };
+
+
+// from signup page, may be useful if we change the alert
+ // check if user is authenticated if so redirect to home page
+  // const auth = useAuth();
+  // if(auth.isAuthenticated) {
+  //   return <Navigate to="/" />;
+  // }

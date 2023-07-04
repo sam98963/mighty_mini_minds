@@ -34,7 +34,6 @@ export default function Avatar({ animation, h, smw, smh, selection }) {
   const bounceAnimation = animation ? "animate-bounce" : ""; 
   return (
     <div className="flex justify-center items-center">
-      {/* <img src={avatar} alt="avatar" className={`h-12 sm:h-20 sm:w-20 ${animation}`} /> */}
       <img
         src={imageURL}
         alt="avatar"
