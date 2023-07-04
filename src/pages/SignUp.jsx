@@ -7,9 +7,11 @@ import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
 
 export default function SignUp() {
+
   const [isRegistered, setIsRegistered] = useState(false); // isRegistered is a boolean that will be used to determine if the user has registered
 
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
+
   const { mutate } = useMutation({
     // useMutation is a hook that allows you to mutate data
     mutationFn: async (user) => {
@@ -77,19 +79,23 @@ export default function SignUp() {
       signupData.relationship !== "" &&
       signupData.avatar !== ""
     ) {
+
       mutate(user); // mutate the data - this will call the mutationFn
       setIsRegistered(true); // set isRegistered to true
       console.log(signupData.avatar); // log the avatar url
       console.log(user.avatar_url); // log the avatar url
       console.log(user); // log the user
+
     } else {
       alert("Please fill in all fields 😀"); // alert the user to fill in all fields
     }
   }
+
   if (isRegistered) {
     // if isRegistered is true then show the success message
     setIsRegistered(false); // set isRegistered to false
   }
+
   return (
     <div className="flex flex-col items-center justify-around h-screen">
       <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-4" />
@@ -128,7 +134,6 @@ export default function SignUp() {
                 name="password"
                 value={signupData.password}
                 onChange={handleInputChange}
-                type="password"
               />
             </div>
           </div>
@@ -180,7 +185,7 @@ export default function SignUp() {
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Chicken">Chicken</option>
+                <option value="Tiger">Tiger</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect } from "react";
 import logo from "../Img/logo-close.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
@@ -7,6 +7,7 @@ import quotes from "../data/loginQuotes.json";
 import { useAuth } from "../auth/AuthProvider";
 
 export default function Login() {
+
   const { handleAuthentication } = useAuth(); // useAuth is a custom hook that allows you to access the authentication context
 
   //state of the user data
@@ -44,8 +45,8 @@ export default function Login() {
       console.log(errorMessage);
     },
   });
-
   // function to handle the change of the login form
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLogin((prevLogin) => ({

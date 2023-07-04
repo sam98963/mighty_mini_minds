@@ -1,13 +1,16 @@
 import AnimatedAvatar from "../components/AnimatedAvatar";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import Confetti from "react-confetti";
+
 import { useState, useEffect } from "react";
+
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 export default function ThanksPage() {
   const [questions, entryId] = useOutletContext(); // useOutletContext - you must declare all variables in the array, even questions that aren't used
   const [share, setShare] = useState("message1"); // share is a boolean that will be used to determine if the user wants to share their entry
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
+
 
   const { mutate } = useMutation({
     // useMutation is a hook that allows you to mutate data
@@ -37,6 +40,7 @@ export default function ThanksPage() {
     }
   };
 
+
   // function to set state and navigate to moodMap
   function handleClick(event) {
     setShare(event.target.value);
@@ -44,6 +48,7 @@ export default function ThanksPage() {
       handleEmail();
     }
     console.log(entryId);
+
     setTimeout(() => {
       // setTimeout is a function that will be called after 2 seconds
       navigate("../moodMap"); // navigate to moodMap
@@ -130,3 +135,4 @@ export default function ThanksPage() {
     </div>
   );
 }
+

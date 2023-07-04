@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useGetUser } from "../hooks/useGetUser";
+
 export default function WelcomePage() {
   const userId = localStorage.getItem("userId");
 
@@ -10,9 +11,11 @@ export default function WelcomePage() {
 
   // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
   const [questions, entryId, setEntryId] = useOutletContext();
+
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
   const { mutate } = useMutation({
     // useMutation is a hook that allows you to mutate data
+
     mutationFn: async (entry) => {
       // mutationFn is the function that will be called when you mutate data
       const url = `https://mighty-mini-minds-backend.onrender.com/entries/${userId}`; // url is the url that you want to send the data to
@@ -36,10 +39,12 @@ export default function WelcomePage() {
   function submitMood() {
     // submitMood is a function that will be called when the user clicks on the go button
     const entry = {
+
       // entry is the entry that will be sent to the server
       mood: mood, // mood is the mood of the user
       share: false, // share is a boolean that will be used to determine if the user wants to share their entry
       // user_uuid: userId,
+
     };
     if (mood !== 0) {
       // if the mood is not 0, then mutate the entry
