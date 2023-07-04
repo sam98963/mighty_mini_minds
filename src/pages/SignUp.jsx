@@ -13,7 +13,7 @@ export default function SignUp() {
 
   // function to generate random username on button click and set it to state to be used in input field
   function generateRandomUsername() {
-    const username = generateUsername();
+    const username = generateUsername("-");
     setSignupData((prevState) => ({ ...prevState, username }));
     console.log(username);
   }
