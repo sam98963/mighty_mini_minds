@@ -70,7 +70,6 @@ export default function SignUp() {
   function handleInputChange(event) {
     const { name, value } = event.target; // name is the name of the input, value is the value of the input
     setSignupData((prevState) => ({ ...prevState, [name]: value })); // set the state of the form data to the new value of the input
-    console.log(signupData.avatar);
   }
 
   // function to handle form submission - this function will be called when the form is submitted
@@ -99,10 +98,6 @@ export default function SignUp() {
 
       mutate(user); // mutate the data - this will call the mutationFn
       setIsRegistered(true); // set isRegistered to true
-      console.log(signupData.avatar); // log the avatar url
-      console.log(user.avatar_url); // log the avatar url
-      console.log(user); // log the user
-
     } else {
       alert("Please fill in all fields 😀"); // alert the user to fill in all fields
     }
@@ -203,7 +198,7 @@ export default function SignUp() {
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Tiger">Tiger</option>
+                <option value="Chicken">Chicken</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>
