@@ -1,9 +1,8 @@
 import Avatar from "../components/Avatar";
 import logo from "/logo-close.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-// import { useAuth } from "../auth/AuthProvider";
 import { useNavigate, NavLink } from "react-router-dom";
 
 export default function SignUp() {
@@ -12,7 +11,8 @@ export default function SignUp() {
 
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
 
-  const { mutate } = useMutation({
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const { mutate, isError } = useMutation({
     // useMutation is a hook that allows you to mutate data
     mutationFn: async (user) => {
       // mutationFn is the function that will be called when you mutate data
@@ -30,14 +30,24 @@ export default function SignUp() {
     onError: (err) => {
       // onError is a function that will be called when the mutation is unsuccessful
       console.log(err.message); // log the error message
+      const error = JSON.stringify(err.response.data.message); 
+      if (error) {
+        setErrorMessage(error.replace(/"/g, '')); 
+      } else { 
+        setErrorMessage(JSON.stringify(err.message));
+      }
     },
   });
 
-  // check if user is authenticated if so redirect to home page
-  // const auth = useAuth();
-  // if(auth.isAuthenticated) {
-  //   return <Navigate to="/" />;
-  // }
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setErrorMessage("");
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [errorMessage]);
 
   // form state - handles all inputs
   const [signupData, setSignupData] = useState({
@@ -53,7 +63,6 @@ export default function SignUp() {
   function handleInputChange(event) {
     const { name, value } = event.target; // name is the name of the input, value is the value of the input
     setSignupData((prevState) => ({ ...prevState, [name]: value })); // set the state of the form data to the new value of the input
-    console.log(signupData.avatar);
   }
 
   // function to handle form submission - this function will be called when the form is submitted
@@ -82,10 +91,6 @@ export default function SignUp() {
 
       mutate(user); // mutate the data - this will call the mutationFn
       setIsRegistered(true); // set isRegistered to true
-      console.log(signupData.avatar); // log the avatar url
-      console.log(user.avatar_url); // log the avatar url
-      console.log(user); // log the user
-
     } else {
       alert("Please fill in all fields 😀"); // alert the user to fill in all fields
     }
@@ -102,10 +107,10 @@ export default function SignUp() {
 
       <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
         <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
+        {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
             <label className="text-sm sm:text-lg">What is your name?</label>
-            {/* input user */}
             <input
               aria-label="your name"
               className="bg-skin-input shadow-md"
@@ -185,7 +190,7 @@ export default function SignUp() {
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Tiger">Tiger</option>
+                <option value="Chicken">Chicken</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>

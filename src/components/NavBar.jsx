@@ -1,7 +1,6 @@
 import ThemePicker from "./ThemePicker";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-/* Import the font awesome library here */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
