@@ -26,30 +26,6 @@ export default function Thermometer(props) {
     return gradientColor;
   }
 
-  //   function getGradientColor(height) {
-  //   let gradientColor = "";
-
-  //   if (height <= 33) {
-  //     const red = 238;
-  //     const green = Math.round(30 + height * (174 - 30) / 33);
-  //     const blue = Math.round(11 + height * (55 - 11) / 33);
-  //     gradientColor = `rgb(${red}, ${green}, ${blue})`;
-  //   } else if (height <= 66) {
-  //     const red = Math.round(238 - (height - 33) * (238 - 228) / 33);
-  //     const green = Math.round(174 + (height - 33) * (255 - 174) / 33);
-  //     const blue = Math.round(55 + (height - 33) * (145 - 55) / 33);
-  //     gradientColor = `rgb(${red}, ${green}, ${blue})`;
-  //   } else {
-  //     const red = Math.round(228 - (height - 66) * (228 - 0) / 34);
-  //     const green = Math.round(255 - (height - 66) * (255 - 0) / 34);
-  //     const blue = Math.round(145 - (height - 66) * (145 - 0) / 34);
-  //     gradientColor = `rgb(${red}, ${green}, ${blue})`;
-  //   }
-
-  //   return `linear-gradient(to bottom, ${gradientColor} ${height}%,  ${gradientColor} ${height}%)`;
-  // }
-
-
   const thermometerStyle = { 
     height: moodValue(),
     // background: getGradientColor(props.mood),

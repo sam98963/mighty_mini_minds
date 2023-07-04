@@ -25,7 +25,7 @@ export default function WelcomePage() {
     onSuccess: (data) => {
       // onSuccess is a function that will be called when the mutation is successful
       setEntryId(data.uuid); // set the entryId to the uuid of the entry
-      console.log(data.uuid); // log the uuid of the entry
+      // console.log(data.uuid); // log the uuid of the entry
     },
   });
 

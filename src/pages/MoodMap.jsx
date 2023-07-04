@@ -44,7 +44,7 @@ export default function MoodMap() {
     }
   };
 
-  console.log(uuid);
+  
 
   // function to get the mood data from the backend
   function moodPercentage() {
