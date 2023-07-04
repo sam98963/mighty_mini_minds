@@ -10,9 +10,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function MoodMap() {
-  const [sharePopup, setSharePopup] = useState(false); // set the initial state of the share popup to false
-  const [popupDone, setPopupDone] = useState(false); // set the initial state of the popup done to false
-  const { data: entries, isLoading, isError, error } = useGet(); // use the useGet hook to get the entries data
+  const { data: entries} = useGet(); // use the useGet hook to get the entries data
   const sortedEntries = entries
     ?.sort(
       // sort the entries by date and get the last 7 entries from the array
@@ -22,14 +20,6 @@ export default function MoodMap() {
     .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // sort the entries by date and get the last 7 entries from the array
 
   const uuid = localStorage.getItem("userId");
-  // function moodPercentage() {
-  //   let mood = moodData[0].posts[0].mood_rating;
-  //   // turn mood into a percentage
-  //   mood = (mood - 1) * 20;
-  //   return mood;
-  // }
-  // create a function to get the mood data from the backend (json in the meantime)
-  // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
 
   // function to get the mood data from the backend
   const handleEmail = async () => {
@@ -43,8 +33,6 @@ export default function MoodMap() {
       console.error("Failed to send email:", error);
     }
   };
-
-  
 
   // function to get the mood data from the backend
   function moodPercentage() {
@@ -62,18 +50,6 @@ export default function MoodMap() {
 
     const averageMood = totalMood / sortedEntries.length; // get the average mood by dividing the total mood by the number of entries
     const moodPercentageVariable = averageMood * 25; // convert the average mood into a percentage
-    if (moodPercentageVariable < 40 && popupDone === false) {
-      // if the mood is less than 40, set the share popup to true and set the popup done to true
-      setTimeout(() => {
-        // set a timeout to show the popup after 1 second
-        // if(confirm("Looks like you are having a tough week, would you like us to let someone know?")){
-        //   handleEmail()
-        // }
-      }, 1000);
-      setSharePopup(true); // set the share popup to true
-      setPopupDone(true); // set the popup done to true
-    }
-
     return moodPercentageVariable;
   }
 
