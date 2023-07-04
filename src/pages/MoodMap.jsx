@@ -78,7 +78,7 @@ export default function MoodMap() {
       <div className="flex w-full justify-evenly mt-4">
         <Thermometer mood={moodPercentage()} />
         <div className="flex flex-row relative">
-          <div className="flex flex-wrap mb-32 text-center items-center justify-center w-36 sm:w-44 sm:max-h-48 sm:max-w-48 bg-contain bg-no-repeat bg-center bg-[url('speech-bubble.avif')]">
+          <div className="flex flex-wrap mb-32 text-center items-center justify-center w-36 sm:w-44 sm:max-h-48 sm:max-w-48 bg-contain bg-no-repeat bg-center bg-[url('/speech-bubble.avif')]">
             <ReminderQuote />
           </div>
           <div className="transform -scale-x-100 mt-36 sm:mt-40 mr-4 sm:mr-0">
