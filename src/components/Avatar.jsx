@@ -10,6 +10,8 @@ export default function Avatar({ animation, h, smw, smh, selection }) {
   const { data: avatar } = useGetUser(); // get the user's avatar from the database using the useGetUser hook and store it in the avatar variable
   const userAvatar = avatar ? avatar.avatar_url : null; // if the avatar variable is not null, store the avatar_url in the userAvatar variable, otherwise store null in the userAvatar variable
 
+  // may not be worth trying to fix this issue on sign up page, very minor, possibly fixed if we change to cookies: 
+  // if user has already logged in and selected an avatar other than bunny, that avatar will show up but the dropdown will still say bunny as the selected avatar, if the user clicks away from the bunny and then clicks back on the bunny, the bunny will display as intended
   // let choice = selection? selection : "Bunny"; 
   let imageURL = bunnyAvatar; // set the default image to bunnyAvatar (this is the default avatar that is displayed when the user first signs up)
   switch (selection || userAvatar) {
