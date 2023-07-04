@@ -20,7 +20,9 @@ export default function Login() {
 
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
   // mutation for login using react-query
-  const { mutate } = useMutation({
+
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const { mutate, isError } = useMutation({
     mutationFn: async (user) => {
       // mutationFn is the function that will be called when you mutate data
       const response = await axios.post(
@@ -41,12 +43,23 @@ export default function Login() {
     },
     onError: (err) => {
       // onError is a function that will be called when the mutation is unsuccessful
-      const errorMessage = `Sorry, there was an error: ${err.message}`; // log the error message
-      console.log(errorMessage);
+      console.log(err.message);
+      const error = JSON.stringify(err.response.data.message); 
+      setErrorMessage(error.replace(/"/g, '')); 
     },
   });
-  // function to handle the change of the login form
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setErrorMessage("");
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [errorMessage]);
+
+  // function to handle the change of the login form
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLogin((prevLogin) => ({
@@ -92,6 +105,7 @@ export default function Login() {
         <h1 className="font-bold text-center text-xl sm:text-4xl">
           Mighty Mini Minds
         </h1>
+        {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         {randomQuote && (
           <div className="flex flex-col">
             <p className="sm:text-xl font-semibold mx-5">{randomQuote.quote}</p>

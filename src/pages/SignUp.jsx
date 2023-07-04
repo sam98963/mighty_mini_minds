@@ -1,6 +1,6 @@
 import Avatar from "../components/Avatar";
 import logo from "/logo-close.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 // import { useAuth } from "../auth/AuthProvider";
@@ -12,7 +12,8 @@ export default function SignUp() {
 
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
 
-  const { mutate } = useMutation({
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const { mutate, isError } = useMutation({
     // useMutation is a hook that allows you to mutate data
     mutationFn: async (user) => {
       // mutationFn is the function that will be called when you mutate data
@@ -30,8 +31,24 @@ export default function SignUp() {
     onError: (err) => {
       // onError is a function that will be called when the mutation is unsuccessful
       console.log(err.message); // log the error message
+      const error = JSON.stringify(err.response.data.message); 
+      if (error) {
+        setErrorMessage(error.replace(/"/g, '')); 
+      } else { 
+        setErrorMessage(JSON.stringify(err.message));
+      }
     },
   });
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setErrorMessage("");
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [errorMessage]);
 
   // check if user is authenticated if so redirect to home page
   // const auth = useAuth();
@@ -102,6 +119,7 @@ export default function SignUp() {
 
       <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
         <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
+        {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
             <label className="text-sm sm:text-lg">What is your name?</label>

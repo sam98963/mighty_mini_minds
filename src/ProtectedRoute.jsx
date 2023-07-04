@@ -7,3 +7,5 @@ export default function ProtectedRoutes() {
 
     return auth.isAuthenticated ? <Outlet/> : <Navigate to="/" />;
 }
+
+// only allows authorised users to access the app layout
