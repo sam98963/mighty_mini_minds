@@ -1,9 +1,8 @@
 import { NavLink, useOutletContext } from "react-router-dom";
 import { useState } from "react";
-// import { usePost } from "../hooks/usePost";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-// import { useAuth } from "../auth/AuthProvider";
+
 
 export default function AddEntry() {
   // useOutletContext is stupid so you must declate all variables in the array, but not setEntryId because it's a setter function
