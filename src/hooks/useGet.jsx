@@ -16,10 +16,4 @@ export function useGet() {
   });
 }
 
-// const token = localStorage.getItem('tokenData');
-      // console.log('Token:', token);
-      // const config = {
-      //   headers: {
-      //     Authorization: `Bearer ${localStorage.getItem('tokenData')}`,
-      //   },
-      // };
+

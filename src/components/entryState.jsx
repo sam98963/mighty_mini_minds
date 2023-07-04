@@ -187,3 +187,13 @@ export function useEntryState() {
 //   const diff = Math.abs(new Date(date1) - new Date(date2));
 //   return diff <= ONE_MINUTE;
 // }
+
+
+// useGet fronm hooks folder
+// const token = localStorage.getItem('tokenData');
+      // console.log('Token:', token);
+      // const config = {
+      //   headers: {
+      //     Authorization: `Bearer ${localStorage.getItem('tokenData')}`,
+      //   },
+      // };
