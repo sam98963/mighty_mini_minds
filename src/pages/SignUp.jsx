@@ -12,7 +12,7 @@ export default function SignUp() {
 
   const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
 
-  const [errorMessage, setErrorMessage] = useState(""); // errorMessage is a string that will be used to display an error message
+  const [errorMessage, setErrorMessage] = useState(""); 
   const { mutate, isError } = useMutation({
     // useMutation is a hook that allows you to mutate data
     mutationFn: async (user) => {
