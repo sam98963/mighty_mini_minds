@@ -11,9 +11,10 @@ export default function SignUp() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [generatedUsername, setGeneratedUsername] = useState("");
 
+  // function to generate random username on button click and set it to state to be used in input field
   function generateRandomUsername() {
     const username = generateUsername();
-    setGeneratedUsername(username);
+    setSignupData((prevState) => ({ ...prevState, username }));
     console.log(username);
   }
 
@@ -113,19 +114,36 @@ export default function SignUp() {
           <div className="flex justify-between mb-4">
             <div className="flex flex-col w-1/2 mr-2">
               <label className="text-sm sm:text-lg">Username</label>
-              <input
+              {/* <input
                 aria-label="username"
                 className="bg-skin-input shadow-md"
                 name="username"
                 value={signupData.username}
                 onChange={handleInputChange}
                 // value={generatedUsername}
+              /> */}
+              <input
+                aria-label="username"
+                className="bg-skin-input shadow-md"
+                name="username"
+                value={signupData.username}
+                onChange={handleInputChange}
               />
             </div>
             <div>
               <button onClick={generateRandomUsername}>Surprise me!</button>
-              <p>{generatedUsername}</p>
-              <button>I like this one!</button>
+              {/* <p>{generatedUsername}</p> */}
+              {/* <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSignupData((prevState) => ({
+                    ...prevState,
+                    username: signupData.username,
+                  }));
+                }}
+              >
+                I like this one!
+              </button> */}
             </div>
             <div className="flex flex-col w-1/2 ml-2">
               <label className="text-sm sm:text-lg">Password</label>
