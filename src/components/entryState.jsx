@@ -205,3 +205,29 @@ export function useEntryState() {
   // if(auth.isAuthenticated) {
   //   return <Navigate to="/" />;
   // }
+
+// moodMap popup functionality
+  // const [sharePopup, setSharePopup] = useState(false); // set the initial state of the share popup to false
+  // const [popupDone, setPopupDone] = useState(false); // set the initial state of the popup done to false
+// from within the moodPercentage function
+// if (moodPercentageVariable < 40 && popupDone === false) {
+//   // if the mood is less than 40, set the share popup to true and set the popup done to true
+//   setTimeout(() => {
+//     // set a timeout to show the popup after 1 second
+//     // if(confirm("Looks like you are having a tough week, would you like us to let someone know?")){
+//     //   handleEmail()
+//     // }
+//   }, 1000);
+//   setSharePopup(true); // set the share popup to true
+//   setPopupDone(true); // set the popup done to true
+// }
+
+// moodMap old mood rating function:
+  // function moodPercentage() {
+  //   let mood = moodData[0].posts[0].mood_rating;
+  //   // turn mood into a percentage
+  //   mood = (mood - 1) * 20;
+  //   return mood;
+  // }
+  // create a function to get the mood data from the backend (json in the meantime)
+  // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
