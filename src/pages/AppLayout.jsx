@@ -42,19 +42,4 @@ export default function AppLayout({ handleThemeChange }) {
   );
 }
 
-// messed up on some tablets -
-// sm: Small screens (>= 640px)
-// md: Medium screens (>= 768px)
-// lg: Large screens (>= 1024px)
-// xl: Extra-large screens (>= 1280px)
-// 2xl: Extra-extra-large screens (>= 1536px)
 
-// import { useQuery } from '@tanstack/react-query';
-// import axios from 'axios';
-// const {data: questions, isLoading, isError, error} = useQuery({
-//   queryKey: ['questions'],
-//   queryFn: async () => {
-//     const data = await axios.get('https://songsexcerpt.mohd.app/api/v1/getRandomExcerpt');
-//     return data;
-//   },
-// });

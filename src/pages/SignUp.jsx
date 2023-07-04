@@ -3,7 +3,6 @@ import logo from "/logo-close.png";
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-// import { useAuth } from "../auth/AuthProvider";
 import { useNavigate, NavLink } from "react-router-dom";
 
 export default function SignUp() {
@@ -50,12 +49,6 @@ export default function SignUp() {
     };
   }, [errorMessage]);
 
-  // check if user is authenticated if so redirect to home page
-  // const auth = useAuth();
-  // if(auth.isAuthenticated) {
-  //   return <Navigate to="/" />;
-  // }
-
   // form state - handles all inputs
   const [signupData, setSignupData] = useState({
     user: "",
@@ -70,7 +63,6 @@ export default function SignUp() {
   function handleInputChange(event) {
     const { name, value } = event.target; // name is the name of the input, value is the value of the input
     setSignupData((prevState) => ({ ...prevState, [name]: value })); // set the state of the form data to the new value of the input
-    console.log(signupData.avatar);
   }
 
   // function to handle form submission - this function will be called when the form is submitted
@@ -99,10 +91,6 @@ export default function SignUp() {
 
       mutate(user); // mutate the data - this will call the mutationFn
       setIsRegistered(true); // set isRegistered to true
-      console.log(signupData.avatar); // log the avatar url
-      console.log(user.avatar_url); // log the avatar url
-      console.log(user); // log the user
-
     } else {
       alert("Please fill in all fields 😀"); // alert the user to fill in all fields
     }
@@ -123,7 +111,6 @@ export default function SignUp() {
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
             <label className="text-sm sm:text-lg">What is your name?</label>
-            {/* input user */}
             <input
               aria-label="your name"
               className="bg-skin-input shadow-md"
@@ -203,7 +190,7 @@ export default function SignUp() {
                 onChange={handleInputChange}
               >
                 <option value="Bunny">Bunny</option>
-                <option value="Tiger">Tiger</option>
+                <option value="Chicken">Chicken</option>
                 <option value="Goat">Goat</option>
                 <option value="Cat">Cat</option>
               </select>
