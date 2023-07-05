@@ -31,6 +31,13 @@ export default function JournalEntry(props) {
       queryClient.invalidateQueries("entries"); // invalidate the cache
     },
   });
+
+  const [confirmDelete, setConfirmDelete] = useState(false); 
+
+  function handleConfirmDelete() {
+    setConfirmDelete(true);
+  }
+
   const handleDeleteEntry = async (id) => {
     // handleDeleteEntry is a function that will be used to delete a post
     try {
@@ -38,6 +45,7 @@ export default function JournalEntry(props) {
     } catch (error) {
       console.error(error);
     }
+    setConfirmDelete(false);
   };
 
   const editPostMutation = useMutation({
@@ -170,13 +178,26 @@ export default function JournalEntry(props) {
               >
                 <FontAwesomeIcon icon={faPencil} />
               </button>
-              <button
+              {confirmDelete === true ? (<button
+                aria-label="delete-button"
+                onClick={() => handleDeleteEntry(props.id)}
+                className="text-xs rounded-md w-10 h-10 bg-skin-secondary mr-2 text-white transition-colors duration-300 ease-in-out transform hover:scale-125"
+              >
+               sure?
+              </button>): <button
+                aria-label="confirm-button"
+                onClick={() => handleConfirmDelete()}
+                className="rounded-md w-10 h-10 bg-skin-secondary mr-2 text-white transition-colors duration-300 ease-in-out transform hover:scale-125"
+              >
+                 <FontAwesomeIcon icon={faTrash} />
+              </button> }
+              {/* <button
                 aria-label="delete-button"
                 onClick={() => handleDeleteEntry(props.id)}
                 className="rounded-md w-10 h-10 bg-skin-secondary mr-2 text-white transition-colors duration-300 ease-in-out transform hover:scale-125"
               >
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
+                
+              </button> */}
             </div>
             {shareMessageTrue ? <p>{message}</p> : null}
           </div>
