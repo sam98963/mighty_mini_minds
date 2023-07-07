@@ -39,12 +39,9 @@ export default function WelcomePage() {
   function submitMood() {
     // submitMood is a function that will be called when the user clicks on the go button
     const entry = {
-
       // entry is the entry that will be sent to the server
       mood: mood, // mood is the mood of the user
       share: false, // share is a boolean that will be used to determine if the user wants to share their entry
-      // user_uuid: userId,
-
     };
     if (mood !== 0) {
       // if the mood is not 0, then mutate the entry
