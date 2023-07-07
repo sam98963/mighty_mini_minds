@@ -117,7 +117,6 @@ export default function Login() {
           <label className="text-lg sm:text-2xl mt-4">Username</label>
           <input
             aria-label="username"
-            // for="username"
             name="username"
             onChange={handleChange}
             className="bg-skin-input shadow-md p-1 rounded-lg w-64"
@@ -125,7 +124,6 @@ export default function Login() {
           <label className="text-lg sm:text-2xl mt-5">Password</label>
           <input
             aria-label="password"
-            // for="password"
             type="password"
             name="password"
             onChange={handleChange}
