@@ -23,12 +23,12 @@ export default function Login() {
   const { mutate, isError } = useMutation({
     mutationFn: async (user) => {
       // mutationFn is the function that will be called when you mutate data
-      const response = await axios.post(
+      const loginUser = await axios.post(
         // url is the url that you want to send the data to
         "https://mighty-mini-minds-backend.onrender.com/users/login",
         user
       );
-      const data = response.data;
+      const data = loginUser.data;
       return data;
     },
     onSuccess: (data) => {
@@ -114,16 +114,18 @@ export default function Login() {
         )}
 
         <div className="flex flex-col items-center">
-          <label className="text-lg sm:text-2xl mt-4">Username</label>
+          <label className="text-lg sm:text-2xl mt-4" for="username">Username</label>
           <input
             aria-label="username"
+            for="username"
             name="username"
             onChange={handleChange}
             className="bg-skin-input shadow-md p-1 rounded-lg w-64"
           />
-          <label className="text-lg sm:text-2xl mt-5">Password</label>
+          <label className="text-lg sm:text-2xl mt-5" for="password">Password</label>
           <input
             aria-label="password"
+            for="password"
             type="password"
             name="password"
             onChange={handleChange}
@@ -150,3 +152,7 @@ export default function Login() {
     </div>
   );
 }
+
+// for test:
+// const navigate = sinon.stub();
+// expect(navigate.calledWith('/appLayout/welcomePage')).toBe(true);
