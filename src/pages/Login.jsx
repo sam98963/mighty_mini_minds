@@ -114,18 +114,18 @@ export default function Login() {
         )}
 
         <div className="flex flex-col items-center">
-          <label className="text-lg sm:text-2xl mt-4" for="username">Username</label>
+          <label className="text-lg sm:text-2xl mt-4">Username</label>
           <input
             aria-label="username"
-            for="username"
+            // for="username"
             name="username"
             onChange={handleChange}
             className="bg-skin-input shadow-md p-1 rounded-lg w-64"
           />
-          <label className="text-lg sm:text-2xl mt-5" for="password">Password</label>
+          <label className="text-lg sm:text-2xl mt-5">Password</label>
           <input
             aria-label="password"
-            for="password"
+            // for="password"
             type="password"
             name="password"
             onChange={handleChange}
