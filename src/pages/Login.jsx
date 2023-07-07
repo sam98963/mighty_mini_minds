@@ -5,9 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import quotes from "../data/loginQuotes.json";
 import { useAuth } from "../auth/AuthProvider";
-
 export default function Login() {
-
   const { handleAuthentication } = useAuth(); // useAuth is a custom hook that allows you to access the authentication context
 
   //state of the user data
