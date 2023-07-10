@@ -1,4 +1,4 @@
-Link to our Back end: https://github.com/dlrodev92/mighty_mini_minds_backEnd
+Link to our Back End: https://github.com/dlrodev92/mighty_mini_minds_backEnd
 
 Weicome to Mighty Mini Minds, also known as MMM... 
 
