@@ -1,3 +1,5 @@
+Link to our Back end: https://github.com/dlrodev92/mighty_mini_minds_backEnd
+
 Weicome to Mighty Mini Minds, also known as MMM... 
 
 We have created a  mental health application for kids aged 7 to 12, in order to help them improve their ability to express their emotions and communicate their feelings with others more effectively using guided journaling. 
