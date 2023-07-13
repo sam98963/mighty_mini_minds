@@ -5,9 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import quotes from "../data/loginQuotes.json";
 import { useAuth } from "../auth/AuthProvider";
-
 export default function Login() {
-
   const { handleAuthentication } = useAuth(); // useAuth is a custom hook that allows you to access the authentication context
 
   //state of the user data
@@ -25,12 +23,12 @@ export default function Login() {
   const { mutate, isError } = useMutation({
     mutationFn: async (user) => {
       // mutationFn is the function that will be called when you mutate data
-      const response = await axios.post(
+      const loginUser = await axios.post(
         // url is the url that you want to send the data to
         "https://mighty-mini-minds-backend.onrender.com/users/login",
         user
       );
-      const data = response.data;
+      const data = loginUser.data;
       return data;
     },
     onSuccess: (data) => {
@@ -151,3 +149,7 @@ export default function Login() {
     </div>
   );
 }
+
+// for test:
+// const navigate = sinon.stub();
+// expect(navigate.calledWith('/appLayout/welcomePage')).toBe(true);
