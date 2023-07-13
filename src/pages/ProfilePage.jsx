@@ -28,11 +28,11 @@ export default function ProfilePage() {
       const response = await axios.patch(url.replace(/"/g, ""), user); // url is the url that you want to send the data to
       return response.data; // return the data from the response
     },
-    onSuccess: (data) => {
-      // onSuccess is a function that will be called when the mutation is successful
-      // navigate("../appLayout/journal");
-      console.log(data);
-    },
+    // onSuccess: (data) => {
+    //   // onSuccess is a function that will be called when the mutation is successful
+    //   // navigate("../appLayout/journal");
+    //   console.log(data);
+    // },
     onError: (error) => {
       // onError is a function that will be called when the mutation is unsuccessful
       console.log(error); // log the error message

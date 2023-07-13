@@ -39,7 +39,7 @@ export default function Login() {
       localStorage.setItem("tokenData", JSON.stringify(data.token)); // store the token in local storage so that it can be accessed later
       localStorage.setItem("userId", JSON.stringify(data.userId));
       handleAuthentication(true), navigate("/appLayout/welcomePage"); // navigate to the home page and set the authentication to true so that the user can access the app
-      console.log(data.token);
+      // console.log(data.token); 
     },
     onError: (err) => {
       // onError is a function that will be called when the mutation is unsuccessful
@@ -91,7 +91,6 @@ export default function Login() {
       // function to generate a random quote from the quotes.json file
       const randomIndex = Math.floor(Math.random() * quotes.length); // generate a random index
       const selectedQuote = quotes[randomIndex]; // select the quote at the random index
-      console.log(selectedQuote); // log the quote
       return selectedQuote; // return the quote
     }
     const quote = generateRandomQuote(); // call the function to generate a random quote and store it in a variable
