@@ -27,7 +27,8 @@ export default function MoodMap() {
     });
 
     const averageMood = totalMood / sortedEntries.length; 
-    return averageMood * 25; 
+    const MoodPercentage = averageMood * 25; 
+    return MoodPercentage;
   }
 
   return (
