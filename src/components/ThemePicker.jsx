@@ -1,5 +1,4 @@
 export default function ThemePicker({ onThemeChange }) {
-  // onThemeChange is a function that takes in a string and returns nothing
   return (
     <div className="flex flex-col">
       <button

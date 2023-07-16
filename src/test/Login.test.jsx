@@ -10,10 +10,9 @@ import MockAdapter from 'axios-mock-adapter';
 const queryClient = new QueryClient();
 
 test('login sends post request with valid credentials', async () => {
-
+  // arrange
     const mock = new MockAdapter(axios);
 
-    // Configure the stub to return a successful response
     const userPayload = {
       username: 'peterpan1',
       password: '123',
@@ -34,17 +33,14 @@ test('login sends post request with valid credentials', async () => {
         test.wrapper // may not be needed
       );
 
-  // Fill in the login form
+  // Act
   fireEvent.change(screen.getByLabelText('username'), { target: { value: 'peterpan1' } });
   fireEvent.change(screen.getByLabelText('password'), { target: { value: '123' } });
-
-  // Click the login button
   fireEvent.click(screen.getByText('Login'));
 
-    // Wait for the post request to complete
+  // Assert
   await waitFor(() => expect(mock.history.post.length).toBe(1));
 
-  // Verify the post request was called with the correct data
   const requestPayload = JSON.parse(mock.history.post[0].data);
   expect(mock.history.post[0].url).toBe('https://mighty-mini-minds-backend.onrender.com/users/login');
   expect(requestPayload).toEqual({
@@ -58,3 +54,7 @@ test('login sends post request with valid credentials', async () => {
   mock.restore();
 });
 
+
+
+// const navigate = sinon.stub();
+// expect(navigate.calledWith('/appLayout/welcomePage')).toBe(true);
