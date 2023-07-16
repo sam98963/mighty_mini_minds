@@ -6,30 +6,23 @@ import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
 
 export default function SignUp() {
-
-  const [isRegistered, setIsRegistered] = useState(false); // isRegistered is a boolean that will be used to determine if the user has registered
-
-  const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
+  const [isRegistered, setIsRegistered] = useState(false); 
+  const navigate = useNavigate(); 
 
   const [errorMessage, setErrorMessage] = useState(""); 
   const { mutate, isError } = useMutation({
-    // useMutation is a hook that allows you to mutate data
     mutationFn: async (user) => {
-      // mutationFn is the function that will be called when you mutate data
       const response = await axios.post(
-        "https://mighty-mini-minds-backend.onrender.com/users", // url is the url that you want to send the data to
+        "https://mighty-mini-minds-backend.onrender.com/users", 
         user
       );
-      return response.data; // return the data from the response
+      return response.data; 
     },
-    onSuccess: (data) => {
-      // onSuccess is a function that will be called when the mutation is successful
-      console.log(data); // log the data
-      navigate("/"); // navigate to the home page
+    onSuccess: () => {
+      navigate("/"); 
     },
     onError: (err) => {
-      // onError is a function that will be called when the mutation is unsuccessful
-      console.log(err.message); // log the error message
+      console.log(err.message); 
       const error = JSON.stringify(err.response.data.message); 
       if (error) {
         setErrorMessage(error.replace(/"/g, '')); 
@@ -38,7 +31,7 @@ export default function SignUp() {
       }
     },
   });
-
+  // timeout for error message displayed to user
   useEffect(() => {
     const timeout = setTimeout(() => {
       setErrorMessage("");
@@ -49,7 +42,6 @@ export default function SignUp() {
     };
   }, [errorMessage]);
 
-  // form state - handles all inputs
   const [signupData, setSignupData] = useState({
     user: "",
     username: "",
@@ -59,15 +51,16 @@ export default function SignUp() {
     relationship: "",
     avatar: "",
   });
+
   // function to handle input changes
   function handleInputChange(event) {
-    const { name, value } = event.target; // name is the name of the input, value is the value of the input
-    setSignupData((prevState) => ({ ...prevState, [name]: value })); // set the state of the form data to the new value of the input
+    const { name, value } = event.target; 
+    setSignupData((prevState) => ({ ...prevState, [name]: value })); 
   }
 
-  // function to handle form submission - this function will be called when the form is submitted
+  // function to handle form submission for signup
   function handleSubmit(event) {
-    event.preventDefault(); // prevent the default behaviour of the form which is to refresh the page
+    event.preventDefault(); 
     const user = {
       name: signupData.user,
       username: signupData.username,
@@ -75,36 +68,29 @@ export default function SignUp() {
       contact_email: signupData.email,
       contact_name: signupData.contactName,
       contact_relationship: signupData.relationship,
-      avatar_url: signupData.avatar,
+      avatar_url: signupData.avatar || "Bunny",
     };
-
-    // check if all fields are filled in
     if (
       signupData.user !== "" &&
       signupData.username !== "" &&
       signupData.password !== "" &&
       signupData.email !== "" &&
       signupData.contactName !== "" &&
-      signupData.relationship !== "" &&
-      signupData.avatar !== ""
+      signupData.relationship !== "" 
     ) {
-
-      mutate(user); // mutate the data - this will call the mutationFn
-      setIsRegistered(true); // set isRegistered to true
+      mutate(user);
+      setIsRegistered(true); 
     } else {
-      alert("Please fill in all fields 😀"); // alert the user to fill in all fields
+      alert("Please fill in all fields 😀"); 
     }
   }
-
   if (isRegistered) {
-    // if isRegistered is true then show the success message
-    setIsRegistered(false); // set isRegistered to false
+    setIsRegistered(false); 
   }
 
   return (
     <div className="flex flex-col items-center justify-around h-screen">
       <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-4" />
-
       <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
         <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
         {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}

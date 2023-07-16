@@ -7,11 +7,11 @@ import Avatar from "../components/Avatar";
 import { NavLink } from "react-router-dom";
 
 export default function ProfilePage() {
-  const userId = localStorage.getItem("userId"); // get the user id from local storage
-  const url = `https://mighty-mini-minds-backend.onrender.com/users/${userId}`; // create the url to get the user data
-  const { data: user } = useGetUser(); // use the useGetUser hook to get the user data
+  const userId = localStorage.getItem("userId"); 
+  const url = `https://mighty-mini-minds-backend.onrender.com/users/${userId}`; 
+  const { data: user } = useGetUser(); 
+  // doesn't always work if you have logged in with a previous account and then logged in with a new one due to using local storage
   const [signupData, setSignupData] = useState({
-    // set the initial state of the form data to the user data
     user: user?.name || "",
     username: user?.username || "",
     password: "",
@@ -22,30 +22,21 @@ export default function ProfilePage() {
   });
 
   const { mutate } = useMutation({
-    // use the useMutation hook to mutate the data
     mutationFn: async (user) => {
-      // mutationFn is the function that will be called when you mutate data
-      const response = await axios.patch(url.replace(/"/g, ""), user); // url is the url that you want to send the data to
-      return response.data; // return the data from the response
-    },
-    onSuccess: (data) => {
-      // onSuccess is a function that will be called when the mutation is successful
-      // navigate("../appLayout/journal");
-      console.log(data);
+      const response = await axios.patch(url.replace(/"/g, ""), user); 
+      return response.data; 
     },
     onError: (error) => {
-      // onError is a function that will be called when the mutation is unsuccessful
-      console.log(error); // log the error message
+      console.log(error); 
     },
   });
 
-  // function to handle input changes - this function will be called when the input changes
   function handleInputChange(event) {
     const { name, value } = event.target;
     setSignupData((prevState) => ({ ...prevState, [name]: value }));
   }
 
-  // function to handle form submission - this function will be called when the form is submitted
+  // function to handle form submission and send patch request
   function handleSubmit(event) {
     event.preventDefault();
     const user = {
@@ -72,7 +63,6 @@ export default function ProfilePage() {
         >
           <div className="mb-4 sm:mt-4">
             <label className="text-sm sm:text-lg mr-2">Name:</label>
-            {/* input user */}
             <input
               aria-label="your name"
               className="bg-skin-input shadow-md w-4/5"

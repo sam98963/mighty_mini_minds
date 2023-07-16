@@ -5,55 +5,45 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import quotes from "../data/loginQuotes.json";
 import { useAuth } from "../auth/AuthProvider";
-
 export default function Login() {
+  const { handleAuthentication } = useAuth(); 
 
-  const { handleAuthentication } = useAuth(); // useAuth is a custom hook that allows you to access the authentication context
-
-  //state of the user data
   const [data, setData] = useState(null);
-  // state of the login form
   const [login, setLogin] = useState({
     username: "",
     password: "",
   });
 
-  const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
-  // mutation for login using react-query
+  const navigate = useNavigate(); 
 
   const [errorMessage, setErrorMessage] = useState(""); 
   const { mutate, isError } = useMutation({
     mutationFn: async (user) => {
-      // mutationFn is the function that will be called when you mutate data
-      const response = await axios.post(
-        // url is the url that you want to send the data to
+      const loginUser = await axios.post(
         "https://mighty-mini-minds-backend.onrender.com/users/login",
         user
       );
-      const data = response.data;
+      const data = loginUser.data;
       return data;
     },
     onSuccess: (data) => {
-      // onSuccess is a function that will be called when the mutation is successful
       setData(data);
-      localStorage.setItem("tokenData", JSON.stringify(data.token)); // store the token in local storage so that it can be accessed later
+      localStorage.setItem("tokenData", JSON.stringify(data.token));
       localStorage.setItem("userId", JSON.stringify(data.userId));
-      handleAuthentication(true), navigate("/appLayout/welcomePage"); // navigate to the home page and set the authentication to true so that the user can access the app
-      console.log(data.token);
+      handleAuthentication(true), navigate("/appLayout/welcomePage");
     },
     onError: (err) => {
-      // onError is a function that will be called when the mutation is unsuccessful
       console.log(err.message);
       const error = JSON.stringify(err.response.data.message); 
       setErrorMessage(error.replace(/"/g, '')); 
     },
   });
 
+  // timeout for error message displayed to user 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setErrorMessage("");
     }, 5000);
-
     return () => {
       clearTimeout(timeout);
     };
@@ -70,32 +60,26 @@ export default function Login() {
 
   // function to handle the login and send the data to the backend to authorize the user
   const handleLogin = () => {
-    // this function will be called when the form is submitted
     const user = {
       username: login.username,
       password: login.password,
     };
     if (login.username !== "" && login.password !== "") {
-      // check if the user has filled in all the fields
-      mutate(user); // call the mutate function to send the data to the backend
+      mutate(user); 
     } else {
-      alert("Please fill in all fields"); // if the user has not filled in all the fields, alert the user
+      alert("Please fill in all fields");
     }
   };
 
-  // function to generate a random quote
-  const [randomQuote, setRandomQuote] = useState(null); // state of the random quote
+  const [randomQuote, setRandomQuote] = useState(null); 
   useEffect(() => {
-    // useEffect is a hook that allows you to perform side effects in function components
     function generateRandomQuote() {
-      // function to generate a random quote from the quotes.json file
-      const randomIndex = Math.floor(Math.random() * quotes.length); // generate a random index
-      const selectedQuote = quotes[randomIndex]; // select the quote at the random index
-      console.log(selectedQuote); // log the quote
-      return selectedQuote; // return the quote
+      const randomIndex = Math.floor(Math.random() * quotes.length); 
+      const selectedQuote = quotes[randomIndex]; 
+      return selectedQuote; 
     }
-    const quote = generateRandomQuote(); // call the function to generate a random quote and store it in a variable
-    setRandomQuote(quote); // set the state of the random quote to the quote that was generated
+    const quote = generateRandomQuote(); 
+    setRandomQuote(quote); 
   }, []);
 
   return (

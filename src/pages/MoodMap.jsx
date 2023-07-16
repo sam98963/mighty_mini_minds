@@ -7,47 +7,28 @@ import { useGet } from "../hooks/useGet";
 import axios from "axios";
 
 export default function MoodMap() {
-  const { data: entries} = useGet(); // use the useGet hook to get the entries data
+  const { data: entries} = useGet(); 
   const sortedEntries = entries
     ?.sort(
-      // sort the entries by date and get the last 7 entries from the array
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
     )
     .slice(0, 7)
-    .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // sort the entries by date and get the last 7 entries from the array
+    .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); 
 
   const uuid = localStorage.getItem("userId");
 
-  // function to get the mood data from the backend
-  const handleEmail = async () => {
-    console.log("function called");
-    try {
-      const response = await axios.post(
-        `https://mighty-mini-minds-backend.onrender.com/sendbademail/${uuid}`
-      );
-      console.log(response);
-    } catch (error) {
-      console.error("Failed to send email:", error);
-    }
-  };
-
-  // function to get the mood data from the backend
   function moodPercentage() {
     if (!sortedEntries || sortedEntries.length === 0) {
-      // if there are no entries, return 0
       return 0;
     }
-
     let totalMood = 0;
-
     sortedEntries.forEach((entry) => {
-      // loop through the entries and add the mood to the total mood
-      totalMood += entry.mood; // add the mood to the total mood
+      totalMood += entry.mood; 
     });
 
-    const averageMood = totalMood / sortedEntries.length; // get the average mood by dividing the total mood by the number of entries
-    const moodPercentageVariable = averageMood * 25; // convert the average mood into a percentage
-    return moodPercentageVariable;
+    const averageMood = totalMood / sortedEntries.length; 
+    const MoodPercentage = averageMood * 25; 
+    return MoodPercentage;
   }
 
   return (
