@@ -9,47 +9,38 @@ export default function WelcomePage() {
 
   const { data: user } = useGetUser();
 
-  // useOutletContext is stupid so you must declate all variables in the array, even questions that isn't used
+  // useOutletContext - must declare all variables from the context, even if you don't use them
   const [questions, entryId, setEntryId] = useOutletContext();
 
-  const navigate = useNavigate(); // useNavigate is a hook that allows you to navigate to a different page
+  const navigate = useNavigate(); 
   const { mutate } = useMutation({
-    // useMutation is a hook that allows you to mutate data
-
     mutationFn: async (entry) => {
-      // mutationFn is the function that will be called when you mutate data
-      const url = `https://mighty-mini-minds-backend.onrender.com/entries/${userId}`; // url is the url that you want to send the data to
-      const response = await axios.post(url.replace(/"/g, ""), entry); // response is the response from the server
-      return response.data; // return the data from the response
+      const url = `https://mighty-mini-minds-backend.onrender.com/entries/${userId}`; 
+      const response = await axios.post(url.replace(/"/g, ""), entry); 
+      return response.data; 
     },
     onSuccess: (data) => {
-      // onSuccess is a function that will be called when the mutation is successful
-      setEntryId(data.uuid); // set the entryId to the uuid of the entry
-      // console.log(data.uuid); // log the uuid of the entry
+      setEntryId(data.uuid); 
     },
   });
 
-  const [mood, setMood] = useState(0); // mood is the mood of the user, setMood is a function that will set the mood of the user
+  const [mood, setMood] = useState(0); 
 
   function handleClick(event) {
-    // handleClick is a function that will be called when the user clicks on a mood
-    setMood(event.target.value); // set the mood to the value of the button that the user clicked on
+    setMood(event.target.value); 
   }
 
+  // function to post the entry to the server
   function submitMood() {
-    // submitMood is a function that will be called when the user clicks on the go button
     const entry = {
-      // entry is the entry that will be sent to the server
-      mood: mood, // mood is the mood of the user
-      share: false, // share is a boolean that will be used to determine if the user wants to share their entry
+      mood: mood, 
+      share: false, 
     };
     if (mood !== 0) {
-      // if the mood is not 0, then mutate the entry
-      mutate(entry); // mutate the entry
-      navigate("../addEntry"); // navigate to the addEntry page
+      mutate(entry); 
+      navigate("../addEntry"); 
     } else {
-      // if the mood is 0, then alert the user to select a mood
-      alert("Please select a mood"); // alert the user to select a mood
+      alert("Please select a mood"); 
     }
   }
 

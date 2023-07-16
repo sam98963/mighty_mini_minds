@@ -3,10 +3,9 @@ import Avatar from "./Avatar";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const navigate = useNavigate(); // useNavigate is a hook that allows you to access the navigate context
+  const navigate = useNavigate(); 
   function handleProfileNavigation() {
-    // function to handle profile navigation when the user clicks on the profile icon
-    navigate("/profile"); // navigate to the profile page
+    navigate("/profile"); 
   }
 
   return (
@@ -25,4 +24,4 @@ export default function Header() {
   );
 }
 
-// sm:h-24 sm:w-40
+

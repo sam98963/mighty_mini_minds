@@ -5,30 +5,29 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function JournalEntry(props) {
-  const [isEditing, setIsEditing] = useState(true); // isEditing is a boolean that will be used to determine if the user is editing the post or not
+  const [isEditing, setIsEditing] = useState(true); 
   const [editEntry, setEditEntry] = useState({
     res1: props.res1,
     res2: props.res2,
     res3: props.res3,
     share: props.share,
-  }); // editEntry is an object that will be used to store the user's input
-  const [editId, setEditId] = useState(); // editId is a string that will be used to store the id of the post that the user is editing
-  const queryClient = useQueryClient(); // queryClient is a variable that will be used to invalidate the cache
-  const [shareMessageTrue, setShareMessageTrue] = useState(false); // shareMessageTrue is a boolean that will be used to determine if the share message is displayed or not
-  const [message, setMessage] = useState(""); // message is a string that will be used to store the message that will be displayed to the user
+  }); 
+  const [editId, setEditId] = useState(); 
+
+  const queryClient = useQueryClient(); 
+
+  const [shareMessageTrue, setShareMessageTrue] = useState(false);
+  const [message, setMessage] = useState(""); 
 
   const deletePostMutation = useMutation({
-    // deletePostMutation is a variable that will be used to delete a post
     mutationFn: async (id) => {
-      // mutationFn is a function that will be used to delete a post
       const response = await axios.delete(
         `https://mighty-mini-minds-backend.onrender.com/entries/${id}`
-      ); // response is a variable that will be used to store the response from the backend
-      return response.data; // return the data from the response
+      );
+      return response.data; 
     },
     onSuccess: () => {
-      // onSuccess is a function that will be called when the mutation is successful
-      queryClient.invalidateQueries("entries"); // invalidate the cache
+      queryClient.invalidateQueries("entries"); 
     },
   });
 
@@ -39,9 +38,8 @@ export default function JournalEntry(props) {
   }
 
   const handleDeleteEntry = async (id) => {
-    // handleDeleteEntry is a function that will be used to delete a post
     try {
-      await deletePostMutation.mutateAsync(id); // delete the post using the deletePostMutation variable
+      await deletePostMutation.mutateAsync(id); 
     } catch (error) {
       console.error(error);
     }
@@ -49,54 +47,47 @@ export default function JournalEntry(props) {
   };
 
   const editPostMutation = useMutation({
-    // editPostMutation is a variable that will be used to edit a post
     mutationFn: async (entry) => {
-      // mutationFn is a function that will be used to edit a post
       const response = await axios.patch(
-        // response is a variable that will be used to store the response from the backend
-        `https://mighty-mini-minds-backend.onrender.com/entries/${editId}`, // edit the post using the editId variable
+        `https://mighty-mini-minds-backend.onrender.com/entries/${editId}`,
         entry
       );
-      return response.data; // return the data from the response
+      return response.data; 
     },
     onSuccess: () => {
-      queryClient.invalidateQueries("entries"); // invalidate the cache when the mutation is successful
+      queryClient.invalidateQueries("entries"); 
     },
     onError: (error) => {
-      console.error(error.message); // log the error message to the console
+      console.error(error.message); 
     },
   });
 
   const handleEdit = (id) => {
-    // handleEdit is a function that will be used to edit a post
-    setEditId(id); // set the editId variable to the id of the post that the user is editing
-    setIsEditing(!isEditing); // toggle the isEditing variable to true
+    setEditId(id); 
+    setIsEditing(!isEditing); 
   };
 
   const handleInputChange = (event) => {
-    // handleInputChange is a function that will be used to handle the user's input
-    setEditEntry({ ...editEntry, [event.target.name]: event.target.value }); // set the editEntry variable to the user's input
+    setEditEntry({ ...editEntry, [event.target.name]: event.target.value });
   };
 
   const handleEditEntry = async () => {
-    // handleEditEntry is a function that will be used to edit a post
     const entry = {
-      // entry is an object that will be used to store the user's input
       answer_one: editEntry.res1,
       answer_two: editEntry.res2,
       answer_three: editEntry.res3,
       share: false,
     };
     try {
-      await editPostMutation.mutateAsync(entry); // edit the post using the editPostMutation variable
-      setIsEditing(!isEditing); // toggle the isEditing variable to false to stop the user from editing the post
+      await editPostMutation.mutateAsync(entry); 
+      setIsEditing(!isEditing); 
     } catch (error) {
       console.error(error);
     }
   };
 
+  // send an email to the user's trusted person
   const handleEmail = async () => {
-    // handleEmail is a function that will be used to send an email to the user's trusted person
     try {
       const response = await axios.post(
         `https://mighty-mini-minds-backend.onrender.com/sendemail/${editId}`
@@ -107,19 +98,17 @@ export default function JournalEntry(props) {
     }
   };
 
-  // this function will be used to share a post
+  // will currently only share from journal page if the entry is editted
   async function handleShare(id) {
-    // handleShare is a function that will be used to share a post
-    setEditId(id); // set the editId variable to the id of the post that the user is sharing
+    setEditId(id); 
     const entry = {
-      share: true, // set the share property of the entry object to true
+      share: true, 
     };
     try {
-      await editPostMutation.mutateAsync(entry); // edit the post using the editPostMutation variable and the entry object
-      handleEmail(); // call the handleEmail function
-      setShareMessageTrue(true); // set the shareMessageTrue variable to true to display the share message
+      await editPostMutation.mutateAsync(entry);
+      handleEmail(); 
+      setShareMessageTrue(true); 
       setMessage(
-        // set the message variable to the message that will be displayed to the user
         "Thanks for sharing your entry! It's on its way to your trusted person!"
       );
     } catch (error) {
@@ -127,12 +116,10 @@ export default function JournalEntry(props) {
     }
   }
 
-  // this function will be used to display the share message to the user for 5 seconds and then hide it again
   function shareMessage() {
     setMessage("Would you like to share your thoughts with someone?");
     setShareMessageTrue(true);
   }
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShareMessageTrue(false);
@@ -191,13 +178,6 @@ export default function JournalEntry(props) {
               >
                  <FontAwesomeIcon icon={faTrash} />
               </button> }
-              {/* <button
-                aria-label="delete-button"
-                onClick={() => handleDeleteEntry(props.id)}
-                className="rounded-md w-10 h-10 bg-skin-secondary mr-2 text-white transition-colors duration-300 ease-in-out transform hover:scale-125"
-              >
-                
-              </button> */}
             </div>
             {shareMessageTrue ? <p>{message}</p> : null}
           </div>

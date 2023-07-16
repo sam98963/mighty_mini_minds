@@ -1,12 +1,11 @@
 import JournalEntry from "../components/JournalEntry";
 import { useGet } from "../hooks/useGet";
-import { useEffect, useState } from "react";
 
 export default function Journal() {
-  const { data: entries } = useGet(); // use the useGet hook to get the entries data from the backend
+  const { data: entries } = useGet(); 
   const filteredEntries = entries?.sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  ); // sort the entries by date and get the last 7 entries from the array
+  ); 
 
   return (
     <div className=" h-full w-full overflow-y-scroll bg-red ">

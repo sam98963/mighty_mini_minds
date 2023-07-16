@@ -19,6 +19,7 @@ export function useEntryState() {
   return { entry, setEntry }; // return the entry object and the setEntry function
 }
 
+// code from other files in case we need it later
 
 // filter dates
 // {/* <div className="flex justify-end items-center mt-4">
@@ -231,3 +232,20 @@ export function useEntryState() {
   // }
   // create a function to get the mood data from the backend (json in the meantime)
   // convert rating of 1 -5 into a percentage, moodData[0].posts[0].mood_rating to send to the thermometer
+
+  // export default function WordOfTheDay() {
+//   // Generate a random index within the range of the JSON data array length
+//   const randomIndex = Math.floor(Math.random() * wordOfTheDay.length);
+
+//   // Retrieve the word of the day, definition, and example based on the random index
+//   const { word_of_the_day, definition, example } = wordOfTheDay[randomIndex];
+
+//   return (
+//     <div className="flex flex-col items-center">
+//       <h1 className="text-2xl">Word of The Day</h1>
+//       <h1 className="text-2xl text-skin-secondary">{word_of_the_day}</h1>
+//       <p className="text-sm sm:text-lg mx-5 text-center">{definition}</p>
+//       <p className="italic text-xs sm:text-base mx-5 text-center">"{example}"</p>
+//     </div>
+//   );
+// }

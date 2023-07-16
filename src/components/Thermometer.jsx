@@ -1,9 +1,6 @@
-import ThermometerPic from "../Img/Therm_final.png";
 import ThermometerImage from "../Img/Therm_final_rectangle.png";
 
 export default function Thermometer(props) {
-  // function to take in props.mood as a value number, and reduce the value of the percentage
-  // add that half to the prefilled amount
 
   function moodValue() {
     let mood = props.mood * 0.6;
@@ -12,23 +9,8 @@ export default function Thermometer(props) {
     return mood;
   }
 
-  function getGradientColor(height) {
-    let gradientColor = "";
-
-    if (height <= 33) {
-      gradientColor = "rgb(255,140,0)";
-    } else if (height <= 66) {
-      gradientColor = "rgb(255, 240, 0)";
-    } else {
-      gradientColor = "rgb(0, 255, 145)";
-    }
-
-    return gradientColor;
-  }
-
   const thermometerStyle = { 
     height: moodValue(),
-    // background: getGradientColor(props.mood),
     background:
       "linear-gradient(0deg, rgba(238,102,11,1) 5%, rgba(235,224,3,0.9780287114845938) 40%, rgba(0,255,145,1) 100%",
   };

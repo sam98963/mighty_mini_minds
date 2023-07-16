@@ -5,40 +5,37 @@ import axios from "axios";
 
 
 export default function AddEntry() {
-  // useOutletContext is stupid so you must declate all variables in the array, but not setEntryId because it's a setter function
+  // must declare all variables from useOutletContext, except setter function
   const [questions, entryId] = useOutletContext();
 
-  // useMutation is a hook that allows you to mutate data
   const { mutate } = useMutation({
     mutationFn: async (entry) => {
-      // mutationFn is the function that will be called when you mutate data
       const response = await axios.patch(
         `https://mighty-mini-minds-backend.onrender.com/entries/${entryId}`,
         entry
-      ); // response is the response from the server
+      ); 
       return response.data;
     },
     onError: (error) => {
       console.log(error);
     },
   });
-  // return the outlet context using the useOutletContext hook
-  const [positiveA, setPositiveA] = useState(""); // positiveA is a string that will be used to store the user's answer to the positive question
-  const [challengeA, setChallengeA] = useState(""); // challengeA is a string that will be used to store the user's answer to the challenge question
-  const [openA, setOpenA] = useState(""); // openA is a string that will be used to store the user's answer to the open question
+ 
+  const [positiveA, setPositiveA] = useState(""); 
+  const [challengeA, setChallengeA] = useState(""); 
+  const [openA, setOpenA] = useState(""); 
 
-  // function to submit the entry to the server
+  // function to patch the entry to the server
   function submit() {
     const entry = {
       question_one: questions[0],
       question_two: questions[1],
       question_three: questions[2],
-      answer_one: positiveA, // Use value from positiveA input field
-      answer_two: challengeA, // Use value from challengeA input field
-      answer_three: openA, // Use value from openA input field
+      answer_one: positiveA, 
+      answer_two: challengeA, 
+      answer_three: openA, 
     };
-
-    mutate(entry); // mutate the entry
+    mutate(entry); 
   }
 
   return (

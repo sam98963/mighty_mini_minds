@@ -4,7 +4,6 @@ import axios from 'axios';
 export function useGet() {
   const userUuid = localStorage.getItem('userId');
   
-
   return useQuery({
     queryKey: ['entries'],
     queryFn: async () => {
