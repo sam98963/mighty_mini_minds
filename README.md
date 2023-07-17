@@ -1,12 +1,12 @@
 [Link to our Back End](https://github.com/dlrodev92/mighty_mini_minds_backEnd)
 
+[Demo our app](https://wonderful-paletas-0c1299.netlify.app/)
+
 Weicome to Mighty Mini Minds, also known as MMM... 
 
-We collaborated as a team of 6 to designed and buils a Full-stack mental health application for kids aged 7 to 12 with in a 5-week timeframe, in order to help them improve their ability to express their emotions and communicate their feelings with others more effectively using guided journaling. They have the option to share these entries with their trusted person. 
+We collaborated as a team of 6 to design and build a Full-stack mental health application for kids aged 7 to 12 within a 5-week timeframe, in order to help them improve their ability to express their emotions and communicate their feelings with others more effectively using guided journaling. They have the option to share their journal entries with their trusted person. 
 
 [You can view our high fideilty prototype here](https://shorturl.at/bAHW4)
-
-[To try out our app click here](https://wonderful-paletas-0c1299.netlify.app/)
 
 [Here's a video demo of the app](https://www.youtube.com/watch?v=MhEH8YmNl_Y&ab_channel=GM)
 
