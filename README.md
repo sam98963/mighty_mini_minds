@@ -8,7 +8,7 @@ We collaborated as a team of 6 to designed and buils a Full-stack mental health 
 
 [To try out our app click here](https://wonderful-paletas-0c1299.netlify.app/)
 
-[Here's a live demo of the app](https://www.youtube.com/watch?v=MhEH8YmNl_Y&ab_channel=GM)
+[Here's a video demo of the app](https://www.youtube.com/watch?v=MhEH8YmNl_Y&ab_channel=GM)
 
 For more insight into our user research and design process, [check out our presentation](https://www.canva.com/design/DAFo4zRd770/eyrbLyuqBd3gvLHkk7FnFA/view?utm_content=DAFo4zRd770&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
