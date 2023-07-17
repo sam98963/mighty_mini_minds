@@ -10,14 +10,27 @@ We collaborated as a team of 6 to design and build a Full-stack mental health ap
 
 [Here's a video demo of the app](https://www.youtube.com/watch?v=MhEH8YmNl_Y&ab_channel=GM)
 
-For more insight into our user research and design process, view the highlights below or [check out our presentation](https://www.canva.com/design/DAFo4zRd770/eyrbLyuqBd3gvLHkk7FnFA/view?utm_content=DAFo4zRd770&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+For more insight into our user research and design process, see the highlights below or [check out our presentation](https://www.canva.com/design/DAFo4zRd770/eyrbLyuqBd3gvLHkk7FnFA/view?utm_content=DAFo4zRd770&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
-## Problem statement
+## Problem Statement
 ![problem_statement](./screenshots/problem_statement.png)
 ## User Research
 ![user_research](./screenshots/user_research.png)
-## Low Fidelity wireframe
+## Safeguarding considerations
+![safeguarding](./screenshots/safegaurding.png)
+## Low Fidelity Wireframe
 ![low-fi_wireframe](./screenshots/low_fidelity_wireframe.png)
+## Component Tree
+![component_tree](./screenshots/component_tree.png)
+## Design considerations
+![accessibilty](./screenshots/accessibility.png)
+![familiarity](./screenshots/familiarity.png)
+![customisability](./screenshots/customisability.png)
+## Tech Stack 
+We used tailwind to set up our theme changer and responsive design and React Router to create a nested router to allow for pages with the Header and NavBar and for pages without them. 
+![tech_stack](./screenshots/tech_stack.png)
+![nested_router](./screenshots/nested_router.png)
+
 
 
 
