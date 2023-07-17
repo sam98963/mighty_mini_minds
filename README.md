@@ -27,9 +27,9 @@ For more insight into our user research and design process, see the highlights b
 ![familiarity](./screenshots/familiarity.png)
 ![customisability](./screenshots/customisability.png)
 ## Tech Stack 
-We used Tailwind to set up our theme changer and responsive design and React Router to create a nested router to allow for pages with the Header and NavBar and for pages without them.
-We chose React Query to fetch data from our API, for it's easy syntax and improved error handling over Use effects, and Netlify as our CD for continous deployment. 
-For our Back end we used PostgreSQL and Express, as well as Sequelize as our ORM to handle the logic of interacting with our database, with the benefit of improved security against SQL injection. We used JWT and Bcrypt to handle our authentication instead of a 3rd party solution, in doing so we learnt a lot about authentication and security and also retained complete control over our user's data. 
+- We used Tailwind to set up our theme changer and responsive design and React Router to create a nested router to allow for pages with the Header and NavBar and for pages without them.
+- We chose React Query to fetch data from our API, for it's easy syntax and improved error handling over Use effects, and Netlify as our CD for continous deployment. 
+- For our Back end we used PostgreSQL and Express, as well as Sequelize as our ORM to handle the logic of interacting with our database, with the benefit of improved security against SQL injection. We used JWT and Bcrypt to handle our authentication instead of a 3rd party solution, in doing so we learnt a lot about authentication and security and also retained complete control over our user's data. 
 
 ![tech_stack](./screenshots/tech_stack.png)
 ![nested_router](./screenshots/nested_router.png)
