@@ -27,7 +27,7 @@ For more insight into our user research and design process, see the highlights b
 ![familiarity](./screenshots/familiarity.png)
 ![customisability](./screenshots/customisability.png)
 ## Tech Stack 
-We used tailwind to set up our theme changer and responsive design and React Router to create a nested router to allow for pages with the Header and NavBar and for pages without them. 
+We used tailwind to set up our theme changer and responsive design and React Router to create a nested router to allow for pages with the Header and NavBar and for pages without them. <br>
 ![tech_stack](./screenshots/tech_stack.png)
 ![nested_router](./screenshots/nested_router.png)
 
