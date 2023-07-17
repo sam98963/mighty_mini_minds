@@ -13,11 +13,11 @@ We collaborated as a team of 6 to designed and buils a Full-stack mental health 
 For more insight into our user research and design process, [check out our presentation](https://www.canva.com/design/DAFo4zRd770/eyrbLyuqBd3gvLHkk7FnFA/view?utm_content=DAFo4zRd770&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ## Problem statement
-[problem_statement](./screenshots/problem_statement.png)
+![problem_statement](./screenshots/problem_statement.png)
 ## User Research
-[](./screenshots/user_research.png)
+![user_research](./screenshots/user_research.png)
 ## Low Fidelity wireframe
-[](./screenshots/user_research.png)
+![low-fi_wireframe](./screenshots/user_research.png)
 
 
 
