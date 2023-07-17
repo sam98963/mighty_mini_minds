@@ -17,7 +17,7 @@ For more insight into our user research and design process, [check out our prese
 ## User Research
 ![user_research](./screenshots/user_research.png)
 ## Low Fidelity wireframe
-![low-fi_wireframe](./screenshots/user_research.png)
+![low-fi_wireframe](./screenshots/low_fidelity_wireframe.png)
 
 
 
