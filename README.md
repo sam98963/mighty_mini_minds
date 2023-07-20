@@ -1,6 +1,6 @@
 [Link to our Back End](https://github.com/dlrodev92/mighty_mini_minds_backEnd)
 
-[Demo our app](https://wonderful-paletas-0c1299.netlify.app/)
+[Demo our app](https://migthyminiminds.netlify.app/)
 
 Weicome to Mighty Mini Minds, also known as MMM... 
 
