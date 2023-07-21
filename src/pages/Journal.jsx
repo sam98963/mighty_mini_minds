@@ -8,7 +8,7 @@ export default function Journal() {
   ); 
 
   return (
-    <div className=" h-full w-full overflow-y-scroll bg-red ">
+    <div className=" h-full w-full">
       <h1 className="font-bold text-2xl sm:text-4xl text-center sm:my-8 my-4">
         Check out your past journals
       </h1>

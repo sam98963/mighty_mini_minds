@@ -16,7 +16,7 @@ export default function NavBar({ handleThemeChange }) {
   };
   return (
     <div className="flex justify-center align-center">
-      <div className="flex justify-around fixed bottom-3 w-9/12  h-12  bg-white rounded-lg">
+      <div className="flex justify-around my-8 w-9/12  h-12  bg-white rounded-lg">
         <NavLink
           aria-label="link to the welcome page"
           to="welcomePage"
