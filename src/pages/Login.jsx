@@ -83,15 +83,19 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-around h-screen">
-      <img src={logo} alt="logo" className="h-28 w-44" />
-      <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-3/5 sm:h-4/6 bg-white rounded-lg shadow-lg text-center">
-        <h1 className="font-bold text-center text-xl sm:text-4xl">
+    <div className="flex flex-col items-center justify-between h-screen overflow-y-hidden">
+      <img
+        src={logo}
+        alt="logo"
+        className="h-24 w-40 my-8"
+      />
+      <div className="overflow-y-scroll flex flex-col  justify-between align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-3/4 sm:h-4/6 bg-white rounded-lg shadow-lg text-center">
+        <h1 className="my-6 sm:my-10 font-bold text-center text-xl sm:text-4xl">
           Mighty Mini Minds
         </h1>
-        {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
+        {isError? <p className="my-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         {randomQuote && (
-          <div className="flex flex-col">
+          <div className="flex flex-col my-4">
             <p className="sm:text-xl font-semibold mx-5">{randomQuote.quote}</p>
             <p className="italic text-sm mt-1">
               {randomQuote.book} by {randomQuote.author}
@@ -105,7 +109,7 @@ export default function Login() {
             aria-label="username"
             name="username"
             onChange={handleChange}
-            className="bg-skin-input shadow-md p-1 rounded-lg w-64"
+            className="bg-skin-input shadow-md p-1 rounded-lg w-[75%] sm:w-80"
           />
           <label className="text-lg sm:text-2xl mt-5">Password</label>
           <input
@@ -113,23 +117,23 @@ export default function Login() {
             type="password"
             name="password"
             onChange={handleChange}
-            className="bg-skin-input shadow-md p-1 rounded-lg w-64"
+            className="bg-skin-input shadow-md p-1 rounded-lg w-[75%] sm:w-80"
           />
         </div>
         <div className="flex justify-center">
           <button
             onClick={handleLogin}
-            className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 "
+            className="rounded-md w-32 h-14 sm:w-40 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 my-8"
           >
             Login
           </button>
         </div>
       </div>
-      <div className="space-y-2 mb-2 text-center">
+      <div className="space-y-2 my-8 text-center">
         <div className="underline sm:text-xl text-skin-primary">
           <NavLink to="signup">No account? Sign up here!</NavLink>
         </div>
-        <div className="underline sm:text-lg text-skin-primary">
+        <div className="underline sm:text-lg text-skin-primary mt-2">
           <NavLink to="./about">About Us</NavLink>
         </div>
       </div>

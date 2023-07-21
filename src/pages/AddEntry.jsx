@@ -47,7 +47,7 @@ export default function AddEntry() {
         <textarea
           type="text"
           aria-label="input your answer to the positive question"
-          className="bg-skin-input shadow-md h-[4.3rem] sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg"
+          className="bg-skin-input shadow-md h-24 sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg"
           onChange={(e) => setPositiveA(e.target.value)}
         ></textarea>
       </div>
@@ -59,7 +59,7 @@ export default function AddEntry() {
         <textarea
           type="text"
           aria-label="input your answer to the challenge question"
-          className="bg-skin-input shadow-md h-[4.3rem] sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg"
+          className="bg-skin-input shadow-md h-24 sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg"
           onChange={(e) => setChallengeA(e.target.value)}
         ></textarea>
       </div>
@@ -71,7 +71,7 @@ export default function AddEntry() {
         <textarea
           type="text"
           aria-label="input your answer to the open question"
-          className="bg-skin-input shadow-md h-[4.3rem] sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg"
+          className="bg-skin-input shadow-md h-24 sm:h-28 py-2 px-3 mx-8 text-sm sm:text-lg"
           onChange={(e) => setOpenA(e.target.value)}
         ></textarea>
       </div>

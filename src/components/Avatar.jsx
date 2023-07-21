@@ -4,7 +4,7 @@ import goatAvatar from "../Img/avatar-animations/goatFrame-1.png";
 import catAvatar from "../Img/avatar-animations/catFrame-1.png";
 import { useGetUser } from "../hooks/useGetUser";
 
-export default function Avatar({ animation, h, smw, smh, selection }) {
+export default function Avatar({ animation, h, w, smw, smh, selection }) {
   const { data: avatar } = useGetUser(); 
   const userAvatar = avatar ? avatar.avatar_url : null;
 
@@ -33,7 +33,7 @@ export default function Avatar({ animation, h, smw, smh, selection }) {
       <img
         src={imageURL}
         alt="avatar"
-        className={`h-${h} sm:w-${smw} sm:h-${smh} ${bounceAnimation}`}
+        className={`h-${h} w-${w} sm:w-${smw} sm:h-${smh} ${bounceAnimation}`}
       />
     </div>
   );

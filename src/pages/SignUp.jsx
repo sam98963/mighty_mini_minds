@@ -89,10 +89,14 @@ export default function SignUp() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-around h-screen">
-      <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-4" />
-      <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
-        <h1 className="text-3xl sm:text-4xl mt-2 text-center">Sign Up</h1>
+    <div className="flex flex-col items-center justify-between h-screen">
+       <img
+        src={logo}
+        alt="logo"
+        className="h-24 w-40 my-8"
+      />
+      <div className="flex flex-col align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-3/4 sm:h-4/6 bg-white rounded-lg shadow-lg overflow-y-scroll">
+        <h1 className="text-3xl sm:text-4xl my-6 sm:my-10 text-center font-bold">Sign Up</h1>
         {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
@@ -186,13 +190,15 @@ export default function SignUp() {
                 selection={signupData.avatar}
                 animation={true}
                 h={20}
-                smh={28}
+                w={20}
+                smh={32}
+                smw={32}
               />
             </div>
           </div>
           <div className="flex justify-center mt-4 mb-10">
             <button
-              className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125"
+              className="rounded-md w-32 h-14 sm:w-40 sm:h-16  sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125"
               type="Submit"
             >
               Sign Up
@@ -200,7 +206,7 @@ export default function SignUp() {
           </div>
         </form>
       </div>
-      <div className="underline mb-4 text-skin-primary">
+      <div className="underline my-8 text-skin-primary">
         <NavLink to="/">Signed up? Login here!</NavLink>
       </div>
     </div>

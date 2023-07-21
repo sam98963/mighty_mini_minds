@@ -53,12 +53,16 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-around h-screen">
-      <img src={logo} alt="logo" className="h-16 w-28 sm:h-24 sm:w-40 mt-4" />
+    <div className="flex flex-col items-center justify-between h-screen">
+      <img
+        src={logo}
+        alt="logo"
+        className="h-24 w-40 my-8"
+      />
 
-      <div className="flex flex-col justify-around align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg ">
+      <div className="flex flex-col justify-between align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg overflow-y-scroll">
         <form
-          className="flex flex-col mx-8 mt-4 justify-between h-full"
+          className="flex flex-col mx-8 my-8 justify-between h-full"
           onSubmit={handleSubmit}
         >
           <div className="mb-4 sm:mt-4">
@@ -138,7 +142,7 @@ export default function ProfilePage() {
               <label className="text-sm sm:text-lg">Choose avatar</label>
               <select
                 aria-label="choose an avatar"
-                className="bg-skin-input text-xs sm:text-base h-6 shadow-md"
+                className="bg-skin-input text-sm sm:text-base h-6 shadow-md"
                 name="avatar"
                 value={signupData.avatar}
                 onChange={handleInputChange}
@@ -154,7 +158,9 @@ export default function ProfilePage() {
                 selection={signupData.avatar}
                 animation={true}
                 h={20}
-                smh={28}
+                w={20}
+                smh={32}
+                smw={32}
               />
             </div>
           </div>
@@ -170,9 +176,9 @@ export default function ProfilePage() {
               onChange={handleInputChange}
             />
           </div>
-          <div className="flex justify-center mt-4 mb-10">
+          <div className="flex justify-center my-6">
             <button
-              className="rounded-md w-32 h-10 sm:w-42 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125"
+              className="rounded-md w-32 h-14 sm:w-40 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 overflow-y-scroll"
               type="Submit"
             >
               Update Profile
@@ -180,7 +186,7 @@ export default function ProfilePage() {
           </div>
         </form>
       </div>
-      <div className="underline mt-4 text-skin-primary">
+      <div className="underline py-8 text-skin-primary">
         <NavLink to="/appLayout/journal">Back to Journal</NavLink>
       </div>
     </div>
