@@ -32,14 +32,14 @@ export default function MoodMap() {
   }
 
   return (
-    <div className="flex flex-col justify-around items-center w-full h-full">
+    <div className="flex flex-col justify-between items-center w-full h-full">
       <h1
         data-testid="h1"
-        className="text-4xl sm:text-4xl text-center px-4 mt-4"
+        className="text-4xl sm:text-4xl text-center px-4 my-8"
       >
         My Week
       </h1>
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-8">
         {sortedEntries
           ? sortedEntries.map((entry) => (
               <Emoji
@@ -54,7 +54,7 @@ export default function MoodMap() {
           : null}
       </div>
       <WordOfTheDay data-testid="word-of-the-day" />
-      <div className="flex w-full justify-evenly mt-4">
+      <div className="flex w-full justify-evenly ">
         <Thermometer mood={moodPercentage()} />
         <div className="flex flex-row relative">
           <div className="flex flex-wrap mb-32 text-center items-center justify-center w-36 sm:w-44 sm:max-h-48 sm:max-w-48 bg-contain bg-no-repeat bg-center bg-[url('/speech-bubble.avif')]">
