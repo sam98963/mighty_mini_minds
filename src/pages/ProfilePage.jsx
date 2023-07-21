@@ -60,7 +60,7 @@ export default function ProfilePage() {
         className="h-24 w-40 my-8"
       />
 
-      <div className="flex flex-col justify-between align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg overflow-y-scroll">
+      <div className="flex flex-col justify-between align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg overflow-y-scroll scrollbar">
         <form
           className="flex flex-col mx-8 my-8 justify-between h-full"
           onSubmit={handleSubmit}

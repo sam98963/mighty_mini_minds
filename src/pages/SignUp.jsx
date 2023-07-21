@@ -95,7 +95,7 @@ export default function SignUp() {
         alt="logo"
         className="h-24 w-40 my-8"
       />
-      <div className="flex flex-col align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-3/4 sm:h-4/6 bg-white rounded-lg shadow-lg overflow-y-scroll">
+      <div className="flex flex-col align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-3/4 sm:h-4/6 bg-white rounded-lg shadow-lg overflow-y-scroll scrollbar">
         <h1 className="text-3xl sm:text-4xl my-6 sm:my-10 text-center font-bold">Sign Up</h1>
         {isError? <p className="mt-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         <form className="flex flex-col mx-8 mt-4" onSubmit={handleSubmit}>

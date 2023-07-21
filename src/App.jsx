@@ -51,7 +51,7 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
-    <div className={`bg-skin-base ${theme} h-screen overflow-y-scroll overflow-x-auto`}>
+    <div className={`bg-skin-base ${theme} h-screen overflow-y-scroll scrollbar-app overflow-x-auto`}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <RouterProvider router={router} />
