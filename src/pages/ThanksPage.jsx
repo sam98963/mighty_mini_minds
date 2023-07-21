@@ -67,8 +67,9 @@ export default function ThanksPage() {
   }, [share]); 
 
   return (
-    <div className="flex flex-col justify-around items-center w-full h-full overflow-hidden">
-      <Confetti
+  <div>
+    <div className="fixed">
+    <Confetti
         wind={0.04}
         recycle={false}
         drawShape={(ctx) => {
@@ -83,8 +84,9 @@ export default function ThanksPage() {
           ctx.closePath();
         }}
       />
-
-      <h1 className="text-2xl sm:text-4xl text-center px-4">
+    </div>
+    <div className="flex flex-col justify-between items-center h-[70vh] md:h-[73vh] xl:h-[76vh]">
+      <h1 className="text-2xl sm:text-4xl text-center px-4 py-8">
         Thanks for checking in, see you tomorrow!
       </h1>
       <AnimatedAvatar
@@ -93,9 +95,8 @@ export default function ThanksPage() {
         largeHeight="sm:h-52"
         largeWidth="sm:w-52"
       />
-      
       <h2 className="text-xl sm:text-2xl text-center px-4">{shareMessage()}</h2>
-      <div className="flex flex-row justify-around items-center w-full">
+      <div className="flex flex-row justify-around items-center w-full py-8">
         <button
           onClick={handleClick}
           value={"message3"} 
@@ -112,6 +113,7 @@ export default function ThanksPage() {
         </button>
       </div>
     </div>
+  </div>
   );
 }
 

@@ -26,14 +26,12 @@ function App() {
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
   };
-  // set up nested router
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="about" element={<About />} />
-        {/* protected routes by atuh goes here wrappep by ProtectedRoutes*/}
         <Route element={<ProtectedRoutes />}>
           <Route
             path="appLayout"
@@ -49,11 +47,11 @@ function App() {
       </Route>
     )
   );
-  // set up react-query
+ 
   const queryClient = new QueryClient();
 
   return (
-    <div className={`bg-skin-base ${theme} min-h-screen overflow-hidden`}>
+    <div className={`bg-skin-base ${theme} h-screen overflow-y-scroll scrollbar-app overflow-x-auto`}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <RouterProvider router={router} />
@@ -64,3 +62,5 @@ function App() {
 }
 
 export default App;
+
+

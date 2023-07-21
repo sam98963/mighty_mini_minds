@@ -46,8 +46,8 @@ export default function WelcomePage() {
 
   return (
     <>
-      <div className="flex flex-col justify-around items-center w-full h-full">
-        <h1 className="text-2xl sm:text-4xl text-center px-4">
+      <div className="flex flex-col justify-between items-center w-full h-full">
+        <h1 className="text-2xl sm:text-4xl text-center px-4 my-12">
           Welcome, {user ? user.name : ""}! How are you feeling today?
         </h1>
         <div className="flex justify-around w-full">
@@ -98,7 +98,7 @@ export default function WelcomePage() {
           </button>
         </div>
         <button
-          className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md py-3 px-5"
+          className="text-white shadow-md text-4xl transition-colors duration-300 ease-in-out transform hover:scale-125 bg-skin-secondary rounded-md my-8 px-5 w-32 h-14 sm:w-40 sm:h-16"
           onClick={submitMood}
         >
           Go!
