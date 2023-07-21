@@ -84,8 +84,8 @@ export default function ThanksPage() {
           ctx.closePath();
         }}
       />
-      </div>
-      <div className="flex flex-col justify-between items-center h-[70vh] md:h-[73vh] xl:h-[76vh]">
+    </div>
+    <div className="flex flex-col justify-between items-center h-[70vh] md:h-[73vh] xl:h-[76vh]">
       <h1 className="text-2xl sm:text-4xl text-center px-4 py-8">
         Thanks for checking in, see you tomorrow!
       </h1>
