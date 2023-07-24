@@ -20,7 +20,7 @@ export default function Login() {
   const { mutate, isError } = useMutation({
     mutationFn: async (user) => {
       const loginUser = await axios.post(
-        "https://mighty-mini-minds-backend.onrender.com/users/login",
+        "https://mighty-mini-minds-backend.onrender.com/login",
         user
       );
       const data = loginUser.data;
