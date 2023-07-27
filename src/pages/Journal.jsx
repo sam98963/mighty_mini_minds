@@ -2,24 +2,43 @@ import JournalEntry from "../components/JournalEntry";
 import { useGet } from "../hooks/useGet";
 
 export default function Journal() {
-const {data: entries, isLoading, isError, error} = useGet('41f9b8f0-0f71-11ee-8b95-47e24bd739d9');
-// if (isError) return <div>{error.message}</div>
-    return (
-        <div className=" h-full w-full overflow-y-scroll bg-red ">
-            <div>{isLoading? `loading...` : isError? JSON.stringify(error) : JSON.stringify(entries)}</div>
-            <h1 className="font-bold text-2xl sm:text-4xl text-center mt-4">Check out your past journals</h1>
-            <div className="flex justify-end items-center mt-4">
-            <label className="font-bold sm:text-base">Search by</label>
-              <select className="bg-skin-input text-xs sm:text-base mx-4 p-2 rounded-lg shadow-md outline-none">
-                <option value="All">All</option>
-                <option value="7Days">Last 7 Days</option>
-                <option value="LastMonth">Last Month</option>
-              </select>
-              </div>
-            <JournalEntry date="2021-10-01" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-            <JournalEntry date="2021-10-02" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-            <JournalEntry date="2021-10-03" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-            <JournalEntry date="2021-10-04" res1="I enjoyed the weather today" res2="I found it challenging to get out of bed" res3="I was surprised by how much I got done today" />
-        </div>
-    );
+  const { data: entries } = useGet(); 
+  const filteredEntries = entries?.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  ); 
+
+  return (
+    <div className=" h-full w-full">
+      <h1 className="font-bold text-2xl sm:text-4xl text-center sm:my-8 my-4">
+        Check out your past journals
+      </h1>
+      <div>
+        {filteredEntries
+          ? filteredEntries?.map((entry) => (
+              <JournalEntry
+                key={entry.uuid}
+                date={new Date(entry.createdAt).toLocaleString("en-GB", {
+                  weekday: "short",
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+                res1={entry.answer_one}
+                res2={entry.answer_two}
+                res3={entry.answer_three}
+                q1={entry.question_one}
+                q2={entry.question_two}
+                q3={entry.question_three}
+                id={entry.uuid}
+                share={entry.share}
+              />
+            ))
+          : null}
+      </div>
+    </div>
+  );
 }
+
+

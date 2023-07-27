@@ -1,11 +1,33 @@
 import wordOfTheDay from "../data/wordOfTheDay.json";
 
-export default function WordOfTheDay() {
-  // Generate a random index within the range of the JSON data array length
-  const randomIndex = Math.floor(Math.random() * wordOfTheDay.length);
+import { useEffect, useState } from 'react';
 
-  // Retrieve the word of the day, definition, and example based on the random index
-  const { word_of_the_day, definition, example } = wordOfTheDay[randomIndex];
+export default function WordOfTheDay() {
+  const [wordData, setWordData] = useState(null);
+
+  useEffect(() => {
+    const storedWord = localStorage.getItem('wordOfTheDay');
+    const storedDate = localStorage.getItem('wordOfTheDayDate');
+    const currentDate = new Date().toDateString();
+
+    if (storedWord && storedDate === currentDate) {
+      setWordData(JSON.parse(storedWord));
+    } else {
+      const randomIndex = Math.floor(Math.random() * wordOfTheDay.length);
+      const { word_of_the_day, definition, example } = wordOfTheDay[randomIndex];
+      const newWordData = { word_of_the_day, definition, example };
+      localStorage.setItem('wordOfTheDay', JSON.stringify(newWordData));
+      localStorage.setItem('wordOfTheDayDate', currentDate);
+
+      setWordData(newWordData);
+    }
+  }, []);
+
+  if (!wordData) {
+    return <div>Loading...</div>;
+  }
+
+  const { word_of_the_day, definition, example } = wordData;
 
   return (
     <div className="flex flex-col items-center">
@@ -16,3 +38,5 @@ export default function WordOfTheDay() {
     </div>
   );
 }
+
+

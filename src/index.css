@@ -14,9 +14,9 @@
   /*default*/
   .theme-beach {
     --color-bg-base: #ccffff;
-    --color-bg-secondary: #ffcc33;
+    --color-bg-secondary: #FE8714;
     --color-bg-input: #ffcc333c;
-    --color-icon-secondary: #ffcc33;
+    --color-icon-secondary: #FE8714;
   }
   .theme-forest {
     --color-bg-base: #b2e2d0;
@@ -29,6 +29,7 @@
     --color-bg-secondary: #5e2deb;
     --color-bg-input: #5c2deb2a;
     --color-icon-secondary: #5e2deb;
+    --color-text-primary: #fff;
   }
   .theme-under_the_sea {
     --color-bg-base: #7cbfd2;
@@ -38,9 +39,10 @@
   }
   .theme-stars {
     --color-bg-base: #040f72;
-    --color-bg-secondary: #040F72;
-    --color-bg-input: #fff3cd83;
-    --color-icon-secondary: #fcd53f;
+    --color-bg-secondary: #f3b332f8;
+    --color-bg-input: #e0b21883;
+    --color-icon-secondary: #f3b332f8;
+    --color-text-primary: #fff;
   }
 }
 
@@ -83,3 +85,26 @@
   font-weight: 700;
   color: #000;
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-bg-secondary);
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar-app::-webkit-scrollbar {
+    display: none;
+  }
+}
+
