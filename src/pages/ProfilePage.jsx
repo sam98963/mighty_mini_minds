@@ -178,7 +178,7 @@ export default function ProfilePage() {
           </div>
           <div className="flex justify-center my-6">
             <button
-              className="rounded-md w-32 h-14 sm:w-40 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125 overflow-y-scroll"
+              className="rounded-md w-32 h-14 sm:w-40 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125"
               type="Submit"
             >
               Update Profile
