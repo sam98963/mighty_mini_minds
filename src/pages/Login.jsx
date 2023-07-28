@@ -66,9 +66,15 @@ export default function Login() {
     };
     if (login.username !== "" && login.password !== "") {
       mutate(user); 
-    } else {
-      alert("Please fill in all fields");
-    }
+    } 
+  };
+
+  const handleAutofillAndLogin = () => {
+    const user = {
+      username: "jerry123",
+      password: "1234",
+    };
+    mutate(user); 
   };
 
   const [randomQuote, setRandomQuote] = useState(null); 
@@ -129,7 +135,10 @@ export default function Login() {
           </button>
         </div>
       </div>
-      <div className="space-y-2 my-8 text-center">
+      <div className="space-y-2 text-center">
+        <button className="text-skin-primary" onClick={handleAutofillAndLogin}>Don't want to sign up? Click here</button>
+      </div> 
+      <div className="space-y-2 my-6 text-center">
         <div className="underline sm:text-xl text-skin-primary">
           <NavLink to="signup">No account? Sign up here!</NavLink>
         </div>
