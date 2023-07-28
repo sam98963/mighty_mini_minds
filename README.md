@@ -2,8 +2,8 @@
 
 [Demo our app](https://migthyminiminds.netlify.app/)
 
-If you would prefer to log straight in instead of signing up, use the credentials:
-username: jerry123
+If you would prefer to log straight in instead of signing up, use the credentials: <br>
+username: jerry123 <br>
 password: 1234
 
 Weicome to Mighty Mini Minds, also known as MMM... 
