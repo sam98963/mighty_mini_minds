@@ -2,6 +2,10 @@
 
 [Demo our app](https://migthyminiminds.netlify.app/)
 
+If you would prefer to log straight in instead of signing up, use the credentials:
+username: jerry123
+password: 1234
+
 Weicome to Mighty Mini Minds, also known as MMM... 
 
 We collaborated as a team of 6 to design and build a Full-stack mental health application for kids aged 7 to 12 within a 5-week timeframe, in order to help them improve their ability to express their emotions and communicate their feelings with others more effectively using guided journaling. They have the option to share their journal entries with their trusted person. 
