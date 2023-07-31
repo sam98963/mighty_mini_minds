@@ -17,7 +17,7 @@ export default function Login() {
   const navigate = useNavigate(); 
 
   const [errorMessage, setErrorMessage] = useState(""); 
-  const { mutate, isError } = useMutation({
+  const { mutate, isError, isLoading } = useMutation({
     mutationFn: async (user) => {
       const loginUser = await axios.post(
         "https://mighty-mini-minds-backend.onrender.com/login",
@@ -99,6 +99,7 @@ export default function Login() {
         <h1 className="my-6 sm:my-10 font-bold text-center text-xl sm:text-4xl">
           Mighty Mini Minds
         </h1>
+        {isLoading? <p className="my-2 text-center text-base sm:text-lg">Loading...</p> : null}
         {isError? <p className="my-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         {randomQuote && (
           <div className="flex flex-col my-4">
