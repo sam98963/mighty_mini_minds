@@ -30,13 +30,13 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<HomePage />}>
         <Route path="signup" element={<SignUp />} />
-        <Route path="profile" element={<ProfilePage />} />
         <Route path="about" element={<About />} />
         <Route element={<ProtectedRoutes />}>
           <Route
             path="appLayout"
             element={<AppLayout handleThemeChange={handleThemeChange} />}
           >
+            <Route path="profile" element={<ProfilePage />} />
             <Route path="journal" element={<Journal />} />
             <Route path="moodMap" element={<MoodMap />} />
             <Route path="addEntry" element={<AddEntry />} />
