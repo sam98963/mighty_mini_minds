@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
   const navigate = useNavigate(); 
   function handleProfileNavigation() {
-    navigate("/profile"); 
+    navigate("./profile"); 
   }
 
   return (

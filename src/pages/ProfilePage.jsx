@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import logo from "../Img/logo-close.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetUser } from "../hooks/useGetUser";
 import Avatar from "../components/Avatar";
 import { NavLink } from "react-router-dom";
@@ -9,18 +9,33 @@ import { NavLink } from "react-router-dom";
 export default function ProfilePage() {
   const userId = localStorage.getItem("userId"); 
   const url = `https://mighty-mini-minds-backend.onrender.com/users/${userId}`; 
-  const { data: user } = useGetUser(); 
-  // doesn't always work if you have logged in with a previous account and then logged in with a new one due to using local storage
+  
   const [signupData, setSignupData] = useState({
-    user: user?.name || "",
-    username: user?.username || "",
+    user: "",
+    username: "",
     password: "",
-    email: user?.contact_email || "",
-    contactName: user?.contact_name || "",
-    relationship: user?.contact_relationship || "",
-    avatar: user?.avatar_url || "",
+    email: "",
+    contactName: "",
+    relationship: "",
+    avatar: "",
   });
 
+  const { data: user } = useGetUser();
+
+  useEffect(() => {
+    if (user) {
+      setSignupData({
+        user: user.name,
+        username: user.username,
+        password: "",
+        email: user.contact_email,
+        contactName: user.contact_name,
+        relationship: user.contact_relationship,
+        avatar: user.avatar_url,
+      });
+    }
+  }, [user]);
+  
   const { mutate } = useMutation({
     mutationFn: async (user) => {
       const response = await axios.patch(url.replace(/"/g, ""), user); 
@@ -53,14 +68,9 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between h-screen">
-      <img
-        src={logo}
-        alt="logo"
-        className="h-24 w-40 my-8"
-      />
+    <div className="flex flex-col items-center justify-between">
 
-      <div className="flex flex-col justify-between align-center w-11/12 sm:w-9/12 lg:w-8/12 xl:w-7/12 h-[72vh] sm:h-3/4 bg-white rounded-lg shadow-lg overflow-y-scroll scrollbar">
+      <div className="w-full">
         <form
           className="flex flex-col mx-8 my-8 justify-between h-full"
           onSubmit={handleSubmit}
@@ -176,7 +186,7 @@ export default function ProfilePage() {
               onChange={handleInputChange}
             />
           </div>
-          <div className="flex justify-center my-6">
+          <div className="flex justify-center mt-12">
             <button
               className="rounded-md w-32 h-14 sm:w-40 sm:h-16 sm:text-xl bg-skin-secondary shadow-md text-white  transition-colors duration-300 ease-in-out transform hover:scale-125"
               type="Submit"
@@ -186,7 +196,7 @@ export default function ProfilePage() {
           </div>
         </form>
       </div>
-      <div className="underline py-8 text-skin-primary">
+      <div className="underline my-6 text-skin-primary text-base sm:text-lg">
         <NavLink to="/appLayout/journal">Back to Journal</NavLink>
       </div>
     </div>

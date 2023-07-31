@@ -17,7 +17,7 @@ export default function Login() {
   const navigate = useNavigate(); 
 
   const [errorMessage, setErrorMessage] = useState(""); 
-  const { mutate, isError } = useMutation({
+  const { mutate, isError, isLoading } = useMutation({
     mutationFn: async (user) => {
       const loginUser = await axios.post(
         "https://mighty-mini-minds-backend.onrender.com/login",
@@ -72,7 +72,7 @@ export default function Login() {
   const handleAutofillAndLogin = () => {
     const user = {
       username: "jerry123",
-      password: "1234",
+      password: "1234qrtz$$",
     };
     mutate(user); 
   };
@@ -99,6 +99,7 @@ export default function Login() {
         <h1 className="my-6 sm:my-10 font-bold text-center text-xl sm:text-4xl">
           Mighty Mini Minds
         </h1>
+        {isLoading? <p className="my-2 text-center text-base sm:text-lg">Loading...</p> : null}
         {isError? <p className="my-2 text-center text-base sm:text-lg">{errorMessage}</p> : null}
         {randomQuote && (
           <div className="flex flex-col my-4">
@@ -135,7 +136,7 @@ export default function Login() {
           </button>
         </div>
       </div>
-      <div className="space-y-2 text-center">
+      <div className="space-y-2 pt-4 text-center">
         <button className="text-skin-primary" onClick={handleAutofillAndLogin}>Don't want to sign up? Click here</button>
       </div> 
       <div className="space-y-2 my-6 text-center">
