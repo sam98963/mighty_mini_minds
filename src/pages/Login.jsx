@@ -72,7 +72,7 @@ export default function Login() {
   const handleAutofillAndLogin = () => {
     const user = {
       username: "jerry123",
-      password: "1234",
+      password: "1234qrtz$$",
     };
     mutate(user); 
   };
