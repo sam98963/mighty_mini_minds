@@ -136,7 +136,7 @@ export default function Login() {
           </button>
         </div>
       </div>
-      <div className="space-y-2 text-center">
+      <div className="space-y-2 pt-4 text-center">
         <button className="text-skin-primary" onClick={handleAutofillAndLogin}>Don't want to sign up? Click here</button>
       </div> 
       <div className="space-y-2 my-6 text-center">
